@@ -1,0 +1,116 @@
+package src.br.ufrpe.LsCine.repositorios;
+import src.br.ufrpe.LsCine.beans.Salas;
+
+
+
+public class RepositorioSalas {
+	private Salas[] sala;
+	private int lim;
+	
+	public RepositorioSalas(int lim) {
+		this.sala = new Salas[lim];
+		this.lim = 0;
+	}
+	
+	
+	public void adicionarSala(Salas sala){
+		
+		int busca = this.retornarPosicao(sala.getNumero());
+		System.out.println();
+		if (sala == null) {
+			System.out.println("Sala inválida");
+			return;
+		}
+		
+		if(this.lim == this.sala.length){
+			System.out.println("Não é possível adicionar mais salas");
+			return;
+		}
+		
+		
+		if(busca != -1){
+			System.out.println("Sala já registrada!");
+			return;
+		}
+		
+
+		this.sala[this.lim]=sala;
+		this.lim++;
+		System.out.println("Sala cadastrada com sucesso!");
+
+	}
+	
+	
+	public Salas buscar(int codigo) {		
+		int posicao = this.retornarPosicao(codigo);		
+		return (posicao != -1) ? this.sala[posicao] : null; 
+	}
+	
+	public void remover(int numero) {
+		System.out.println();
+		int SalaRemover = this.retornarPosicao(numero);
+		
+		if (SalaRemover == -1) {
+			System.out.println("Sala não encontrada.");
+			return;
+		}
+		
+		this.sala[SalaRemover] = this.sala[this.lim -1];
+		this.sala[this.lim - 1] = null;
+		this.lim = this.lim - 1;
+		
+		System.out.println("Sala removida com sucesso.");
+		
+	}
+	
+	public boolean alterar(Salas sala) {
+		System.out.println();
+		if (sala == null) {
+			System.out.println("Sala inválido!");
+			return false;
+		}
+		
+		int salaalterar = this.retornarPosicao(sala.getNumero());
+		if (salaalterar == -1) {
+			System.out.println("Sala inexistente.");
+			return false;
+		}
+		this.sala[salaalterar] = sala;
+		System.out.println("Sala alterada.");
+		return true;
+	}
+	
+	public void listar() {
+		System.out.println();
+		System.out.println("Todos as salas cadastradas são: ");
+		for(int i = 0; i<lim; i++){
+			System.out.println(sala[i].toString());
+			System.out.println();			
+		}
+	}
+
+	private int retornarPosicao(int numero) {		
+		for (int i = 0; i< this.lim; i++){
+			int cod = sala[i].getNumero();
+			if (numero == cod) {
+				return i;
+			} 
+		}
+		
+		return -1;
+	}
+	
+	public void mostrar(Salas posicao){
+		System.out.println();
+		if(posicao != null){
+		System.out.println(posicao.toString());
+		}else{
+			System.out.println("Livro não encontrado.");
+		}
+		
+	}
+	
+	public void totalsalas(){
+		System.out.println("Existem no momento " + this.lim + " salas cadastradas\nAinda é possível cadastrar mais " + (this.sala.length - this.lim));
+	}
+}
