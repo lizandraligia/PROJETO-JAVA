@@ -54,9 +54,7 @@ public class RepositorioFilme {
 	}
 	
 	public boolean editarFilme(Filme filme){ 
-		/*if (filme == null) {
-			return false;
-		}*/	
+
 		int posicaoAtualizar = this.retornarPosicao(filme.getNome());
 		if (posicaoAtualizar == -1) {
 			return false;

@@ -4,34 +4,62 @@ import negocio.beans.Filme;
 
 public class Main {
 
-	public static void main(String[] args) {
+	Fachada fachada = new Fachada();
+	int opcao;
+	Scanner input = new Scanner(System.in);
 		
-		Fachada fachada = new Fachada();
-		int opcao;
-		Scanner input = new Scanner(System.in);
-		
-		System.out.println("BEM-VINDO!\n");
-		System.out.println("1-CADASTRAR FILME");
-		System.out.println("2-BUSCAR FILME");
-		System.out.println("3-REMOVER FILME");
-		System.out.println("4-ALTERAR DADOS DE FILME");
-		System.out.println("5-LISTA DE FILMES EM CARTAZ");
-		System.out.println("6-SAIR.");
+	public void menu(){
+	
+		System.out.println("Bem-vindo!\n");
+		System.out.println("1- Gerenciamento de filmes");
+		System.out.println("2- Gerenciamento de sessões");
+		System.out.println("3- Gerenciamento de salas");
+		System.out.println("4- Relatorio de lucro");
+		System.out.println("Escolha uma opção: ");
+		int resp = input.nextInt();
+		switch(resp){
+			case 1:{
+				this.gerenciarFilmes();
+				break;
+			}
+			case 2:{
+				this.gerenciarSessoes();
+				break;
+			}
+			case 3:{
+				this.gerenciarSalas();
+				break;
+			}
+			case 4:{
+				this.relatorioLucro();
+				break;
+			}
+		}
+	}
+	
+	
+	public void gerenciarFilmes(){
+		System.out.println("Gerenciamento de filmes. Escolha a opcao desejada:");
+		System.out.println("1-Cadastrar");
+		System.out.println("2-Buscar");
+		System.out.println("3-Remover");
+		System.out.println("4-Alterar dados");
+		System.out.println("5-Comprar ticket");
+		System.out.println("6-Voltar.");
 		
 		do{
-			System.out.println("ESCOLHA A OPCAO DESEJADA:");
 			opcao = input.nextInt();
 			
 			switch(opcao){
 				case 1: {
-					System.out.println("CADASTRAR FILME");
-					System.out.println("TÍTULO: ");
+					System.out.println("Cadastrar filme.");
+					System.out.println("Título: ");
 					String nom = input.nextLine();
 					nom = input.nextLine();
-					System.out.println("DURACAO: ");
+					System.out.println("Duração(em minutos): ");
 					int dur = input.nextInt();
-					System.out.println("CLASSIFICACAO INDICATIVA: ");
-					System.out.println("1- LIVRE");
+					System.out.println("Classifição indicativa: ");
+					System.out.println("1- Livre");
 					System.out.println("2- +10");
 					System.out.println("3- +12");
 					System.out.println("4- +14");
@@ -39,18 +67,18 @@ public class Main {
 					System.out.println("6- +18");
 					int cls = input.nextInt();
 					fachada.cadastrarFilme(new Filme(nom,dur,cls));
-					System.out.println("CADASTRO REALIZADO!\n");
+					System.out.println("Cadastro realizado!\n");
 					
 					break;
 				}
 				case 2: {
-					System.out.println("BUSCAR FILME");
-					System.out.println("INFORME O FILME QUE DESEJA BUSCAR: ");
+					System.out.println("Buscar filme.");
+					System.out.println("Título do filme que deseja buscar: ");
 					String busca = input.nextLine();
 					busca = input.nextLine();
 					Filme resultado = fachada.buscarFilme(busca);
 					if(resultado==null){
-						System.out.println("FILME NAO ENCONTRADO.");
+						System.out.println("Filme não encontrado.");
 					}
 					else{
 						System.out.println(resultado);
@@ -58,43 +86,68 @@ public class Main {
 					break;
 				}
 				case 3: {
-					System.out.println("REMOVER FILME");
-					System.out.println("INFORME O NOME DO FILME QUE DESEJA REMOVER:");
+					System.out.println("Remover filme.");
+					System.out.println("Título do filme que deseja remover:");
 					String remove = input.nextLine();
 					remove = input.nextLine();
 					fachada.removerFilme(remove);
-					System.out.println("FILME REMOVIDO.");
+					System.out.println("Filme removido.");
 					break;
 				}
-				case 4: {
-					System.out.println("ALTERAR DADOS DE FILME");
-					System.out.println("INFORME O NOME DO FILME QUE DESEJA ALTERAR: ");
+				case 4: { //erro
+					System.out.println("Modificar dados de filme.");
+					System.out.println("Título do filme que deseja modificar: ");
 					String busca = input.nextLine();
 					busca = input.nextLine();
 					Filme filme = fachada.buscarFilme(busca);
 					System.out.println(filme);
-					System.out.println("NOME: ");
-					String n = input.nextLine();
+					System.out.println("Título: ");
+					String n = input.next();
 					n = input.nextLine();
-					System.out.println("DURACAO: ");
+					System.out.println("Duração: ");
 					int d = input.nextInt();
-					System.out.println("CLASSIFICACAO INDICATIVA:");
+					System.out.println("Classificação indicativa:");
 					int c = input.nextInt();
-					if(fachada.editarFilme(new Filme(n,d,c))==true){
-						System.out.println("ALTERACAO REALIZADA COM SUCESSO!");
-					}
+					fachada.editarFilme(new Filme(n,d,c));
+					System.out.println("Modificação realizada com sucesso!");
+					
 					break;				
-				}/*
+				}
 				case 5: {
-					System.out.println("FILMES EM CARTAZ:");
-
+					System.out.println("Nome do filme:");
+					String b = input.nextLine();
+					b = input.nextLine();
+					Filme filme = fachada.buscarFilme(b);
+					System.out.println(filme);
+					//int tipo, float valor, Sessão sessao, int id
+					System.out.println("Tipo de ingresso:");
+					System.out.println("1-Inteira");
+					System.out.println("2-Meia");
+					
+					int t = input.nextInt();
+					//fachada.cadastrarIngresso(new Ingresso(t));
+					
 					break;
-				}*/
+				}
 				default: {
-					System.out.println("OPCAO INDISPONIVEL.");
+					System.out.println("Opcao indisponível.");
 					break;
 				}		
 			}	
 		}while(opcao!=6);
 	}
+	
+	
+	public void gerenciarSessoes(){
+		
+	}
+	
+	public void gerenciarSalas(){
+		
+	}
+	
+	public void relatorioLucro(){
+		
+	}
 }
+

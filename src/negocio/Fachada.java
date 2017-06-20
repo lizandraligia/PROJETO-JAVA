@@ -32,8 +32,21 @@ public class Fachada {
 	public boolean editarFilme(Filme filme){
 		return this.cadastroF.editar(filme);
 	}
+	/*
+	public void listarFilme(){
+		return this.cadastroF.lista();
+	}*/
 	
 	public boolean cadastrarIngresso(Ingresso ingresso){
 		return this.cadastroI.cadastrar(ingresso);
 	}
+	
+	public boolean removerIngresso(int id){
+		return this.cadastroI.remover(id);
+	}
+	
+	public float totalFinanceiroIngresso(){
+		return this.cadastroI.totalFinanceiro();
+	}
+	
 }
