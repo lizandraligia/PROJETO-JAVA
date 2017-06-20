@@ -8,25 +8,12 @@ private RepositorioSalas repositorioSalas;
 	public CadastroSala() {
 		this.repositorioSalas = new RepositorioSalas(200);
 	}
-	public void adicionarSala(Salas sala){
-		boolean adicionar = this.repositorioSalas.adicionar(sala);
-		if(adicionar){
-			System.out.println("Adicionado com sucesso!");
-		}
-		else{
-			System.out.println("Não foi possível adicionar a sala.");
-		}
-		
+	public boolean adicionar(Salas sala){
+		return this.repositorioSalas.adicionar(sala);
 	}
-	public void remover(Salas sala){
-		boolean remover = this.repositorioSalas.remover(sala.getNumero());
-		if(remover){
-			System.out.println("Removido com sucesso!");
-		}
-		else{
-			System.out.println("Não foi possível remover a sala.");
-		}
 		
+	public boolean remover(Salas sala){
+		return this.repositorioSalas.remover(sala.getNumero());
 	}
 	public Salas procurarId(int idSala){
 		return this.repositorioSalas.buscar(idSala);		
@@ -36,8 +23,8 @@ private RepositorioSalas repositorioSalas;
 		return this.repositorioSalas.buscar(idSala).getTipo();
 	} 
 	
-	public void editarSala(Salas sala){
-		this.repositorioSalas.alterar(sala);
+	public boolean editar(Salas sala){
+		return this.repositorioSalas.alterar(sala);
 	}
 	public RepositorioSalas getRepositorioSalas() {		
 		return this.repositorioSalas;
