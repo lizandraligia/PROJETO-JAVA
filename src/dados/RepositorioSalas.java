@@ -13,30 +13,31 @@ public class RepositorioSalas {
 	}
 	
 	
-	public void adicionarSala(Salas sala){
+	public boolean adicionar(Salas sala){
 		
 		int busca = this.retornarPosicao(sala.getNumero());
 		System.out.println();
 		if (sala == null) {
 			System.out.println("Sala inválida");
-			return;
+			return false;
 		}
 		
 		if(this.lim == this.sala.length){
 			System.out.println("Não é possível adicionar mais salas");
-			return;
+			return false;
 		}
 		
 		
 		if(busca != -1){
 			System.out.println("Sala já registrada!");
-			return;
+			return false;
 		}
 		
 
 		this.sala[this.lim]=sala;
 		this.lim++;
 		System.out.println("Sala cadastrada com sucesso!");
+		return true;
 
 	}
 	
@@ -46,13 +47,13 @@ public class RepositorioSalas {
 		return (posicao != -1) ? this.sala[posicao] : null; 
 	}
 	
-	public void remover(int numero) {
+	public boolean remover(int numero) {
 		System.out.println();
 		int SalaRemover = this.retornarPosicao(numero);
 		
 		if (SalaRemover == -1) {
 			System.out.println("Sala não encontrada.");
-			return;
+			return false;
 		}
 		
 		this.sala[SalaRemover] = this.sala[this.lim -1];
@@ -60,6 +61,7 @@ public class RepositorioSalas {
 		this.lim = this.lim - 1;
 		
 		System.out.println("Sala removida com sucesso.");
+		return true;
 		
 	}
 	
@@ -105,7 +107,7 @@ public class RepositorioSalas {
 		if(posicao != null){
 		System.out.println(posicao.toString());
 		}else{
-			System.out.println("Livro não encontrado.");
+			System.out.println("Sala não encontrada.");
 		}
 		
 	}

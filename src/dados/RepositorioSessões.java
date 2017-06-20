@@ -14,7 +14,7 @@ public class RepositorioSessões {
 		this.lim = 0;
 	}
 	
-	public void adicionarSessao(Sessão sessao){
+	public void adicionar(Sessão sessao){
 		
 		System.out.println();
 		if (sessao == null) {
@@ -56,7 +56,7 @@ public class RepositorioSessões {
 	}
 	
 	
-	public void removerSessao(Sessão sessao){
+	public void remover(Sessão sessao){
 		int search = pesquisar(sessao);
 		if (search != -1) {
 			this.sessao.remove(sessao);
@@ -67,7 +67,7 @@ public class RepositorioSessões {
 		
 	}
 	
-	public void alterarSessao(Sessão sessao){
+	public void alterar(Sessão sessao){
 		int search = pesquisar(sessao);
 		if (search != -1) {
 			this.sessao.set(search, sessao);
