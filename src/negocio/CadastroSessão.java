@@ -2,28 +2,60 @@ package src.br.ufrpe.LsCine.repositorios;
 import java.util.ArrayList;
 
 import src.br.ufrpe.LsCine.beans.Salas;
-import src.br.ufrpe.LsCine.beans.Sess„o;
+import src.br.ufrpe.LsCine.beans.Sess√£o;
 
 
-public class CadastroSess„o {
+public class CadastroSess√£o {
 
-	private RepositorioSessıes repositorior;
+	private RepositorioSess√µes repositorior;
 	
-	public CadastroSess„o() {
-		this.repositorior = new RepositorioSessıes();
+	public CadastroSess√£o() {
+		this.repositorior = new RepositorioSess√µes();
 	}
 	
-	public void adicionarSessao(Sess„o sessao){
-		this.repositorior.adicionar(sessao);
+	//MUDEI O RETORNO DE void PARA BOOLEAN
+	public boolean adicionarSessao(Sess√£o sessao){
+		//PEGUEI AS VALIDACOES QUE TU TINHA COLOCADO NO REPOSITORIO 
+		if (sessao == null) {
+			//System.out.println("Sess√£o inv√°lida");
+			return false;
+		}
+		
+		if(sessao.getSala().getTipo().equals("IMAX 3D")){
+			if(this.repositorior.getLim() == 2) {
+				//System.out.println("Sala lotada!");
+				return false;
+			}
+		}
+		
+		if(sessao.getSala().getTipo().equals("IMAX 2D")){
+			if(this.repositorior.getLim() == 2) {
+				//System.out.println("Sala lotada!");
+				return false;
+			}
+		}
+		
+		if(sessao.getSala().getTipo().equals("3D")){
+			if(this.repositorior.getLim() == 4) {
+				//System.out.println("Sala lotada!");
+				return false;
+			}
+		}
+		return this.repositorior.adicionar(sessao);
 	}
-	public void removerSessao(Sess„o sessao){
-		this.repositorior.remover(sessao);
+	
+	//MUDEI O RETORNO DE void PARA BOOLEAN
+	public boolean removerSessao(Sess√£o sessao){
+		if(sessao!=null){
+			return this.repositorior.remover(sessao);
+		}
+		return false;
 	}
 	public boolean conferirHorario(){
 		return true;
 	}
-	public ArrayList<Sess„o> buscarPorFilme(Filme filme){
-		ArrayList<Sess„o> listaPorFilme = new ArrayList<>();
+	public ArrayList<Sess√£o> buscarPorFilme(Filme filme){
+		ArrayList<Sess√£o> listaPorFilme = new ArrayList<>();
 		for(int i = 0; i<this.repositorior.listar().size() ;i++){
 			if(this.repositorior.listar().get(i).getFilme().equals(filme)){
 				listaPorFilme.add(this.repositorior.listar().get(i));
@@ -32,8 +64,8 @@ public class CadastroSess„o {
 		return listaPorFilme;
 		
 	}
-	public ArrayList<Sess„o> buscarPorSala(Salas sala){
-		ArrayList<Sess„o> listaPorSala = new ArrayList<>();
+	public ArrayList<Sess√£o> buscarPorSala(Salas sala){
+		ArrayList<Sess√£o> listaPorSala = new ArrayList<>();
 		for(int i = 0; i<this.repositorior.listar().size() ;i++){
 			if(this.repositorior.listar().get(i).getSala().equals(sala)){
 				listaPorSala.add(this.repositorior.listar().get(i));
@@ -43,11 +75,11 @@ public class CadastroSess„o {
 		
 	}
 	
-	public RepositorioSessıes getRepositorioSessao() {
+	public RepositorioSess√µes getRepositorioSessao() {
 		return repositorior;
 	}
 
-	public void setRepositorioSessao(RepositorioSessıes repositorioSessao) {
+	public void setRepositorioSessao(RepositorioSess√µes repositorioSessao) {
 		this.repositorior = repositorioSessao;
 	}
 

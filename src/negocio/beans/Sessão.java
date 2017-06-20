@@ -1,9 +1,9 @@
 package src.br.ufrpe.LsCine.beans;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Date;
 
-public class Sess„o {
+public class Sess√£o {
 	
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
 	private Filme filme;
@@ -11,14 +11,18 @@ public class Sess„o {
 	private Date hrinicio;
 	private Date hrfim;
 	private Boolean[] cadeira = new Boolean[200];
+	//A VARIAVEL VALOR JA ESTA NA CLASSE INGRESSO. REMOVER DAQUI.
 	float valor;
 	
-	public Sess„o(Filme filme, Sala sala, Date hrinicio, float valor) {
-		super();
+	public Sess√£o(Filme filme, Salas sala, Date hrinicio, float valor) {
+		//NAO ESTAMOS USANDO HERAN√áA, PRA QUE ESSE SUPER() ?
+		//super();
 		this.filme = filme;
 		this.sala = sala;
 		this.hrinicio = hrinicio;
-		this.hrfim = this.hrinicio + filme.getDuraÁ„o();
+		//this.hrfim = this.hrinicio + filme.getDura√ß√£o();
+		//CONFERIR SE O Set hrfim FUNCIONA
+		this.hrfim.setMinutes(this.hrinicio.getMinutes() + this.filme.getDuracao());
 		this.valor = valor;
 		
 		for(int i = 0; i<200; i++){
@@ -28,7 +32,10 @@ public class Sess„o {
 	}
 
 	public Filme getFilme() {
-		return this.filme.getNome;
+		//ESSE RETURN TA ERRADO
+		//return this.filme.getNome;
+		//SE QUISER RETORNAR SO O NOME DO FILME: return filme.getNome(); E MODIFICAR O RETORNO DE Filme PARA String
+		return filme;
 	}
 
 	public void setFilme(Filme filme) {
@@ -43,15 +50,16 @@ public class Sess„o {
 		this.sala = sala;
 	}
 
-	public Date getHrinicio() {
+	//MUDEI RETORNO DE Date PARA String
+	public String getHrinicio() {
 		return sdf.format(this.hrinicio);
 	}
 
 	public void setHrinicio(Date hrinicio) {
 		this.hrinicio = hrinicio;
 	}
-
-	public Date getHrfim() {
+	//MUDEI RETORNO DE Date PARA String
+	public String getHrfim() {
 		return sdf.format(this.hrfim);
 	}
 
@@ -81,10 +89,10 @@ public class Sess„o {
 	}
 
 	public String toString() {
-		return "Filme: " + this.filme.getNome +"\nInicio=" + sdf.format(this.hrinicio) + "\nFim=" + sdf.format(this.hrfim) + "\nValor=" + valor;
+		return "Filme: " + this.filme.getNome() +"\nInicio=" + sdf.format(this.hrinicio) + "\nFim=" + sdf.format(this.hrfim) + "\nValor=" + valor;
 	}
 	
-	public boolean equals(Sess„o comparada) {
+	public boolean equals(Sess√£o comparada) {
 		if (this.filme.getNome().equals(comparada.filme.getNome())) {
 			if (this.hrinicio.equals(comparada.hrinicio)) {
 				if (this.sala.equals(comparada.sala)) {
