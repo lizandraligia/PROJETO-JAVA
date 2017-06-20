@@ -1,7 +1,7 @@
 package src.br.ufrpe.LsCine.beans;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
+//import java.text.SimpleDateFormat;
+//import java.util.Arrays;
+//import java.util.Date;
 
 public class Salas {
 	
@@ -25,7 +25,7 @@ public class Salas {
 	
 	public void setNumero(int numero) {
 		if(numero <= 0){
-			System.out.println("Numeração inválida.");		
+			System.out.println("NumeraÃ§Ã£o invÃ¡lida.");		
 		}else{
 			this.numero = numero;
 		}
