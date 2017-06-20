@@ -13,7 +13,7 @@ public class Sessão {
 	private Boolean[] cadeira = new Boolean[200];
 	float valor;
 	
-	public Sessão(Filme filme, Sala sala, Date hrinicio, float valor) {
+	public Sessão(Filme filme, Salas sala, Date hrinicio, float valor) {
 		super();
 		this.filme = filme;
 		this.sala = sala;
