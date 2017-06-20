@@ -12,35 +12,46 @@ public class RepositorioSalas {
 		this.lim = 0;
 	}
 	
+	//CRIEI METODOS GET
+	public Salas[] getSala() {
+		return sala;
+	}
+	public int getLim() {
+		return lim;
+	}
 	
 	public boolean adicionar(Salas sala){
 		
-		int busca = this.retornarPosicao(sala.getNumero());
+		/*int busca = this.retornarPosicao(sala.getNumero());
 		System.out.println();
 		if (sala == null) {
-			System.out.println("Sala inv·lida");
+			System.out.println("Sala inv√°lida");
 			return false;
 		}
 		
 		if(this.lim == this.sala.length){
-			System.out.println("N„o È possÌvel adicionar mais salas");
+			System.out.println("N√£o √© poss√≠vel adicionar mais salas");
 			return false;
 		}
 		
 		
 		if(busca != -1){
-			System.out.println("Sala j· registrada!");
+			System.out.println("Sala j√° registrada!");
 			return false;
-		}
+		}*/
 		
 
 		this.sala[this.lim]=sala;
 		this.lim++;
-		System.out.println("Sala cadastrada com sucesso!");
+		//System.out.println("Sala cadastrada com sucesso!");
 		return true;
 
 	}
 	
+	//CRIEI METODO EXISTE
+	public boolean existe(int numero) {
+		return this.retornarPosicao(numero)!=-1;
+	}
 	
 	public Salas buscar(int codigo) {		
 		int posicao = this.retornarPosicao(codigo);		
@@ -48,11 +59,11 @@ public class RepositorioSalas {
 	}
 	
 	public boolean remover(int numero) {
-		System.out.println();
+		//System.out.println();
 		int SalaRemover = this.retornarPosicao(numero);
 		
 		if (SalaRemover == -1) {
-			System.out.println("Sala n„o encontrada.");
+			//System.out.println("Sala n√£o encontrada.");
 			return false;
 		}
 		
@@ -60,31 +71,31 @@ public class RepositorioSalas {
 		this.sala[this.lim - 1] = null;
 		this.lim = this.lim - 1;
 		
-		System.out.println("Sala removida com sucesso.");
+		//System.out.println("Sala removida com sucesso.");
 		return true;
 		
 	}
 	
 	public boolean alterar(Salas sala) {
-		System.out.println();
+		/*System.out.println();
 		if (sala == null) {
-			System.out.println("Sala inv·lido!");
+			System.out.println("Sala inv√°lido!");
 			return false;
-		}
+		}*/
 		
 		int salaalterar = this.retornarPosicao(sala.getNumero());
 		if (salaalterar == -1) {
-			System.out.println("Sala inexistente.");
+			//System.out.println("Sala inexistente.");
 			return false;
 		}
 		this.sala[salaalterar] = sala;
-		System.out.println("Sala alterada.");
+		//System.out.println("Sala alterada.");
 		return true;
 	}
 	
 	public void listar() {
 		System.out.println();
-		System.out.println("Todos as salas cadastradas s„o: ");
+		System.out.println("Todos as salas cadastradas s√£o: ");
 		for(int i = 0; i<lim; i++){
 			System.out.println(sala[i].toString());
 			System.out.println();			
@@ -102,17 +113,19 @@ public class RepositorioSalas {
 		return -1;
 	}
 	
+	//NAO ENTENDI PQ CRIOU ESSE METODO. SE MANTER, TEM QUE REMOVER DO REPOSITORIO E COLOCAR EM OUTRA CLASSE
 	public void mostrar(Salas posicao){
 		System.out.println();
 		if(posicao != null){
 		System.out.println(posicao.toString());
 		}else{
-			System.out.println("Sala n„o encontrada.");
+			System.out.println("Sala n√£o encontrada.");
 		}
 		
 	}
 	
+	//ESSE METODO NAO DEVE FICAR NO REPOSITORIO. MOVER PRA OUTRA CLASSE
 	public void totalsalas(){
-		System.out.println("Existem no momento " + this.lim + " salas cadastradas\nAinda È possÌvel cadastrar mais " + (this.sala.length - this.lim));
+		System.out.println("Existem no momento " + this.lim + " salas cadastradas\nAinda √© poss√≠vel cadastrar mais " + (this.sala.length - this.lim));
 	}
 }
