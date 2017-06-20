@@ -48,10 +48,15 @@ public class CadastroFilme {
 	public boolean editar(Filme filme){
 		if(this.repositorioF.editarFilme(filme)==true){
 			if(filme!=null && !this.repositorioF.existe(filme.getNome())){
+				this.repositorioF.editarFilme(filme);
 				//this.repositorioF.inserirFilme(filme);
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public void lista(){
+		this.repositorioF.listarFilmes();
 	}
 }

@@ -21,9 +21,21 @@ public class CadastroIngresso {
 
 	public boolean cadastrar(Ingresso ingresso){
 		
-		if(this.repositorioI.inserirVenda(ingresso)==true){
+		if(this.repositorioI.inserir(ingresso)==true){
 			return true;
 		}
 		return false;
 	}
+	
+	public boolean remover(int id){
+		if(this.repositorioI.remover(id)){
+			return true;
+		}
+		return false;
+	}
+	
+	public float totalFinanceiro(){
+		return this.repositorioI.financeiroIngresso();
+	}
+	
 }
