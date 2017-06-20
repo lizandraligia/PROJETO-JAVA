@@ -1,9 +1,14 @@
 package negocio;
+import java.util.Date;
 import java.util.Scanner;
 import negocio.beans.Filme;
+import negocio.beans.Salas;
+import negocio.beans.Sessão;
+import negocio.beans.Ingresso;
 
 public class Main {
 
+	
 	Fachada fachada = new Fachada();
 	int opcao;
 	Scanner input = new Scanner(System.in);
@@ -139,15 +144,87 @@ public class Main {
 	
 	
 	public void gerenciarSessoes(){
+		System.out.println("Gerenciamento de sessões. Escolha a opcao desejada:");
+		System.out.println("1-Criar sessão");
+		System.out.println("2-Buscar");
+		System.out.println("3-Remover");
 		
+		do{
+			opcao = input.nextInt();
+			
+			switch(opcao){
+				case 1: {//public Sessão(Filme filme, Salas sala, Date hrinicio, float valor)
+					System.out.println("Criar sessão.");
+					System.out.println("Filme: ");
+					
+					//Filme(String nome, int duracao, int classificacao)
+					
+					fachada.adicionarSessao(sessao);
+					break;
+				} 
+				case 2:{
+					System.out.println("Buscar sala por numero.");
+					System.out.println("Numero: ");
+					int numero = input.nextInt();
+					Salas resultado = fachada.procurarIdSala(numero);	
+					if(resultado==null){
+						System.out.println("Sala não encontrada.");
+					}
+					else{
+						System.out.println(resultado);
+					}
+					break;
+				}
+			}
+		}while(opcao!=4);
 	}
 	
 	public void gerenciarSalas(){
-		
-	}
+		System.out.println("Gerenciamento de salas. Escolha a opcao desejada:");
+		System.out.println("1-Criar sala");
+		System.out.println("2-Buscar");
 	
+		do{
+			opcao = input.nextInt();
+			
+			switch(opcao){
+				case 1: {
+					System.out.println("Criar sala.");
+					System.out.println("Numero da sala: ");
+					int num = input.nextInt();
+					System.out.println("Tipo de sessão(true or false):");
+					System.out.println("1- 3D");
+					boolean s3d = input.nextBoolean();
+					System.out.println("2- IMAX 3D");
+					boolean imax = input.nextBoolean();
+					fachada.adicionarSala(new Salas(num,s3d,imax));
+					break;
+				} 
+				case 2:{
+					System.out.println("Buscar sala por numero.");
+					System.out.println("Numero: ");
+					int numero = input.nextInt();
+					Salas resultado = fachada.procurarIdSala(numero);	
+					if(resultado==null){
+						System.out.println("Sala não encontrada.");
+					}
+					else{
+						System.out.println(resultado);
+					}
+					break;
+				}
+			}
+		}while(opcao!=3);
+	}
+
 	public void relatorioLucro(){
 		
 	}
+	
+	public static void main(String[] args) {
+		Main tela = new Main();
+		tela.menu();
+	}
+	
 }
 
