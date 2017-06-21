@@ -7,7 +7,7 @@ public class CadastroSalas {
 	private RepositorioSalas repositorioSalas;
 	
 	public CadastroSalas() {
-		this.repositorioSalas = new RepositorioSalas(200);
+		this.repositorioSalas = new RepositorioSalas();
 	}
 	
 	public boolean adicionar(Salas sala){
@@ -23,9 +23,9 @@ public class CadastroSalas {
 		return this.repositorioSalas.adicionar(sala);
 	}
 		
-	public boolean remover(Salas sala){
-		if(sala!=null){
-			return this.repositorioSalas.remover(sala.getNumero());
+	public boolean remover(int idSala){
+		if(this.repositorioSalas.buscar(idSala) != null){
+				return this.repositorioSalas.remover(idSala);
 		}
 		return false;
 	}
@@ -47,6 +47,10 @@ public class CadastroSalas {
 	
 	public RepositorioSalas getRepositorioSalas() {		
 		return this.repositorioSalas;
+	}
+	
+	public void listar(){
+		this.repositorioSalas.listar();
 	}
 
 }
