@@ -22,18 +22,18 @@ public class RepositorioSalas {
 		//int busca = this.retornarPosicao(sala.getNumero());
 		//System.out.println();
 		/*if (sala == null) {
-			System.out.println("Sala inv·lida");
+			System.out.println("Sala inv√°lida");
 			return false;
 		}
 		
 		if(this.lim == this.sala.length){
-			//System.out.println("N„o È possÌvel adicionar mais salas");
+			//System.out.println("N√£o √© poss√≠vel adicionar mais salas");
 			return false;
 		}
 		
 		
 		if(busca != -1){
-			//System.out.println("Sala j· registrada!");
+			//System.out.println("Sala j√° registrada!");
 			return false;
 		}*/
 		
@@ -47,7 +47,7 @@ public class RepositorioSalas {
 	
 	//CRIEI METODO EXISTE
 	public boolean existe(int numero) {
-		return this.retornarPosicao(numero)!=-1;
+		return this.retornarPosicao(numero)==-1;
 	}
 	
 	public Salas buscar(int codigo) {		
@@ -60,7 +60,7 @@ public class RepositorioSalas {
 		int SalaRemover = this.retornarPosicao(numero);
 		
 		if (SalaRemover == -1) {
-			//System.out.println("Sala n„o encontrada.");
+			//System.out.println("Sala n√£o encontrada.");
 			return false;
 		}
 		
@@ -76,7 +76,7 @@ public class RepositorioSalas {
 	public boolean alterar(Salas sala) {
 		//System.out.println();
 		/*if (sala == null) {
-			//System.out.println("Sala inv·lido!");
+			//System.out.println("Sala inv√°lido!");
 			return false;
 		}*/
 		
@@ -92,7 +92,7 @@ public class RepositorioSalas {
 	
 	public void listar() {
 		//System.out.println();
-		//System.out.println("Todos as salas cadastradas s„o: ");
+		//System.out.println("Todos as salas cadastradas s√£o: ");
 		for(int i = 0; i<lim; i++){
 			System.out.println(sala[i].toString());
 			System.out.println();			
@@ -116,14 +116,11 @@ public class RepositorioSalas {
 		System.out.println();
 		if(posicao != null){
 		System.out.println(posicao.toString());
-		}else{
-			System.out.println("Sala n„o encontrada.");
-		}
-		
+		}		
 	}
 	
 	//ESSE METODO NAO DEVE FICAR NO REPOSITORIO. MOVER PRA OUTRA CLASSE
 	public void totalsalas(){
-		System.out.println("Existem no momento " + this.lim + " salas cadastradas\nAinda È possÌvel cadastrar mais " + (this.sala.length - this.lim));
+		System.out.println("Existem no momento " + this.lim + " salas cadastradas\nAinda √© poss√≠vel cadastrar mais " + (this.sala.length - this.lim));
 	}
 }
