@@ -16,10 +16,10 @@ public class Tela {
 	
 		System.out.println("Bem-vindo!\n");
 		System.out.println("1- Gerenciamento de filmes");
-		System.out.println("2- Gerenciamento de sessıes");
+		System.out.println("2- Gerenciamento de sess√µes");
 		System.out.println("3- Gerenciamento de salas");
 		System.out.println("4- Relatorio de lucro");
-		System.out.println("Escolha uma opÁ„o: ");
+		System.out.println("Escolha uma op√ß√£o: ");
 		int resp = input.nextInt();
 		switch(resp){
 			case 1:{
@@ -57,12 +57,12 @@ public class Tela {
 			switch(opcao){
 				case 1: {
 					System.out.println("Cadastrar filme.");
-					System.out.println("TÌtulo: ");
+					System.out.println("T√≠tulo: ");
 					String nom = input.nextLine();
 					nom = input.nextLine();
-					System.out.println("DuraÁ„o(em minutos): ");
+					System.out.println("Dura√ß√£o(em minutos): ");
 					int dur = input.nextInt();
-					System.out.println("ClassifiÁ„o indicativa: ");
+					System.out.println("Classifi√ß√£o indicativa: ");
 					System.out.println("1- Livre");
 					System.out.println("2- +10");
 					System.out.println("3- +12");
@@ -77,12 +77,12 @@ public class Tela {
 				}
 				case 2: {
 					System.out.println("Buscar filme.");
-					System.out.println("TÌtulo do filme que deseja buscar: ");
+					System.out.println("T√≠tulo do filme que deseja buscar: ");
 					String busca = input.nextLine();
 					busca = input.nextLine();
 					Filme resultado = fachada.buscarFilme(busca);
 					if(resultado==null){
-						System.out.println("Filme n„o encontrado.");
+						System.out.println("Filme n√£o encontrado.");
 					}
 					else{
 						System.out.println(resultado);
@@ -91,7 +91,7 @@ public class Tela {
 				}
 				case 3: {
 					System.out.println("Remover filme.");
-					System.out.println("TÌtulo do filme que deseja remover:");
+					System.out.println("T√≠tulo do filme que deseja remover:");
 					String remove = input.nextLine();
 					remove = input.nextLine();
 					fachada.removerFilme(remove);
@@ -100,20 +100,25 @@ public class Tela {
 				}
 				case 4: { //erro
 					System.out.println("Modificar dados de filme.");
-					System.out.println("TÌtulo do filme que deseja modificar: ");
+					System.out.println("T√≠tulo do filme que deseja modificar: ");
 					String busca = input.nextLine();
 					busca = input.nextLine();
 					Filme filme = fachada.buscarFilme(busca);
-					System.out.println(filme);
-					System.out.println("TÌtulo: ");
-					String n = input.next();
-					n = input.nextLine();
-					System.out.println("DuraÁ„o: ");
+					if(busca==null){
+						System.out.println("Filme n√£o encontrado.");
+					}
+					else{
+						System.out.println(filme);
+					}
+					//System.out.println("T√≠tulo: ");
+					//String n = input.next();
+					//n = input.nextLine();
+					System.out.println("Dura√ß√£o: ");
 					int d = input.nextInt();
-					System.out.println("ClassificaÁ„o indicativa:");
+					System.out.println("Classifica√ß√£o indicativa:");
 					int c = input.nextInt();
-					fachada.editarFilme(new Filme(n,d,c));
-					System.out.println("ModificaÁ„o realizada com sucesso!");
+					fachada.editarFilme(new Filme(filme.getNome(),d,c));
+					System.out.println("Modifica√ß√£o realizada com sucesso!");
 					
 					break;				
 				}
@@ -123,7 +128,7 @@ public class Tela {
 					b = input.nextLine();
 					Filme filme = fachada.buscarFilme(b);
 					System.out.println(filme);
-					//int tipo, float valor, Sess„o sessao, int id
+					//int tipo, float valor, Sess√£o sessao, int id
 					System.out.println("Tipo de ingresso:");
 					System.out.println("1-Inteira");
 					System.out.println("2-Meia");
@@ -134,7 +139,7 @@ public class Tela {
 					break;
 				}
 				default: {
-					System.out.println("Opcao indisponÌvel.");
+					System.out.println("Opcao indispon√≠vel.");
 					break;
 				}		
 			}	
@@ -143,8 +148,8 @@ public class Tela {
 	
 	
 	public void gerenciarSessoes(){
-		System.out.println("Gerenciamento de sessıes. Escolha a opcao desejada:");
-		System.out.println("1-Criar sess„o");
+		System.out.println("Gerenciamento de sess√µes. Escolha a opcao desejada:");
+		System.out.println("1-Criar sess√£o");
 		System.out.println("2-Buscar");
 		System.out.println("3-Remover");
 		
@@ -152,8 +157,8 @@ public class Tela {
 			opcao = input.nextInt();
 			
 			switch(opcao){
-				case 1: {//public Sess„o(Filme filme, Salas sala, Date hrinicio, float valor)
-					System.out.println("Criar sess„o.");
+				case 1: {//public Sess√£o(Filme filme, Salas sala, Date hrinicio, float valor)
+					System.out.println("Criar sess√£o.");
 					System.out.println("Filme: ");
 					
 					//Filme(String nome, int duracao, int classificacao)
@@ -167,7 +172,7 @@ public class Tela {
 					int numero = input.nextInt();
 					Salas resultado = fachada.procurarIdSala(numero);	
 					if(resultado==null){
-						System.out.println("Sala n„o encontrada.");
+						System.out.println("Sala n√£o encontrada.");
 					}
 					else{
 						System.out.println(resultado);
@@ -191,7 +196,7 @@ public class Tela {
 					System.out.println("Criar sala.");
 					System.out.println("Numero da sala: ");
 					int num = input.nextInt();
-					System.out.println("Tipo de sess„o(true or false):");
+					System.out.println("Tipo de sess√£o(true or false):");
 					System.out.println("1- 3D");
 					boolean s3d = input.nextBoolean();
 					System.out.println("2- IMAX 3D");
@@ -205,7 +210,7 @@ public class Tela {
 					int numero = input.nextInt();
 					Salas resultado = fachada.procurarIdSala(numero);	
 					if(resultado==null){
-						System.out.println("Sala n„o encontrada.");
+						System.out.println("Sala n√£o encontrada.");
 					}
 					else{
 						System.out.println(resultado);
