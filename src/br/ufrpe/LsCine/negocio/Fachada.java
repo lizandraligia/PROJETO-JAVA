@@ -67,8 +67,8 @@ public class Fachada {
 		return this.cadastroSa.adicionar(sala);
 	}
 	
-	public boolean removerSala(Salas sala){
-		return this.cadastroSa.remover(sala);
+	public boolean removerSala(int idSala){
+		return this.cadastroSa.remover(idSala);
 	}
 	
 	public Salas procurarIdSala(int idSala){
@@ -81,6 +81,10 @@ public class Fachada {
 	
 	public boolean editarSala(Salas sala){
 		return this.cadastroSa.editar(sala);
+	}
+	
+	public void listarSalas(){
+		this.cadastroSa.listar();
 	}
 	
 	//SESSAO
