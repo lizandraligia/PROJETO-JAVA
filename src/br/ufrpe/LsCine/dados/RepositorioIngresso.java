@@ -1,6 +1,6 @@
-package dados;
+package br.ufrpe.LsCine.dados;
 
-import negocio.beans.Ingresso;
+import br.ufrpe.LsCine.negocio.beans.Ingresso;
 
 public class RepositorioIngresso {
 	

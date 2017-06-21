@@ -1,4 +1,4 @@
-package negocio.beans;
+package br.ufrpe.LsCine.negocio.beans;
 
 public class Filme {
 

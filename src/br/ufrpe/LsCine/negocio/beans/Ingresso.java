@@ -1,13 +1,13 @@
-package negocio.beans;
+package br.ufrpe.LsCine.negocio.beans;
 
 public class Ingresso {
 
 	private int tipo; 
 	private float valor;
-	private Sessão sessao; 
+	private Sessao sessao; 
 	private int id;
 	
-	public Ingresso(int tipo, float valor, Sessão sessao){
+	public Ingresso(int tipo, float valor, Sessao sessao){
 		this.tipo = tipo;
 		this.valor = valor;
 		this.sessao = sessao;
@@ -41,11 +41,11 @@ public class Ingresso {
 		this.valor = valor;
 	}
 
-	public Sessão getSessao() {
+	public Sessao getSessao() {
 		return sessao;
 	}
 
-	public void setSessao(Sessão sessao) {
+	public void setSessao(Sessao sessao) {
 		this.sessao = sessao;
 	}
 

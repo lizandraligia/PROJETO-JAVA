@@ -1,6 +1,6 @@
-package dados;
+package br.ufrpe.LsCine.dados;
 
-import negocio.beans.Filme;
+import br.ufrpe.LsCine.negocio.beans.Filme;
 
 public class RepositorioFilme {
 

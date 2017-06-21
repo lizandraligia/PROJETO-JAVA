@@ -1,13 +1,12 @@
-package negocio;
-import java.util.Date;
+package br.ufrpe.LsCine.gui;
+
 import java.util.Scanner;
-import negocio.beans.Filme;
-import negocio.beans.Salas;
-import negocio.beans.Sessão;
-import negocio.beans.Ingresso;
 
-public class Main {
+import br.ufrpe.LsCine.negocio.Fachada;
+import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.negocio.beans.Salas;
 
+public class Tela {
 	
 	Fachada fachada = new Fachada();
 	int opcao;
@@ -159,7 +158,7 @@ public class Main {
 					
 					//Filme(String nome, int duracao, int classificacao)
 					
-					fachada.adicionarSessao(sessao);
+					//fachada.adicionarSessao(sessao);
 					break;
 				} 
 				case 2:{
@@ -220,11 +219,4 @@ public class Main {
 	public void relatorioLucro(){
 		
 	}
-	
-	public static void main(String[] args) {
-		Main tela = new Main();
-		tela.menu();
-	}
-	
 }
-

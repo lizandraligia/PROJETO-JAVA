@@ -1,24 +1,24 @@
-package negocio;
+package br.ufrpe.LsCine.negocio;
 
 import java.util.ArrayList;
 
-import negocio.beans.Filme;
-import negocio.beans.Ingresso;
-import negocio.beans.Salas;
-import negocio.beans.Sessão;
+import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.negocio.beans.Ingresso;
+import br.ufrpe.LsCine.negocio.beans.Salas;
+import br.ufrpe.LsCine.negocio.beans.Sessao;
 
 public class Fachada {
 
 	private CadastroFilme cadastroF;
 	private CadastroIngresso cadastroI;
-	private CadastroSala cadastroSa;
-	private CadastroSessão cadastroSe;
+	private CadastroSalas cadastroSa;
+	private CadastroSessao cadastroSe;
 	
 	public Fachada(){
 		this.cadastroF = new CadastroFilme();
 		this.cadastroI = new CadastroIngresso();
-		this.cadastroSa = new CadastroSala();
-		this.cadastroSe = new CadastroSessão();
+		this.cadastroSa = new CadastroSalas();
+		this.cadastroSe = new CadastroSessao();
 	}
 	
 	//FILME 
@@ -85,11 +85,11 @@ public class Fachada {
 	
 	//SESSAO
 	
-	public boolean adicionarSessao(Sessão sessao){
+	public boolean adicionarSessao(Sessao sessao){
 		return this.cadastroSe.adicionarSessao(sessao);
 	}
 	
-	public boolean removerSessao(Sessão sessao){
+	public boolean removerSessao(Sessao sessao){
 		return this.cadastroSe.removerSessao(sessao);
 	}
 	
@@ -97,11 +97,11 @@ public class Fachada {
 		return this.cadastroSe.conferirHorario();
 	}
 	
-	public ArrayList<Sessão> buscarSessaoPorFilme(Filme filme){
+	public ArrayList<Sessao> buscarSessaoPorFilme(Filme filme){
 		return this.cadastroSe.buscarPorFilme(filme);
 	}
 	
-	public ArrayList<Sessão> buscarSessaoPorSala(Salas sala){
+	public ArrayList<Sessao> buscarSessaoPorSala(Salas sala){
 		return this.cadastroSe.buscarPorSala(sala);
 	}
 }

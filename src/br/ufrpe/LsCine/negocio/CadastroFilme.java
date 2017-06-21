@@ -1,7 +1,7 @@
-package negocio;
+package br.ufrpe.LsCine.negocio;
 
-import dados.RepositorioFilme;
-import negocio.beans.Filme;
+import br.ufrpe.LsCine.dados.RepositorioFilme;
+import br.ufrpe.LsCine.negocio.beans.Filme;
 
 public class CadastroFilme {
 

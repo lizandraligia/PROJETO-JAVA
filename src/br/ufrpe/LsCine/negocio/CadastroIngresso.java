@@ -1,7 +1,7 @@
-package negocio;
+package br.ufrpe.LsCine.negocio;
 
-import dados.RepositorioIngresso;
-import negocio.beans.Ingresso;
+import br.ufrpe.LsCine.dados.RepositorioIngresso;
+import br.ufrpe.LsCine.negocio.beans.Ingresso;
 
 public class CadastroIngresso {
 
