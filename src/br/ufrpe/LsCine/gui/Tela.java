@@ -161,39 +161,106 @@ public class Tela {
 	
 	
 	public void gerenciarSessoes(){
-		System.out.println("Gerenciamento de sessões. Escolha a opcao desejada:");
-		System.out.println("1-Criar sessão");
-		System.out.println("2-Buscar");
-		System.out.println("3-Remover");
-		
 		do{
+		System.out.println("Gerenciamento de sessões. Escolha a opcao desejada:");
+		System.out.println("1- Criar sessão");
+		System.out.println("2- Buscar sessão por filme");
+		System.out.println("3- Buscar sessão por sala");
+		System.out.println("4- Buscar sessão por horário");
+		System.out.println("5- Remover sessão");
+		
+		
 			opcao = input.nextInt();
 			
 			switch(opcao){
-				case 1: {//public Sessão(Filme filme, Salas sala, Date hrinicio, float valor)
+				case 1: 
 					System.out.println("Criar sessão.");
+					Filme filmes = new Filme();
+					Salas salan = new Salas();
 					System.out.println("Filme: ");
-					
-					//Filme(String nome, int duracao, int classificacao)
-					
-					//fachada.adicionarSessao(sessao);
+					String nomes;
+					do{
+					nomes = input.nextLine();
+					input.nextLine();					
+					if(fachada.buscarFilme(nomes) != null){
+						filmes = fachada.buscarFilme(nomes);
+					}else if(fachada.buscarFilme(nomes) == null){
+						System.out.println("Filme indisponível. Digite outro título.");
+					}
+					}while(fachada.buscarFilme(nomes) == null);					
+					System.out.println("Sala: ");
+					int num;
+					do{
+					num = input.nextInt();					
+					if(fachada.procurarIdSala(num) != null){
+						salan = fachada.procurarIdSala(num);
+					}else{
+						System.out.println("Sala indisponível. Escolha outra.");
+					}
+					}while(fachada.procurarIdSala(num) == null);					
+					System.out.println("Horário: ");
+					String horas = input.next();
+					String minutos = input.next();					
+					Date data = new Date();
+					Date data2 = new Date();
+					int final1;
+					final1 = filmes.getDuracao();
+					final1 = final1 / 2;
+					int final2 = filmes.getDuracao();
+					final2 = final2 % 2;
+					data.setHours(Integer.parseInt(horas));
+					data.setMinutes(Integer.parseInt(minutos));	
+					data.setHours(Integer.parseInt(horas + final1));
+					data.setMinutes(Integer.parseInt(minutos + final2));
+					Sessao sessao = new Sessao(filmes, salan, data, data2);
+					fachada.adicionarSessao(sessao);
 					break;
-				} 
-				case 2:{
-					System.out.println("Buscar sala por numero.");
-					System.out.println("Numero: ");
-					int numero = input.nextInt();
-					Salas resultado = fachada.procurarIdSala(numero);	
-					if(resultado==null){
+				
+				case 2:
+					System.out.println("Digite o nome do filme:");
+					String snome = input.nextLine();
+					input.nextLine();
+					Filme sfilme = fachada.buscarFilme(snome);						
+					if(sfilme==null){
+						System.out.println("Filme não encontrado.");
+					}
+					else{
+						System.out.println(fachada.buscarSessaoPorFilme(sfilme));
+					}
+					break;
+				case 3:
+					System.out.println("Digite a sala do filme:");
+					int sal = input.nextInt();					
+					Salas sSala = fachada.procurarIdSala(sal);				
+					if(sSala==null){
 						System.out.println("Sala não encontrada.");
 					}
 					else{
-						System.out.println(resultado);
+						System.out.println(fachada.buscarSessaoPorSala(sSala));
 					}
 					break;
-				}
+				case 4:
+					System.out.println("Digite o horário da sessão:");
+					System.out.println("Horário: ");
+					String horasb = input.next();
+					String minutosb = input.next();					
+					Date datab = new Date();					
+					datab.setHours(Integer.parseInt(horasb));
+					datab.setMinutes(Integer.parseInt(minutosb));					
+					if(fachada.buscarSessaoPorHorario(datab)==null){
+						System.out.println("Horário indisponível.");
+					}
+					else{
+						System.out.println(fachada.buscarSessaoPorHorario(datab));
+					}
+					break;
+				case 5:
+					System.out.println();
+					default:
+						System.out.println("Opção inválida.");
+				
 			}
-		}while(opcao!=4);
+		}while(opcao!=5);
 	}
 	
 	public void gerenciarSalas(){
