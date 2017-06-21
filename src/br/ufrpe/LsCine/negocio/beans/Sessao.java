@@ -10,21 +10,19 @@ public class Sessao {
 	private Salas sala;
 	private Date hrinicio;
 	private Date hrfim;
+	private int id;
 	private Boolean[] cadeira = new Boolean[200];
-	//A VARIAVEL VALOR JA ESTA NA CLASSE INGRESSO. REMOVER DAQUI.
-	float valor;
 	
-	//faltou por S em Salas
-	public Sessao(Filme filme, Salas sala, Date hrinicio, float valor) {
-		//NAO ESTAMOS USANDO HERANÇA, REMOVER ESSE SUPER();
-		//super();
+	
+	public Sessao(Filme filme, Salas sala, Date hrinicio, Date hrfim, int id) {
+
+		
 		this.filme = filme;
 		this.sala = sala;
 		this.hrinicio = hrinicio;
-		//CONFERIR SE O Set hrfim FUNCIONA
-		this.hrfim.setMinutes(this.hrinicio.getMinutes() + this.filme.getDuracao());
-		this.valor = valor;
-		
+		this.hrfim = hrfim;
+		//this.hrfim.setMinutes(this.hrinicio.getMinutes() + this.filme.getDuracao());
+		this.id = id;
 		for(int i = 0; i<200; i++){
 			this.cadeira[i] = false;
 		}
@@ -79,16 +77,16 @@ public class Sessao {
 		}
 	}
 
-	public float getValor() {
-		return valor;
+	public int getId() {
+		return id;
 	}
 
-	public void setValor(float valor) {
-		this.valor = valor;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String toString() {       //FALTOU COLOCAR OS PARENTES NO GETNOME
-		return "Filme: " + this.filme.getNome() +"\nInicio=" + sdf.format(this.hrinicio) + "\nFim=" + sdf.format(this.hrfim) + "\nValor=" + valor;
+		return "Filme: " + this.filme.getNome() +"\nInicio=" + sdf.format(this.hrinicio) + "\nFim=" + sdf.format(this.hrfim) + "\nId= " + this.id;
 	}
 	
 	public boolean equals(Sessao comparada) {
