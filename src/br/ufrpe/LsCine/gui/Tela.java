@@ -48,7 +48,7 @@ public class Tela {
 		System.out.println("2-Buscar");
 		System.out.println("3-Remover");
 		System.out.println("4-Alterar dados");
-		System.out.println("5-Comprar ticket");
+		//System.out.println("5-Comprar ticket");
 		System.out.println("6-Voltar.");
 		
 		do{
@@ -122,7 +122,7 @@ public class Tela {
 					
 					break;				
 				}
-				case 5: {
+				/*case 5: {
 					System.out.println("Nome do filme:");
 					String b = input.nextLine();
 					b = input.nextLine();
@@ -137,7 +137,7 @@ public class Tela {
 					//fachada.cadastrarIngresso(new Ingresso(t));
 					
 					break;
-				}
+				}*/
 				default: {
 					System.out.println("Opcao indisponível.");
 					break;
