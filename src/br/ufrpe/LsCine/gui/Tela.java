@@ -69,7 +69,7 @@ public class Tela {
 					System.out.println("Cadastrar filme.");
 					System.out.println("Título: ");
 					String nom = input.nextLine();
-					nom = input.nextLine();
+					input.nextLine();
 					System.out.println("Duração(em minutos): ");
 					int dur = input.nextInt();
 					System.out.println("Classifição indicativa: ");
@@ -89,7 +89,7 @@ public class Tela {
 					System.out.println("Buscar filme.");
 					System.out.println("Título do filme que deseja buscar: ");
 					String busca = input.nextLine();
-					busca = input.nextLine();
+					input.nextLine();
 					Filme resultado = fachada.buscarFilme(busca);
 					if(resultado==null){
 						System.out.println("Filme não encontrado.");
@@ -103,7 +103,7 @@ public class Tela {
 					System.out.println("Remover filme.");
 					System.out.println("Título do filme que deseja remover:");
 					String remove = input.nextLine();
-					remove = input.nextLine();
+					input.nextLine();
 					fachada.removerFilme(remove);
 					System.out.println("Filme removido.");
 					break;
@@ -112,7 +112,7 @@ public class Tela {
 					System.out.println("Modificar dados de filme.");
 					System.out.println("Título do filme que deseja modificar: ");
 					String busca = input.nextLine();
-					busca = input.nextLine();
+					input.nextLine();
 					Filme filme = fachada.buscarFilme(busca);
 					if(busca==null){
 						System.out.println("Filme não encontrado.");
