@@ -122,6 +122,9 @@ public class Tela {
 					
 					break;				
 				}
+				case 5: {
+					menu();
+				}
 				/*case 5: {
 					System.out.println("Nome do filme:");
 					String b = input.nextLine();
