@@ -13,14 +13,17 @@ public class Tela {
 	Scanner input = new Scanner(System.in);
 		
 	public void menu(){
-	
+		
+		int resp;
+		do{
 		System.out.println("Bem-vindo!\n");
 		System.out.println("1- Gerenciamento de filmes");
 		System.out.println("2- Gerenciamento de sessões");
 		System.out.println("3- Gerenciamento de salas");
 		System.out.println("4- Relatorio de lucro");
+		System.out.println("0- Sair");
 		System.out.println("Escolha uma opção: ");
-		int resp = input.nextInt();
+		resp = input.nextInt();
 		switch(resp){
 			case 1:{
 				this.gerenciarFilmes();
@@ -38,7 +41,14 @@ public class Tela {
 				this.relatorioLucro();
 				break;
 			}
+			case 0:
+				System.out.println("Finalizando o programa...");
+				break;
+			default:
+				System.out.println("Opção inválida.");
+				break;
 		}
+		}while(resp !=0);
 	}
 	
 	
@@ -187,27 +197,55 @@ public class Tela {
 	}
 	
 	public void gerenciarSalas(){
-		System.out.println("Gerenciamento de salas. Escolha a opcao desejada:");
-		System.out.println("1-Criar sala");
-		System.out.println("2-Buscar");
-	
 		do{
+		System.out.println("\n\nGerenciamento de salas. Escolha a opcao desejada:");
+		System.out.println("1- Criar sala");
+		System.out.println("2- Buscar");
+		System.out.println("3- Remover");
+		System.out.println("4- Buscar tipo da Sala");
+		System.out.println("5- Editar");
+		System.out.println("6- Voltar");
+	
+		
 			opcao = input.nextInt();
 			
 			switch(opcao){
-				case 1: {
+				case 1:
+					boolean s3d = false;
+					boolean imax = false;
+					int chs;
 					System.out.println("Criar sala.");
 					System.out.println("Numero da sala: ");
 					int num = input.nextInt();
-					System.out.println("Tipo de sessão(true or false):");
+					System.out.println("Tipo de sessão:");
 					System.out.println("1- 3D");
-					boolean s3d = input.nextBoolean();
-					System.out.println("2- IMAX 3D");
-					boolean imax = input.nextBoolean();
-					fachada.adicionarSala(new Salas(num,s3d,imax));
+					System.out.println("2- IMAX 2D");
+					System.out.println("3- IMAX 3D");
+					do{
+					chs = input.nextInt();					
+					switch(chs){
+					case 1:
+						s3d = true;
+						imax = false;
+						break;
+					case 2:
+						imax = true;
+						s3d = false;
+						break;
+					case 3:
+						s3d = true;
+						imax = true;
+						break;
+					default:
+							System.out.println("Opção inválida.");
+							break;
+					}
+					}while(chs > 3 || chs < 1);
+					Salas nova = new Salas(num,s3d,imax);
+					fachada.adicionarSala(nova);
 					break;
-				} 
-				case 2:{
+				
+				case 2:
 					System.out.println("Buscar sala por numero.");
 					System.out.println("Numero: ");
 					int numero = input.nextInt();
@@ -219,9 +257,76 @@ public class Tela {
 						System.out.println(resultado);
 					}
 					break;
-				}
+				
+				case 3:
+					int css;
+					System.out.println("Salas cadastradas no momento.");
+					fachada.listarSalas();
+					System.out.println("Digite o número da sala que deseja remover.");
+					css = input.nextInt();
+					if(fachada.procurarIdSala(css) != null){
+						fachada.removerSala(css);
+					}else{
+						System.out.println("Não foi possível remover a sala.");
+					}
+										
+					break;
+				case 4:
+					int cho;
+					System.out.println("Digite o número da sala que deseja buscar o tipo.");
+					cho = input.nextInt();
+					if(fachada.procurarIdSala(cho) != null){
+						System.out.println(fachada.procurarTipoSala(cho));
+						break;
+					}else{
+						System.out.println("Sala não encontrada.");
+					}
+										
+				case 5:
+					int cha, che;
+					System.out.println("Digite o número da sala que deseja editar.");
+					cha = input.nextInt();
+					if(fachada.procurarIdSala(cha) != null){
+						boolean v3d = false;
+						boolean vimax = false;					
+						System.out.println("Tipo de sessão:");
+						System.out.println("1- 3D");
+						System.out.println("2- IMAX 2D");
+						System.out.println("3- IMAX 3D");
+						do{
+						che = input.nextInt();					
+						switch(che){
+						case 1:
+							v3d = true;
+							vimax = false;
+							break;
+						case 2:
+							vimax = true;
+							v3d = false;
+							break;
+						case 3:
+							v3d = true;
+							vimax = true;
+							break;
+						default:
+								System.out.println("Opção inválida.");
+								break;
+						}
+						}while(che > 3 || che < 1);
+						Salas nova1 = new Salas(cha,v3d,vimax);
+						fachada.editarSala(nova1);
+						break;
+					}
+					break;
+				case 6:
+					System.out.println();
+					break;
+					default:
+						System.out.println("Opção inválida.");
+						break;
+					
 			}
-		}while(opcao!=3);
+		}while(opcao!=6);
 	}
 
 	public void relatorioLucro(){
