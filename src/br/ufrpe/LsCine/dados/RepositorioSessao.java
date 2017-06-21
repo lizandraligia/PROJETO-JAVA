@@ -6,18 +6,18 @@ import br.ufrpe.LsCine.negocio.beans.Sessao;
 
 public class RepositorioSessao {
 	
-	
-	private ArrayList<Sessao> sessao;
+	private Sessao[] sessao;
 	private int lim;
 	
+	
 	public RepositorioSessao() {
-		this.sessao = new ArrayList<Sessao>();
+		this.sessao = new Sessao[100];
 		this.lim = 0;
 	}
 	
 	
 	//CRIEI METODOS GET 
-	public ArrayList<Sessao> getSessao() {
+	public Sessao[] getSessao() {
 		return sessao;
 	}
 
@@ -30,7 +30,7 @@ public class RepositorioSessao {
 		
 		//System.out.println();
 		/*if (sessao == null) {
-			//System.out.println("Sess„o inv·lida");
+			//System.out.println("Sess√£o inv√°lida");
 			return;
 		}
 		
@@ -57,9 +57,9 @@ public class RepositorioSessao {
 		
 
 		if(this.lim < 5) {
-			this.sessao.add(sessao);
+			this.sessao[lim] = sessao;
 			this.lim++;
-			//System.out.println("Sess„o cadastrada com sucesso!");
+			//System.out.println("Sess√£o cadastrada com sucesso!");
 			return true;
 		}else{
 			//System.out.println("Sala lotada!");
@@ -68,37 +68,56 @@ public class RepositorioSessao {
 	}
 	
 	//MUDEI O RETORNO DE void PARA BOOLEAN
-	public boolean remover(Sessao sessao){
-		int search = pesquisar(sessao);
-		if (search != -1) {
-			this.sessao.remove(sessao);
-			//System.out.println("Sess„o excluÌda.");
-			return true;
+	public boolean remover(int id){
+		int SessaoRemover = this.retornarPosicao(id);
+		
+		if (SessaoRemover == -1) {
+			//System.out.println("Sala n√£o encontrada.");
+			return false;
 		}
-		//System.out.println("Sess„o n„o encontrada.");
-		return false;
+		
+		this.sessao[SessaoRemover] = this.sessao[this.lim -1];
+		this.sessao[this.lim - 1] = null;
+		this.lim = this.lim - 1;
+		
+		//System.out.println("Sala removida com sucesso.");
+		return true;
 	}
 	
 	//MUDEI O RETORNO DE void PARA BOOLEAN
 	public boolean alterar(Sessao sessao){
-		int search = pesquisar(sessao);
-		if (search != -1) {
-			this.sessao.set(search, sessao);
-			//System.out.println("Sess„o alterada.");
-			return true;
+		int sessaoalterar = this.retornarPosicao(sessao.getId());
+		if (sessaoalterar == -1) {
+			//System.out.println("Sala inexistente.");
+			return false;
 		}
-		//System.out.println("Sess„o n„o encontrada.");
-		return false;
+		this.sessao[sessaoalterar] = sessao;
+		//System.out.println("Sala alterada.");
+		return true;
 	}
 	
-	public int pesquisar(Sessao sessao){
+	/*public int pesquisar(Sessao sessao){
 		return this.sessao.indexOf(sessao);
+	}*/
+	
+	private int retornarPosicao(int numero) {		
+		for (int i = 0; i< this.lim; i++){
+			int cod = sessao[i].getId();
+			if (numero == cod) {
+				return i;
+			} 
+		}
+		
+		return -1;
 	}
 	
-	public List<Sessao> listar() {
-		List<Sessao> listaOrdenada = this.sessao;
-		return listaOrdenada;
+	public void listar() {
+		//System.out.println();
+		//System.out.println("Todos as salas cadastradas s√£o: ");
+		for(int i = 0; i<lim; i++){
+			System.out.println(sessao[i].toString());
+			System.out.println();			
+		}
 	}
-
 
 }
