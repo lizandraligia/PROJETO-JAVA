@@ -13,12 +13,20 @@ public class Fachada {
 	private CadastroIngresso cadastroI;
 	private CadastroSalas cadastroSa;
 	private CadastroSessao cadastroSe;
+	private static Fachada instancia; 
 	
 	public Fachada(){
 		this.cadastroF = new CadastroFilme();
 		this.cadastroI = new CadastroIngresso();
 		this.cadastroSa = new CadastroSalas();
 		this.cadastroSe = new CadastroSessao();
+	}
+	
+	public Fachada getInstancia(){
+		if(instancia==null){
+			instancia = new Fachada();
+		}
+		return instancia; 
 	}
 	
 	//FILME 
