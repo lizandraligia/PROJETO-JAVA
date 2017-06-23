@@ -35,11 +35,11 @@ public class Tela {
 		do{
 		System.out.println("Bem-vindo!\n");
 		System.out.println("1- Gerenciamento de filmes");
-		System.out.println("2- Gerenciamento de sessões");
+		System.out.println("2- Gerenciamento de sessoes");
 		System.out.println("3- Gerenciamento de salas");
 		System.out.println("4- Relatorio de lucro");
 		System.out.println("0- Sair");
-		System.out.println("Escolha uma opção: ");
+		System.out.println("Escolha uma opcao: ");
 		resp = input.nextInt();
 		switch(resp){
 			case 1:{
@@ -62,7 +62,7 @@ public class Tela {
 				System.out.println("Finalizando o programa...");
 				break;
 			default:
-				System.out.println("Opção inválida.");
+				System.out.println("Opcao invalida.");
 				break;
 		}
 		}while(resp !=0);
@@ -76,7 +76,7 @@ public class Tela {
 		System.out.println("3-Remover");
 		System.out.println("4-Alterar dados");
 		//System.out.println("5-Comprar ticket");
-		System.out.println("6-Voltar.");
+		System.out.println("5-Voltar.");
 		
 		do{
 			opcao = input.nextInt();
@@ -84,12 +84,12 @@ public class Tela {
 			switch(opcao){
 				case 1: {
 					System.out.println("Cadastrar filme.");
-					System.out.println("Título: ");
+					System.out.println("Titulo: ");
 					String nom = input.nextLine();
 					input.nextLine();
-					System.out.println("Duração(em minutos): ");
+					System.out.println("Duracao(em minutos): ");
 					int dur = input.nextInt();
-					System.out.println("Classifição indicativa: ");
+					System.out.println("Classificao indicativa: ");
 					System.out.println("1- Livre");
 					System.out.println("2- +10");
 					System.out.println("3- +12");
@@ -104,12 +104,12 @@ public class Tela {
 				}
 				case 2: {
 					System.out.println("Buscar filme.");
-					System.out.println("Título do filme que deseja buscar: ");
+					System.out.println("Titulo do filme que deseja buscar: ");
 					String busca = input.nextLine();
 					input.nextLine();
 					Filme resultado = fachada.buscarFilme(busca);
 					if(resultado==null){
-						System.out.println("Filme não encontrado.");
+						System.out.println("Filme nao encontrado.");
 					}
 					else{
 						System.out.println(resultado);
@@ -118,7 +118,7 @@ public class Tela {
 				}
 				case 3: {
 					System.out.println("Remover filme.");
-					System.out.println("Título do filme que deseja remover:");
+					System.out.println("Titulo do filme que deseja remover:");
 					String remove = input.nextLine();
 					input.nextLine();
 					fachada.removerFilme(remove);
@@ -127,12 +127,12 @@ public class Tela {
 				}
 				case 4: { //erro
 					System.out.println("Modificar dados de filme.");
-					System.out.println("Título do filme que deseja modificar: ");
+					System.out.println("Titulo do filme que deseja modificar: ");
 					String busca = input.nextLine();
 					input.nextLine();
 					Filme filme = fachada.buscarFilme(busca);
 					if(busca==null){
-						System.out.println("Filme não encontrado.");
+						System.out.println("Filme nao encontrado.");
 					}
 					else{
 						System.out.println(filme);
@@ -140,12 +140,12 @@ public class Tela {
 					//System.out.println("Título: ");
 					//String n = input.next();
 					//n = input.nextLine();
-					System.out.println("Duração: ");
+					System.out.println("Duracao: ");
 					int d = input.nextInt();
-					System.out.println("Classificação indicativa:");
+					System.out.println("Classificacao indicativa:");
 					int c = input.nextInt();
 					fachada.editarFilme(new Filme(filme.getNome(),d,c));
-					System.out.println("Modificação realizada com sucesso!");
+					System.out.println("Modificacao realizada com sucesso!");
 					
 					break;				
 				}
@@ -169,29 +169,29 @@ public class Tela {
 					break;
 				}*/
 				default: {
-					System.out.println("Opcao indisponível.");
+					System.out.println("Opcao indisponivel.");
 					break;
 				}		
 			}	
-		}while(opcao!=6);
+		}while(opcao!=5);
 	}
 	
 	
 	public void gerenciarSessoes(){
 		do{
-		System.out.println("Gerenciamento de sessões. Escolha a opcao desejada:");
-		System.out.println("1- Criar sessão");
-		System.out.println("2- Buscar sessão por filme");
-		System.out.println("3- Buscar sessão por sala");
-		System.out.println("4- Buscar sessão por horário");
-		System.out.println("5- Remover sessão");
+		System.out.println("Gerenciamento de sessoes. Escolha a opcao desejada:");
+		System.out.println("1- Criar sessao");
+		System.out.println("2- Buscar sessao por filme");
+		System.out.println("3- Buscar sessao por sala");
+		System.out.println("4- Buscar sessao por horario");
+		System.out.println("5- Remover sessao");
 		
 		
 			opcao = input.nextInt();
 			
 			switch(opcao){
 				case 1: 
-					System.out.println("Criar sessão.");
+					System.out.println("Criar sessao.");
 					Filme filmes = new Filme();
 					Salas salan = new Salas();
 					System.out.println("Filme: ");
@@ -202,7 +202,7 @@ public class Tela {
 					if(fachada.buscarFilme(nomes) != null){
 						filmes = fachada.buscarFilme(nomes);
 					}else if(fachada.buscarFilme(nomes) == null){
-						System.out.println("Filme indisponível. Digite outro título.");
+						System.out.println("Filme indisponivel. Digite outro titulo.");
 					}
 					}while(fachada.buscarFilme(nomes) == null);					
 					System.out.println("Sala: ");
@@ -212,10 +212,10 @@ public class Tela {
 					if(fachada.procurarIdSala(num) != null){
 						salan = fachada.procurarIdSala(num);
 					}else{
-						System.out.println("Sala indisponível. Escolha outra.");
+						System.out.println("Sala indisponivel. Escolha outra.");
 					}
 					}while(fachada.procurarIdSala(num) == null);					
-					System.out.println("Horário: ");
+					System.out.println("Horario: ");
 					String horas = input.next();
 					String minutos = input.next();					
 					Date data = new Date();
@@ -239,7 +239,7 @@ public class Tela {
 					input.nextLine();
 					Filme sfilme = fachada.buscarFilme(snome);						
 					if(sfilme==null){
-						System.out.println("Filme não encontrado.");
+						System.out.println("Filme nao encontrado.");
 					}
 					else{
 						System.out.println(fachada.buscarSessaoPorFilme(sfilme));
@@ -250,22 +250,22 @@ public class Tela {
 					int sal = input.nextInt();					
 					Salas sSala = fachada.procurarIdSala(sal);				
 					if(sSala==null){
-						System.out.println("Sala não encontrada.");
+						System.out.println("Sala nao encontrada.");
 					}
 					else{
 						System.out.println(fachada.buscarSessaoPorSala(sSala));
 					}
 					break;
 				case 4:
-					System.out.println("Digite o horário da sessão:");
-					System.out.println("Horário: ");
+					System.out.println("Digite o horario da sessao:");
+					System.out.println("Horario: ");
 					String horasb = input.next();
 					String minutosb = input.next();					
 					Date datab = new Date();					
 					datab.setHours(Integer.parseInt(horasb));
 					datab.setMinutes(Integer.parseInt(minutosb));					
 					if(fachada.buscarSessaoPorHorario(datab)==null){
-						System.out.println("Horário indisponível.");
+						System.out.println("Horario indisponivel.");
 					}
 					else{
 						System.out.println(fachada.buscarSessaoPorHorario(datab));
@@ -274,7 +274,7 @@ public class Tela {
 				case 5:
 					System.out.println();
 					default:
-						System.out.println("Opção inválida.");
+						System.out.println("Opcao invalida.");
 				
 			}
 		}while(opcao!=5);
@@ -321,7 +321,7 @@ public class Tela {
 						imax = true;
 						break;
 					default:
-							System.out.println("Opção inválida.");
+							System.out.println("Opcao invalida.");
 							break;
 					}
 					}while(chs > 3 || chs < 1);
@@ -335,7 +335,7 @@ public class Tela {
 					int numero = input.nextInt();
 					Salas resultado = fachada.procurarIdSala(numero);	
 					if(resultado==null){
-						System.out.println("Sala não encontrada.");
+						System.out.println("Sala nao encontrada.");
 					}
 					else{
 						System.out.println(resultado);
@@ -346,29 +346,29 @@ public class Tela {
 					int css;
 					System.out.println("Salas cadastradas no momento.");
 					fachada.listarSalas();
-					System.out.println("Digite o número da sala que deseja remover.");
+					System.out.println("Digite o numero da sala que deseja remover.");
 					css = input.nextInt();
 					if(fachada.procurarIdSala(css) != null){
 						fachada.removerSala(css);
 					}else{
-						System.out.println("Não foi possível remover a sala.");
+						System.out.println("Nao foi possivel remover a sala.");
 					}
 										
 					break;
 				case 4:
 					int cho;
-					System.out.println("Digite o número da sala que deseja buscar o tipo.");
+					System.out.println("Digite o numero da sala que deseja buscar o tipo.");
 					cho = input.nextInt();
 					if(fachada.procurarIdSala(cho) != null){
 						System.out.println(fachada.procurarTipoSala(cho));
 						break;
 					}else{
-						System.out.println("Sala não encontrada.");
+						System.out.println("Sala nao encontrada.");
 					}
 										
 				case 5:
 					int cha, che;
-					System.out.println("Digite o número da sala que deseja editar.");
+					System.out.println("Digite o numero da sala que deseja editar.");
 					cha = input.nextInt();
 					if(fachada.procurarIdSala(cha) != null){
 						boolean v3d = false;
@@ -393,7 +393,7 @@ public class Tela {
 							vimax = true;
 							break;
 						default:
-								System.out.println("Opção inválida.");
+								System.out.println("Opcao invalida.");
 								break;
 						}
 						}while(che > 3 || che < 1);
@@ -406,7 +406,7 @@ public class Tela {
 					System.out.println();
 					break;
 					default:
-						System.out.println("Opção inválida.");
+						System.out.println("Opcao invalida.");
 						break;
 					
 			}
