@@ -8,9 +8,26 @@ import br.ufrpe.LsCine.negocio.beans.Salas;
 
 public class Tela {
 	
-	Fachada fachada = new Fachada();
+	//Fachada fachada = new Fachada();
+	//int opcao;
+	//Scanner input = new Scanner(System.in);
+	
+	private Fachada fachada;
 	int opcao;
-	Scanner input = new Scanner(System.in);
+	Scanner input;
+	private static Tela instancia;
+	
+	private Tela(){
+		this.input = new Scanner(System.in);
+		this.fachada = Fachada.getInstancia();
+	}
+	
+	public static Tela getInstancia(){
+		if(instancia==null){
+			instancia = new Tela();
+		}
+		return instancia;
+	}
 		
 	public void menu(){
 		
