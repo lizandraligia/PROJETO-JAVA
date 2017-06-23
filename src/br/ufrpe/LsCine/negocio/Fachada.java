@@ -15,14 +15,14 @@ public class Fachada {
 	private CadastroSessao cadastroSe;
 	private static Fachada instancia; 
 	
-	public Fachada(){
+	private Fachada(){
 		this.cadastroF = new CadastroFilme();
 		this.cadastroI = new CadastroIngresso();
 		this.cadastroSa = new CadastroSalas();
 		this.cadastroSe = new CadastroSessao();
 	}
 	
-	public Fachada getInstancia(){
+	public static Fachada getInstancia(){
 		if(instancia==null){
 			instancia = new Fachada();
 		}
