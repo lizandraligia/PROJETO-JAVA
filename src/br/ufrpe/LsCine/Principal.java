@@ -1,5 +1,7 @@
 package br.ufrpe.LsCine;
 import  br.ufrpe.LsCine.gui.Tela;
+import br.ufrpe.LsCine.negocio.Fachada;
+import br.ufrpe.LsCine.negocio.beans.*;
 
 public class Principal {
 
