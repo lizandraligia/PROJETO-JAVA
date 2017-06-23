@@ -5,7 +5,8 @@ public class RepositorioSalas {
 	private Salas[] sala;
 	private int lim;
 	private final static int QTD_SALAS = 10;
-	public RepositorioSalas(int lim) {
+	
+	public RepositorioSalas() {
 		this.sala = new Salas[QTD_SALAS];
 		this.lim = 0;
 	}
