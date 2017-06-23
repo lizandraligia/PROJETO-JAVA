@@ -8,9 +8,10 @@ public class Principal {
 		//Tela tela = new Tela();
 		//tela.menu();
 		
-		//Alguns filmes pre cadastrados 
 		Tela tela = Tela.getInstancia();
 		Fachada fachada = Fachada.getInstancia();
+		
+		//Alguns filmes pre cadastrados 
 		Filme f1 = new Filme("Toy Story",100,1);
 		fachada.cadastrarFilme(f1);
 		Filme f2 = new Filme("Titanic",120,4);
@@ -26,8 +27,6 @@ public class Principal {
 		Salas s3 = new Salas(3,false,false);
 		fachada.adicionarSala(s3);
 		
-		Tela tela = Tela.getInstancia();
-		Fachada fachada = Fachada.getInstancia();
 		tela.menu();
 	}
 }
