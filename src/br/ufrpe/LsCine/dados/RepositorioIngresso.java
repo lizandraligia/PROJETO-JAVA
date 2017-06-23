@@ -5,8 +5,8 @@ import br.ufrpe.LsCine.negocio.beans.Ingresso;
 public class RepositorioIngresso {
 	
 	private final static int QTD_INGRESSOS = 200;
-	int contagemIngresso;
-	Ingresso[] ingresso;
+	private int contagemIngresso;
+	private Ingresso[] ingresso;
 	
 	public RepositorioIngresso(){
 		this.contagemIngresso = 0;
