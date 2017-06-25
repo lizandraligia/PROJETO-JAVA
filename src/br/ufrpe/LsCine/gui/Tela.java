@@ -34,7 +34,7 @@ public class Tela {
 		int resp;String login2;
 		String senha2;
 		Conta logar = new Conta();
-		System.out.println("\n\n\n*********************************************");
+		System.out.println("*********************************************");
 		System.out.println("***********   00    '  0000   ***************");
 		System.out.println("***********   00      0       ***************");
 		System.out.println("***********   00       0000   ***************");
