@@ -1,9 +1,5 @@
 package br.ufrpe.LsCine.negocio;
-import java.util.ArrayList;
-
 import br.ufrpe.LsCine.dados.RepositorioSessao;
-import br.ufrpe.LsCine.negocio.beans.Filme;
-import br.ufrpe.LsCine.negocio.beans.Salas;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
 
@@ -17,27 +13,23 @@ public class CadastroSessao {
 	
 	public boolean adicionarSessao(Sessao sessao){
 		if (sessao == null) {
-			//System.out.println("Sessão inválida");
 			return false;
 		}
 		
 		if(sessao.getSala().getTipo().equals("IMAX 3D")){
 			if(this.repositorior.getLim() == 2) {
-				//System.out.println("Sala lotada!");
 				return false;
 			}
 		}
 		
 		if(sessao.getSala().getTipo().equals("IMAX 2D")){
 			if(this.repositorior.getLim() == 2) {
-				//System.out.println("Sala lotada!");
 				return false;
 			}
 		}
 		
 		if(sessao.getSala().getTipo().equals("3D")){
 			if(this.repositorior.getLim() == 4) {
-				//System.out.println("Sala lotada!");
 				return false;
 			}
 		}
@@ -45,10 +37,9 @@ public class CadastroSessao {
 		
 	}
 	
-	//MUDEI O RETORNO DE void PARA BOOLEAN
-	public boolean removerSessao(Sessao sessao){
-		if(sessao!=null){
-			return this.repositorior.remover(sessao);
+	public boolean removerSessao(int id){
+		if(this.repositorior.buscar(id)!=null){
+			return this.repositorior.remover(id);
 		}
 		return false;
 	}
@@ -56,26 +47,17 @@ public class CadastroSessao {
 		return true;
 	}
 	
-	public ArrayList<Sessao> buscarPorFilme(Filme filme){
-		ArrayList<Sessao> listaPorFilme = new ArrayList<>();
-		for(int i = 0; i<this.repositorior.listar().size() ;i++){
-			if(this.repositorior.listar().get(i).getFilme().equals(filme)){
-				listaPorFilme.add(this.repositorior.listar().get(i));
-			}
-		}
-		return listaPorFilme;
-		
+	public void buscarPorFilme(String nome){
+			if(this.repositorior.buscarNome(nome) != null){
+				this.repositorior.listarNome(nome);
+			}		
 	}
-	public ArrayList<Sessao> buscarPorSala(Salas sala){
-		ArrayList<Sessao> listaPorSala = new ArrayList<>();
-		for(int i = 0; i<this.repositorior.listar().size() ;i++){
-			if(this.repositorior.listar().get(i).getSala().equals(sala)){
-				listaPorSala.add(this.repositorior.listar().get(i));
-			}
-		}
-		return listaPorSala;
-		
-	}
+	
+	public void buscarPorSala(int sala){
+			if(this.repositorior.buscar(sala) != null){
+				this.repositorior.listarSala(sala);
+			}		
+	}		
 	
 	public RepositorioSessao getRepositorioSessao() {
 		return repositorior;
@@ -83,6 +65,10 @@ public class CadastroSessao {
 
 	public void setRepositorioSessao(RepositorioSessao repositorioSessao) {
 		this.repositorior = repositorioSessao;
+	}
+	
+	public void listar(){
+		this.repositorior.listar();
 	}
 
 }
