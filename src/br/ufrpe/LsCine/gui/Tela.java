@@ -31,9 +31,37 @@ public class Tela {
 		
 	public void menu(){
 		
-		int resp;
+		int resp;String login2;
+		String senha2;
+		Conta logar = new Conta();
+		System.out.println("\n\n\n*********************************************");
+		System.out.println("***********   00    '  0000   ***************");
+		System.out.println("***********   00      0       ***************");
+		System.out.println("***********   00       0000   ***************");
+		System.out.println("***********   00           0  ***************");
+		System.out.println("***********   000000   0000   ***************");
+		System.out.println("*********************************************");
+		System.out.println("****   0000    0    00   00    00000  *******");
+		System.out.println("****  0        0    000  00    0      *******");
+		System.out.println("****  0        0    00 0 00    00000  *******");
+		System.out.println("****  0        0    00  000    0      *******");
+		System.out.println("****   0000    0    00   00    00000  *******");
+		System.out.println("*********************************************");
+		System.out.println();
+		System.out.println();
 		do{
-		System.out.println("Bem-vindo!\n");
+		System.out.println("Login:  ");
+		login2 = input.next();
+		System.out.println("Senha:  ");
+		senha2 = input.next();
+		logar = new Conta(login2, senha2);
+		if(!fachada.logar(logar)){
+			System.out.println("\nLogin ou senha incorretos.\n");
+		}
+		}while(!fachada.logar(logar));
+		
+		do{
+		System.out.println("\n\nBem-vindo!\n");
 		System.out.println("1- Gerenciamento de filmes");
 		System.out.println("2- Gerenciamento de sessoes");
 		System.out.println("3- Gerenciamento de salas");
@@ -194,11 +222,13 @@ public class Tela {
 					System.out.println("Criar sessao.");
 					Filme filmes = new Filme();
 					Salas salan = new Salas();
+					System.out.println("Id da Sessão: ");
+					int id = input.nextInt();
 					System.out.println("Filme: ");
 					String nomes;
 					do{
 					nomes = input.nextLine();
-					input.nextLine();					
+					nomes = input.nextLine();				
 					if(fachada.buscarFilme(nomes) != null){
 						filmes = fachada.buscarFilme(nomes);
 					}else if(fachada.buscarFilme(nomes) == null){
@@ -217,32 +247,35 @@ public class Tela {
 					}while(fachada.procurarIdSala(num) == null);					
 					System.out.println("Horario: ");
 					String horas = input.next();
-					String minutos = input.next();					
+					String minutos = input.next();
 					Date data = new Date();
 					Date data2 = new Date();
-					int final1;
+					/*int final1;
 					final1 = filmes.getDuracao();
 					final1 = final1 / 2;
 					int final2 = filmes.getDuracao();
-					final2 = final2 % 2;
+					final2 = final2 % 2;*/
 					data.setHours(Integer.parseInt(horas));
-					data.setMinutes(Integer.parseInt(minutos));	
-					data.setHours(Integer.parseInt(horas + final1));
-					data.setMinutes(Integer.parseInt(minutos + final2));
-					Sessao sessao = new Sessao(filmes, salan, data, data2);
+					data.setMinutes(Integer.parseInt(minutos));
+					
+					data2.setMinutes(data.getMinutes() + filmes.getDuracao());
+					//data.setHours(Integer.parseInt(horas + final1));
+					//data.setMinutes(Integer.parseInt(minutos + final2));
+					Sessao sessao = new Sessao(filmes, salan, data, data2, id);
 					fachada.adicionarSessao(sessao);
 					break;
 				
 				case 2:
-					System.out.println("Digite o nome do filme:");
+					fachada.listarSessões();
+					System.out.println("\n\nDigite o nome do filme:");
 					String snome = input.nextLine();
-					input.nextLine();
+					snome = input.nextLine();
 					Filme sfilme = fachada.buscarFilme(snome);						
 					if(sfilme==null){
 						System.out.println("Filme nao encontrado.");
 					}
 					else{
-						System.out.println(fachada.buscarSessaoPorFilme(sfilme));
+						fachada.buscarSessaoPorFilme(snome);
 					}
 					break;
 				case 3:
@@ -253,10 +286,10 @@ public class Tela {
 						System.out.println("Sala nao encontrada.");
 					}
 					else{
-						System.out.println(fachada.buscarSessaoPorSala(sSala));
+						fachada.buscarSessaoPorSala(sal);
 					}
 					break;
-				case 4:
+				/*case 4:
 					System.out.println("Digite o horario da sessao:");
 					System.out.println("Horario: ");
 					String horasb = input.next();
@@ -270,7 +303,7 @@ public class Tela {
 					else{
 						System.out.println(fachada.buscarSessaoPorHorario(datab));
 					}
-					break;
+					break;*/
 				case 5:
 					System.out.println();
 					default:
