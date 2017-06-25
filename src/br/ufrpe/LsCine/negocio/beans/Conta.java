@@ -15,7 +15,7 @@ public class Conta {
 	}
 	
 	public String getLogin() {
-		return this.login;
+		return login;
 	}
 
 	public void setLogin(String login) {
@@ -23,7 +23,7 @@ public class Conta {
 	}
 		
 	public String getSenha() {
-		return this.senha;
+		return senha;
 	}
 
 	public void setSenha(String senha) {
@@ -31,12 +31,16 @@ public class Conta {
 	}
 	
 	public boolean equals(Conta conta){
-		if(login.equals(conta.login)){
-			if(senha.equals(conta.senha)){
+		if(this.login.equals(conta.login)){
+			if(this.senha.equals(conta.senha)){
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public String toString() {
+		return "Conta [login=" + login + ", senha=" + senha + "]";
 	}
 
 }
