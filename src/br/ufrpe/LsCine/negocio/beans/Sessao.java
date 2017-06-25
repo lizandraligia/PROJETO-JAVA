@@ -1,11 +1,10 @@
 package br.ufrpe.LsCine.negocio.beans;
 import java.text.SimpleDateFormat;
-//import java.util.Arrays;
 import java.util.Date;
 
 public class Sessao {
 	
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 	private Filme filme;
 	private Salas sala;
 	private Date hrinicio;
@@ -21,7 +20,6 @@ public class Sessao {
 		this.sala = sala;
 		this.hrinicio = hrinicio;
 		this.hrfim = hrfim;
-		//this.hrfim.setMinutes(this.hrinicio.getMinutes() + this.filme.getDuracao());
 		this.id = id;
 		for(int i = 0; i<200; i++){
 			this.cadeira[i] = false;
@@ -47,7 +45,7 @@ public class Sessao {
 	public void setSala(Salas sala) {
 		this.sala = sala;
 	}
-	//MUDEI RETORNO DE Date PARA String
+
 	public String getHrinicio() {
 		return sdf.format(this.hrinicio);
 	}
@@ -55,7 +53,7 @@ public class Sessao {
 	public void setHrinicio(Date hrinicio) {
 		this.hrinicio = hrinicio;
 	}
-	//MUDEI RETORNO DE Date PARA String
+
 	public String getHrfim() {
 		return sdf.format(this.hrfim);
 	}
@@ -85,8 +83,8 @@ public class Sessao {
 		this.id = id;
 	}
 
-	public String toString() {       //FALTOU COLOCAR OS PARENTES NO GETNOME
-		return "Filme: " + this.filme.getNome() +"\nInicio=" + sdf.format(this.hrinicio) + "\nFim=" + sdf.format(this.hrfim) + "\nId= " + this.id;
+	public String toString() {       
+		return "Filme: " + this.filme.getNome() + "\nSala: " + this.sala.getNumero() + "\nInicio=" + sdf.format(this.hrinicio) + "\nFim=" + sdf.format(this.hrfim) + "\nId= " + this.id;
 	}
 	
 	public boolean equals(Sessao comparada) {
