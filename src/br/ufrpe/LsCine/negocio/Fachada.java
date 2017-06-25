@@ -13,6 +13,7 @@ public class Fachada {
 	private CadastroIngresso cadastroI;
 	private CadastroSalas cadastroSa;
 	private CadastroSessao cadastroSe;
+	private CadastroConta cadastroCo;
 	private static Fachada instancia; 
 	
 	private Fachada(){
@@ -20,6 +21,7 @@ public class Fachada {
 		this.cadastroI = new CadastroIngresso();
 		this.cadastroSa = new CadastroSalas();
 		this.cadastroSe = new CadastroSessao();
+		this.cadastroCo = new CadastroConta();
 	}
 	
 	public static Fachada getInstancia(){
@@ -50,10 +52,10 @@ public class Fachada {
 	public boolean editarFilme(Filme filme){
 		return this.cadastroF.editar(filme);
 	}
-	/*
+	
 	public void listarFilme(){
-		return this.cadastroF.lista();
-	}*/
+		this.cadastroF.lista();
+	}
 	
 	//INGRESSO
 	
@@ -101,19 +103,42 @@ public class Fachada {
 		return this.cadastroSe.adicionarSessao(sessao);
 	}
 	
-	public boolean removerSessao(Sessao sessao){
-		return this.cadastroSe.removerSessao(sessao);
+	public boolean removerSessao(int id){
+		return this.cadastroSe.removerSessao(id);
 	}
 	
-	public boolean conferirHorarioSessao(){
+	/*public boolean conferirHorarioSessao(){
 		return this.cadastroSe.conferirHorario();
+	}*/
+	
+	public void listarSessões(){
+		this.cadastroSe.listar();
 	}
 	
-	public ArrayList<Sessao> buscarSessaoPorFilme(Filme filme){
-		return this.cadastroSe.buscarPorFilme(filme);
+	public void buscarSessaoPorFilme(String nome){
+		this.cadastroSe.buscarPorFilme(nome);
 	}
 	
-	public ArrayList<Sessao> buscarSessaoPorSala(Salas sala){
-		return this.cadastroSe.buscarPorSala(sala);
+	public void buscarSessaoPorSala(int sala){
+		this.cadastroSe.buscarPorSala(sala);
 	}
+	
+	//CONTA
+	
+	public void adicionarConta(Conta conta){
+		this.cadastroCo.adicionarConta(conta);
+	}
+	
+	public void removerConta(String login){
+		this.cadastroCo.removerConta(login);
+	}
+	
+	public boolean logar(Conta login){
+		return this.cadastroCo.logar(login);
+	}
+	
+	public void listaContas(){
+		this.cadastroCo.listaContas();
+	}
+	
 }
