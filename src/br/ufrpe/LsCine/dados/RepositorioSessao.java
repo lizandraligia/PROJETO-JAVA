@@ -1,7 +1,4 @@
 package br.ufrpe.LsCine.dados;
-import java.util.ArrayList;
-import java.util.List;
-
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
 public class RepositorioSessao {
@@ -16,7 +13,6 @@ public class RepositorioSessao {
 	}
 	
 	
-	//CRIEI METODOS GET 
 	public Sessao[] getSessao() {
 		return sessao;
 	}
@@ -25,82 +21,47 @@ public class RepositorioSessao {
 		return lim;
 	}
 
-	//MUDEI O RETORNO DE void PARA boolean
-	public boolean adicionar(Sessao sessao){
-		
-		//System.out.println();
-		/*if (sessao == null) {
-			//System.out.println("Sessão inválida");
-			return;
-		}
-		
-		if(sessao.getSala().getTipo().equals("IMAX 3D")){
-			if(this.lim == 2) {
-				//System.out.println("Sala lotada!");
-				return;
-			}
-		}
-		
-		if(sessao.getSala().getTipo().equals("IMAX 2D")){
-			if(this.lim == 2) {
-				//System.out.println("Sala lotada!");
-				return;
-			}
-		}
-		
-		if(sessao.getSala().getTipo().equals("3D")){
-			if(this.lim == 4) {
-				//System.out.println("Sala lotada!");
-				return;
-			}
-		}*/
-		
+	public boolean adicionar(Sessao sessao){		
 
 		if(this.lim < 5) {
 			this.sessao[lim] = sessao;
 			this.lim++;
-			//System.out.println("Sessão cadastrada com sucesso!");
 			return true;
 		}else{
-			//System.out.println("Sala lotada!");
 			return false;
 		}
 	}
 	
-	//MUDEI O RETORNO DE void PARA BOOLEAN
 	public boolean remover(int id){
-		int SessaoRemover = this.retornarPosicao(id);
+		int SessaoRemover = this.retornarPosicaoid(id);
 		
 		if (SessaoRemover == -1) {
-			//System.out.println("Sala não encontrada.");
+			
 			return false;
 		}
 		
 		this.sessao[SessaoRemover] = this.sessao[this.lim -1];
 		this.sessao[this.lim - 1] = null;
 		this.lim = this.lim - 1;
-		
-		//System.out.println("Sala removida com sucesso.");
 		return true;
 	}
 	
-	//MUDEI O RETORNO DE void PARA BOOLEAN
 	public boolean alterar(Sessao sessao){
-		int sessaoalterar = this.retornarPosicao(sessao.getId());
+		int sessaoalterar = this.retornarPosicaoid(sessao.getId());
 		if (sessaoalterar == -1) {
-			//System.out.println("Sala inexistente.");
 			return false;
 		}
 		this.sessao[sessaoalterar] = sessao;
-		//System.out.println("Sala alterada.");
 		return true;
 	}
 	
-	/*public int pesquisar(Sessao sessao){
-		return this.sessao.indexOf(sessao);
-	}*/
 	
-	private int retornarPosicao(int numero) {		
+	public Sessao buscar(int codigo) {		
+		int posicao = this.retornarPosicaoid(codigo);		
+		return (posicao != -1) ? this.sessao[posicao] : null; 
+	}
+	
+	private int retornarPosicaoid(int numero) {		
 		for (int i = 0; i< this.lim; i++){
 			int cod = sessao[i].getId();
 			if (numero == cod) {
@@ -111,9 +72,44 @@ public class RepositorioSessao {
 		return -1;
 	}
 	
+	public Sessao buscarNome(String nome) {		
+		int posicao = this.retornarPosicaoNome(nome);		
+		return (posicao != -1) ? this.sessao[posicao] : null; 
+	}
+	
+	private int retornarPosicaoNome(String nome) {		
+		for (int i = 0; i< this.lim; i++){
+			String cod = sessao[i].getFilme().getNome();
+			if (cod.equals(nome)) {
+				return i;
+			} 
+		}
+		
+		return -1;
+	}
+	
+	
+	
+	public void listarNome(String nome) {
+		for(int i = 0; i<lim; i++){
+			if(sessao[i].getFilme().getNome().equals(nome)){			
+				System.out.println(sessao[i].toString());
+				System.out.println();
+			}
+		}
+	}
+	
+	public void listarSala(int sala) {
+		for(int i = 0; i<lim; i++){
+			if(sessao[i].getSala().getNumero() == sala){			
+				System.out.println(sessao[i].toString());
+				System.out.println();
+			}
+		}
+	}
+	
+	
 	public void listar() {
-		//System.out.println();
-		//System.out.println("Todos as salas cadastradas são: ");
 		for(int i = 0; i<lim; i++){
 			System.out.println(sessao[i].toString());
 			System.out.println();			
