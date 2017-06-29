@@ -187,6 +187,7 @@ public class Tela {
 		System.out.println("2- Buscar sessao por filme");
 		System.out.println("3- Buscar sessao por sala");
 		System.out.println("4- Remover sessao");
+		System.out.println("5- Voltar");
 		
 		
 			opcao = input.nextInt();
