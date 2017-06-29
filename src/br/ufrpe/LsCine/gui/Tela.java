@@ -1,10 +1,9 @@
 package br.ufrpe.LsCine.gui;
 
 import java.util.Scanner;
-
+import java.util.Date;
 import br.ufrpe.LsCine.negocio.Fachada;
-import br.ufrpe.LsCine.negocio.beans.Filme;
-import br.ufrpe.LsCine.negocio.beans.Salas;
+import br.ufrpe.LsCine.negocio.beans.*;
 
 public class Tela {
 	
