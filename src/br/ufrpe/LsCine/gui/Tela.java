@@ -222,7 +222,7 @@ public class Tela {
 					System.out.println("Criar sessao.");
 					Filme filmes = new Filme();
 					Salas salan = new Salas();
-					System.out.println("Id da Sessão: ");
+					System.out.println("Id da Sessao: ");
 					int id = input.nextInt();
 					System.out.println("Filme: ");
 					String nomes;
@@ -334,7 +334,7 @@ public class Tela {
 					System.out.println("Criar sala.");
 					System.out.println("Numero da sala: ");
 					int num = input.nextInt();
-					System.out.println("Tipo de sessão:");
+					System.out.println("Tipo de sessao:");
 					System.out.println("1- 3D");
 					System.out.println("2- IMAX 2D");
 					System.out.println("3- IMAX 3D");
