@@ -1,11 +1,6 @@
 package br.ufrpe.LsCine.negocio;
 
-import java.util.ArrayList;
-
-import br.ufrpe.LsCine.negocio.beans.Filme;
-import br.ufrpe.LsCine.negocio.beans.Ingresso;
-import br.ufrpe.LsCine.negocio.beans.Salas;
-import br.ufrpe.LsCine.negocio.beans.Sessao;
+import br.ufrpe.LsCine.negocio.beans.*;
 
 public class Fachada {
 
