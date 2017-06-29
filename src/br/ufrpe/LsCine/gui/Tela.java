@@ -93,14 +93,14 @@ public class Tela {
 	
 	
 	public void gerenciarFilmes(){
+	
+		do{
 		System.out.println("Gerenciamento de filmes. Escolha a opcao desejada:");
 		System.out.println("1-Cadastrar");
 		System.out.println("2-Buscar");
 		System.out.println("3-Remover");
 		System.out.println("4-Alterar dados");
 		System.out.println("5-Voltar.");
-		
-		do{
 			opcao = input.nextInt();
 			
 			switch(opcao){
@@ -173,7 +173,6 @@ public class Tela {
 				}
 				default: {
 					System.out.println("Opcao indisponivel.");
-					break;
 				}		
 			}	
 		}while(opcao!=5);
