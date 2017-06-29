@@ -220,6 +220,7 @@ public class Tela {
 					}
 					}while(fachada.procurarIdSala(num) == null);					
 					System.out.println("Horario: ");
+					System.out.println("* Formato: HH (press enter key) MM *");
 					String horas = input.next();
 					String minutos = input.next();
 					Date data = new Date();
