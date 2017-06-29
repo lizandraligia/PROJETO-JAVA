@@ -186,8 +186,7 @@ public class Tela {
 		System.out.println("1- Criar sessao");
 		System.out.println("2- Buscar sessao por filme");
 		System.out.println("3- Buscar sessao por sala");
-		System.out.println("4- Buscar sessao por horario");
-		System.out.println("5- Remover sessao");
+		System.out.println("4- Remover sessao");
 		
 		
 			opcao = input.nextInt();
@@ -264,21 +263,15 @@ public class Tela {
 						fachada.buscarSessaoPorSala(sal);
 					}
 					break;
-				/*case 4:
-					System.out.println("Digite o horario da sessao:");
-					System.out.println("Horario: ");
-					String horasb = input.next();
-					String minutosb = input.next();					
-					Date datab = new Date();					
-					datab.setHours(Integer.parseInt(horasb));
-					datab.setMinutes(Integer.parseInt(minutosb));					
-					if(fachada.buscarSessaoPorHorario(datab)==null){
-						System.out.println("Horario indisponivel.");
+				case 4: 
+					System.out.println("Digite a ID da sessao que deseja remover:");
+					int remove = input.nextInt();
+					if(fachada.removerSessao(remove)==true){
+						System.out.println("Sessao removida com sucesso.");
+					}else{
+						System.out.println("Nao foi possivel remover a sessao.");
 					}
-					else{
-						System.out.println(fachada.buscarSessaoPorHorario(datab));
-					}
-					break;*/
+					break;
 				case 5:
 					System.out.println();
 					default:
