@@ -14,8 +14,7 @@ public class Sessao {
 	
 	
 	public Sessao(Filme filme, Salas sala, Date hrinicio, Date hrfim, int id) {
-
-		
+	
 		this.filme = filme;
 		this.sala = sala;
 		this.hrinicio = hrinicio;
@@ -28,9 +27,6 @@ public class Sessao {
 	}	
 
 	public Filme getFilme() {
-		//ESSE RETURN TA ERRADO
-		//return this.filme.getNome;
-		//SE QUISER RETORNAR SO O NOME DO FILME: return filme.getNome(); E MODIFICAR O RETORNO DE Filme PARA String
 		return filme;
 	}
 
