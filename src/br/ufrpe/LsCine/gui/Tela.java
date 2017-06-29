@@ -7,10 +7,6 @@ import br.ufrpe.LsCine.negocio.beans.*;
 
 public class Tela {
 	
-	//Fachada fachada = new Fachada();
-	//int opcao;
-	//Scanner input = new Scanner(System.in);
-	
 	private Fachada fachada;
 	int opcao;
 	Scanner input;
@@ -102,7 +98,6 @@ public class Tela {
 		System.out.println("2-Buscar");
 		System.out.println("3-Remover");
 		System.out.println("4-Alterar dados");
-		//System.out.println("5-Comprar ticket");
 		System.out.println("5-Voltar.");
 		
 		do{
@@ -152,7 +147,7 @@ public class Tela {
 					System.out.println("Filme removido.");
 					break;
 				}
-				case 4: { //erro
+				case 4: { 
 					System.out.println("Modificar dados de filme.");
 					System.out.println("Titulo do filme que deseja modificar: ");
 					String busca = input.nextLine();
@@ -164,9 +159,6 @@ public class Tela {
 					else{
 						System.out.println(filme);
 					}
-					//System.out.println("Título: ");
-					//String n = input.next();
-					//n = input.nextLine();
 					System.out.println("Duracao: ");
 					int d = input.nextInt();
 					System.out.println("Classificacao indicativa:");
@@ -179,22 +171,6 @@ public class Tela {
 				case 5: {
 					menu();
 				}
-				/*case 5: {
-					System.out.println("Nome do filme:");
-					String b = input.nextLine();
-					b = input.nextLine();
-					Filme filme = fachada.buscarFilme(b);
-					System.out.println(filme);
-					//int tipo, float valor, Sessão sessao, int id
-					System.out.println("Tipo de ingresso:");
-					System.out.println("1-Inteira");
-					System.out.println("2-Meia");
-					
-					int t = input.nextInt();
-					//fachada.cadastrarIngresso(new Ingresso(t));
-					
-					break;
-				}*/
 				default: {
 					System.out.println("Opcao indisponivel.");
 					break;
@@ -265,7 +241,7 @@ public class Tela {
 					break;
 				
 				case 2:
-					fachada.listarSessões();
+					fachada.listarSessoes();
 					System.out.println("\n\nDigite o nome do filme:");
 					String snome = input.nextLine();
 					snome = input.nextLine();
