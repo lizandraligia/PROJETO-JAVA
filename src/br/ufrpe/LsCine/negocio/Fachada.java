@@ -111,7 +111,7 @@ public class Fachada {
 		return this.cadastroSe.conferirHorario();
 	}*/
 	
-	public void listarSessões(){
+	public void listarSessoes(){
 		this.cadastroSe.listar();
 	}
 	
