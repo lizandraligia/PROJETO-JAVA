@@ -416,6 +416,8 @@ public class Tela {
 	}
 
 	public void relatorioLucro(){
-		
+		System.out.println("Relatorio de lucro.");
+		System.out.println("Valor arrecadado:");
+		System.out.println(fachada.totalFinanceiroIngresso());
 	}
 }
