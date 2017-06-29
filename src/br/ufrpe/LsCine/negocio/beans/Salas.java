@@ -1,7 +1,4 @@
 package br.ufrpe.LsCine.negocio.beans;
-//import java.text.SimpleDateFormat;
-//import java.util.Arrays;
-//import java.util.Date;
 
 public class Salas {
 	
@@ -25,7 +22,7 @@ public class Salas {
 	
 	public void setNumero(int numero) {
 		if(numero <= 0){
-			System.out.println("Numeração inválida.");		
+			System.out.println("NumeraÃ§Ã£o invÃ¡lida.");		
 		}else{
 			this.numero = numero;
 		}
@@ -48,7 +45,6 @@ public class Salas {
 	}
 	
 	public String getTipo() {
-		//return this.tipo;
 		if(this.s3d == true && this.imax == true){
 			return "IMAX 3D";
 		}else if(this.s3d == true && this.imax != true){
