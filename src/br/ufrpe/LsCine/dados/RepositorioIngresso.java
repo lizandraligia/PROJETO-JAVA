@@ -1,8 +1,9 @@
 package br.ufrpe.LsCine.dados;
 
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
+import br.ufrpe.LsCine.interfaces.IRepositorioIngresso;
 
-public class RepositorioIngresso {
+public class RepositorioIngresso implements IRepositorioIngresso{
 	
 	private final static int QTD_INGRESSOS = 200;
 	private int contagemIngresso;
