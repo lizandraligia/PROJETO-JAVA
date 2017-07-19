@@ -1,8 +1,9 @@
 package br.ufrpe.LsCine.dados;
 
 import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
 
-public class RepositorioFilme {
+public class RepositorioFilme implements IRepositorioFilme{
 
 	private final static int QTD_FILMES = 5;
 	private int contadorFilmes;
