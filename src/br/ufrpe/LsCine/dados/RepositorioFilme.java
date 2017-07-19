@@ -5,8 +5,8 @@ import br.ufrpe.LsCine.negocio.beans.Filme;
 public class RepositorioFilme {
 
 	private final static int QTD_FILMES = 5;
-	int contadorFilmes;
-	Filme[] filmes;
+	private int contadorFilmes;
+	private Filme[] filmes;
 	
 	public RepositorioFilme(){
 		this.contadorFilmes = 0;
