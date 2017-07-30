@@ -100,7 +100,8 @@ public class Tela {
 		System.out.println("2-Buscar");
 		System.out.println("3-Remover");
 		System.out.println("4-Alterar dados");
-		System.out.println("5-Voltar.");
+		System.out.println("5-Lista de filmes");
+		System.out.println("6-Voltar.");
 			opcao = input.nextInt();
 			
 			switch(opcao){
@@ -169,13 +170,19 @@ public class Tela {
 					break;				
 				}
 				case 5: {
-					menu();
+					System.out.println("Lista de filmes em exibicao.");
+					System.out.println(fachada.listarFilme());
+					break;
+				}
+				case 6: {
+					System.out.println();
+					break;
 				}
 				default: {
 					System.out.println("Opcao indisponivel.");
 				}		
 			}	
-		}while(opcao!=5);
+		}while(opcao!=6);
 	}
 	
 	
