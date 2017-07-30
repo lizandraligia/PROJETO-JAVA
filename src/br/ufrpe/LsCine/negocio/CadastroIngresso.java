@@ -1,21 +1,22 @@
 package br.ufrpe.LsCine.negocio;
 
-import br.ufrpe.LsCine.dados.RepositorioIngresso;
+import br.ufrpe.LsCine.interfaces.IRepositorioIngresso;
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
+import java.util.ArrayList;
 
 public class CadastroIngresso {
 
-	private RepositorioIngresso repositorioI;
+	private IRepositorioIngresso repositorioI;
 	
-	public CadastroIngresso(){
-		this.repositorioI = new RepositorioIngresso();
+	public CadastroIngresso(IRepositorioIngresso repositorio){
+		this.repositorioI = repositorio;
 	}
 
-	public RepositorioIngresso getRepositorioI() {
+	public IRepositorioIngresso getRepositorioI() {
 		return repositorioI;
 	}
 
-	public void setRepositorioI(RepositorioIngresso repositorioI) {
+	public void setRepositorioI(IRepositorioIngresso repositorioI) {
 		this.repositorioI = repositorioI;
 	}
 
@@ -28,14 +29,16 @@ public class CadastroIngresso {
 	}
 	
 	public boolean remover(int id){
-		if(this.repositorioI.remover(id)){
-			return true;
-		}
-		return false;
+		this.repositorioI.remover(id);
+		return true;
 	}
 	
 	public float totalFinanceiro(){
 		return this.repositorioI.financeiroIngresso();
 	}
 	
+	public ArrayList<Ingresso> listar(){
+		return this.repositorioI.listaVendas();
+		
+	}
 }
