@@ -1,5 +1,7 @@
 package br.ufrpe.LsCine.negocio;
 
+import java.util.ArrayList;
+import br.ufrpe.LsCine.dados.*;
 import br.ufrpe.LsCine.negocio.beans.*;
 
 public class Fachada {
@@ -12,8 +14,8 @@ public class Fachada {
 	private static Fachada instancia; 
 	
 	private Fachada(){
-		this.cadastroF = new CadastroFilme();
-		this.cadastroI = new CadastroIngresso();
+		this.cadastroF = new CadastroFilme(new RepositorioFilme());
+		this.cadastroI = new CadastroIngresso(new RepositorioIngresso());
 		this.cadastroSa = new CadastroSalas();
 		this.cadastroSe = new CadastroSessao();
 		this.cadastroCo = new CadastroConta();
@@ -36,10 +38,6 @@ public class Fachada {
 		return this.cadastroF.buscar(nome);
 	}
 	
-	public boolean existeFilme(String nome){
-		return this.cadastroF.existe(nome);
-	}
-	
 	public boolean removerFilme(String nome){
 		return this.cadastroF.remover(nome);
 	}
@@ -48,8 +46,8 @@ public class Fachada {
 		return this.cadastroF.editar(filme);
 	}
 	
-	public void listarFilme(){
-		this.cadastroF.lista();
+	public ArrayList<Filme> listarFilme(){
+		return this.cadastroF.listar();
 	}
 	
 	//INGRESSO
