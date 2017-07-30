@@ -2,71 +2,65 @@ package br.ufrpe.LsCine.dados;
 
 import br.ufrpe.LsCine.negocio.beans.Filme;
 import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
+import java.util.ArrayList;
 
 public class RepositorioFilme implements IRepositorioFilme{
 
-	private final static int QTD_FILMES = 5;
-	private int contadorFilmes;
-	private Filme[] filmes;
+	private ArrayList<Filme> filmes;
 	
 	public RepositorioFilme(){
-		this.contadorFilmes = 0;
-		this.filmes = new Filme[QTD_FILMES];
+		this.filmes = new ArrayList<Filme>();
+	}
+
+	public ArrayList<Filme> getFilmes() {
+		return filmes;
+	}
+
+	public void setFilmes(ArrayList<Filme> filmes) {
+		this.filmes = filmes;
 	}
 
 	public boolean inserirFilme(Filme filme){
-		
-		this.filmes[this.contadorFilmes]=filme;
-		this.contadorFilmes++;
+		this.filmes.add(filme);
 		return true;
-	}
-	
-	public boolean existe(String nome) {
-		return this.retornarPosicao(nome)!=-1;
-	}
-	
-	private int retornarPosicao(String nome) {
-		if (nome == null){
-			return -1;
-		}
-		for (int i = 0; i< this.contadorFilmes; i++){
-			if(nome.equals(filmes[i].getNome())){
-				return i;
-			}
-		}	
-		return -1;
 	}
 	
 	public Filme buscarFilme(String nome){
-		int posicao = this.retornarPosicao(nome);		
-		return (posicao!=-1) ? this.filmes[posicao] : null; 
+		if(nome == null){
+			return null;
+		}
+		for (int i = 0; i<filmes.size() ; i++){	
+			if(nome.equals(filmes.get(i).getNome())){
+				return filmes.get(i);
+			}
+		}			
+		return null;
 	}
 	
 	public boolean removerFilme(String nome){
-		int posicaoRemover = this.retornarPosicao(nome);
-		
-		if (posicaoRemover == -1) {
+		if(nome==null){
 			return false;
-		}	
-		this.filmes[posicaoRemover] = this.filmes[this.contadorFilmes -1];
-		this.filmes[this.contadorFilmes - 1] = null;
-		this.contadorFilmes = this.contadorFilmes - 1;	
-		return true;
+		}
+		Filme posicao = this.buscarFilme(nome);
+		if(posicao != null){
+			this.filmes.remove(posicao);
+			return true;
+		}
+		return false;
+		
 	}
 	
 	public boolean editarFilme(Filme filme){ 
-
-		int posicaoAtualizar = this.retornarPosicao(filme.getNome());
-		if (posicaoAtualizar == -1) {
+		if(filme==null){
 			return false;
 		}
-		this.filmes[posicaoAtualizar] = filme;
+		Filme atualizar = this.buscarFilme(filme.getNome());
+		this.filmes.set(this.filmes.indexOf(atualizar), filme);
 		return true;
 	}
+
 	
-	public void listarFilmes(){
-		for (Filme lista : filmes) {
-			System.out.println(lista);
-		}
+	public ArrayList<Filme> listar(){
+		return this.filmes;
 	}
 }
