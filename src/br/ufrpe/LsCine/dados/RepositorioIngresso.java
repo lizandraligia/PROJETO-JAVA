@@ -2,68 +2,61 @@ package br.ufrpe.LsCine.dados;
 
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
 import br.ufrpe.LsCine.interfaces.IRepositorioIngresso;
+import java.util.ArrayList;
 
 public class RepositorioIngresso implements IRepositorioIngresso{
 	
-	private final static int QTD_INGRESSOS = 200;
-	private int contagemIngresso;
-	private Ingresso[] ingresso;
+	private ArrayList<Ingresso> ingressos;
 	
 	public RepositorioIngresso(){
-		this.contagemIngresso = 0;
-		this.ingresso = new Ingresso[QTD_INGRESSOS];
+		this.ingressos = new ArrayList<Ingresso>();
 	}
 
-	public boolean inserir(Ingresso ingresso){
-		
-		this.ingresso[this.contagemIngresso]=ingresso;
-		this.contagemIngresso++;
+	public ArrayList<Ingresso> getIngresso() {
+		return ingressos;
+	}
+	
+	public void setIngresso(ArrayList<Ingresso> ingressos) {
+		this.ingressos = ingressos;
+	}
+
+	public boolean inserir(Ingresso ingresso){	
+		this.ingressos.add(ingresso);
 		return true;
 	}
-	
-	private int retornarPosicao(int id) {
-		if (id<0){
-			return -1;
-		}
-		for (int i = 0; i< this.contagemIngresso; i++){
-			if(id == ingresso[i].getId()){
-				return i;
-			}
-		}	
-		return -1;
-	}
-	
+
 	public Ingresso buscar(int id){
-		int posicao = this.retornarPosicao(id);		
-		return (posicao!=-1) ? this.ingresso[posicao] : null; 
+		if(id<0){
+			return null;
+		}
+		for (int i = 0; i < ingressos.size() ; i++){	
+			if(id==ingressos.get(i).getId()){
+				return ingressos.get(i);
+			}
+		}			
+		return null;
 	}
 	
 	public boolean remover(int id){
-		int posicaoRemover = this.retornarPosicao(id);
-		
-		if (posicaoRemover == -1) {
+		if(id<0){
 			return false;
-		}	
-		this.ingresso[posicaoRemover] = this.ingresso[this.contagemIngresso -1];
-		this.ingresso[this.contagemIngresso - 1] = null;
-		this.contagemIngresso = this.contagemIngresso - 1;	
-		return true;
-	}
-	
-	public int getContagemIngresso() {
-		return contagemIngresso;
-	}
-	
-	public void listaVendas(){
-		for (Ingresso lista : ingresso) {
-			System.out.println(lista);
 		}
+		Ingresso posicao = this.buscar(id);
+		if(posicao != null){
+			this.ingressos.remove(posicao);
+			return true;
+		}
+		return false;
+	}
+	
+	public ArrayList<Ingresso> listaVendas(){
+		return this.ingressos;
 	}
 	
 	public float financeiroIngresso(){
 		float valor = 0;
-		for (int i = 0; i< this.contagemIngresso; i++){
-			valor+=this.ingresso[i].getValor();
+		for (int i = 0; i<ingressos.size(); i++){
+			valor+=this.ingressos.get(i).getValor();
 		}
 		return valor;
 	}
