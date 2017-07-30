@@ -1,6 +1,7 @@
 package br.ufrpe.LsCine.interfaces;
 
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
+import java.util.ArrayList;
 
 public interface IRepositorioIngresso {
 
@@ -11,5 +12,7 @@ public interface IRepositorioIngresso {
 	public boolean remover(int id);
 	
 	public float financeiroIngresso();
+	
+	public ArrayList<Ingresso> listaVendas();
 	
 }
