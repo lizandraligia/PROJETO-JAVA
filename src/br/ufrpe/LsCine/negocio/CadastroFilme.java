@@ -1,29 +1,29 @@
 package br.ufrpe.LsCine.negocio;
 
-import br.ufrpe.LsCine.dados.RepositorioFilme;
+import java.util.ArrayList;
+import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
 import br.ufrpe.LsCine.negocio.beans.Filme;
 
 public class CadastroFilme {
 
-	private RepositorioFilme repositorioF;
+	private IRepositorioFilme repositorioF;
 	
-	public CadastroFilme(){
-		this.repositorioF = new RepositorioFilme();
+	public CadastroFilme(IRepositorioFilme repositorio){
+		this.repositorioF = repositorio; 
 	}
 	
-	public RepositorioFilme getRepositorioF() {
+	public IRepositorioFilme getRepositorioF() {
 		return repositorioF;
 	}
 
-	public void setRepositorioF(RepositorioFilme repositorioF) {
+	public void setRepositorioF(IRepositorioFilme repositorioF) {
 		this.repositorioF = repositorioF;
 	}
 
 	public boolean cadastrar(Filme filme){
 		
 		if(this.repositorioF.inserirFilme(filme)==true){
-			if(filme!=null && !this.repositorioF.existe(filme.getNome())){
-				//this.repositorioF.inserirFilme(filme);
+			if(filme!=null){
 				return true;
 			}
 		}
@@ -32,10 +32,6 @@ public class CadastroFilme {
 	
 	public Filme buscar(String nome){
 		return this.repositorioF.buscarFilme(nome);
-	}
-	
-	public boolean existe(String nome){
-		return this.repositorioF.existe(nome);
 	}
 	
 	public boolean remover(String nome){
@@ -47,16 +43,15 @@ public class CadastroFilme {
 	
 	public boolean editar(Filme filme){
 		if(this.repositorioF.editarFilme(filme)==true){
-			if(filme!=null && !this.repositorioF.existe(filme.getNome())){
+			if(filme!=null){
 				this.repositorioF.editarFilme(filme);
-				//this.repositorioF.inserirFilme(filme);
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	public void lista(){
-		this.repositorioF.listarFilmes();
+	public ArrayList<Filme> listar(){
+		return this.repositorioF.listar();
 	}
 }
