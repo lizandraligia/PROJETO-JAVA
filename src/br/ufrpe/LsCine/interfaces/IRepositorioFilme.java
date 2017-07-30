@@ -1,12 +1,11 @@
 package br.ufrpe.LsCine.interfaces;
 
 import br.ufrpe.LsCine.negocio.beans.Filme;
+import java.util.ArrayList;
 
 public interface IRepositorioFilme {
 
 	public boolean inserirFilme(Filme filme);
-	
-	public boolean existe(String nome);
 	
 	public Filme buscarFilme(String nome);
 	
@@ -14,5 +13,5 @@ public interface IRepositorioFilme {
 	
 	public boolean editarFilme(Filme filme);
 	
-	public void listarFilmes();
+	public ArrayList<Filme> listar();
 }
