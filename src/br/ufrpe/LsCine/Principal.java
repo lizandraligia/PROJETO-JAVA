@@ -6,7 +6,7 @@ import br.ufrpe.LsCine.negocio.beans.*;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FilmeExistenteException{
 
 		Tela tela = Tela.getInstancia();
 		Fachada fachada = Fachada.getInstancia();
