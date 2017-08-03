@@ -3,6 +3,7 @@ package br.ufrpe.LsCine.negocio;
 import java.util.ArrayList;
 import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
 import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
 
 public class CadastroFilme {
 
@@ -20,7 +21,12 @@ public class CadastroFilme {
 		this.repositorioF = repositorioF;
 	}
 
-	public boolean cadastrar(Filme filme){
+	public boolean cadastrar(Filme filme) throws FilmeExistenteException{
+		
+		Filme filmeExiste = this.repositorioF.buscarFilme(filme.getNome());
+		if(filmeExiste != null){
+			throw new FilmeExistenteException();
+		}
 		
 		if(this.repositorioF.inserirFilme(filme)==true){
 			if(filme!=null){
