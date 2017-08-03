@@ -3,6 +3,7 @@ package br.ufrpe.LsCine.negocio;
 import java.util.ArrayList;
 import br.ufrpe.LsCine.dados.*;
 import br.ufrpe.LsCine.negocio.beans.*;
+import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
 
 public class Fachada {
 
@@ -30,7 +31,7 @@ public class Fachada {
 	
 	//FILME 
 	
-	public boolean cadastrarFilme(Filme filme){
+	public boolean cadastrarFilme(Filme filme) throws FilmeExistenteException{
 		return this.cadastroF.cadastrar(filme);
 	}
 	
