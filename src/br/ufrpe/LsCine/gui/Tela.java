@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Date;
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.*;
+import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
 
 public class Tela {
 	
@@ -24,7 +25,7 @@ public class Tela {
 		return instancia;
 	}
 		
-	public void menu(){
+	public void menu() throws FilmeExistenteException{
 		
 		int resp;String login2;
 		String senha2;
@@ -92,7 +93,7 @@ public class Tela {
 	}
 	
 	
-	public void gerenciarFilmes(){
+	public void gerenciarFilmes() throws FilmeExistenteException{
 	
 		do{
 		System.out.println("Gerenciamento de filmes. Escolha a opcao desejada:");
