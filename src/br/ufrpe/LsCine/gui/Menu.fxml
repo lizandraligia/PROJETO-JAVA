@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.Blend?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.ufrpe.LsCine.gui.MenuController">
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Inicio">  </Menu>
+          <Menu mnemonicParsing="false" text="Geral">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Adicionar filme" />
+              <MenuItem mnemonicParsing="false" text="Modificar filme" />
+              <MenuItem mnemonicParsing="false" text="Remover filme" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Financeiro">  
+          </Menu>
+          <Menu mnemonicParsing="false" onAction="#sair" text="Sair">
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

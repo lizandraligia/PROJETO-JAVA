@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.LoginController">
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="447.0" layoutY="344.0" mnemonicParsing="false" onAction="#Login" text="Entrar" />
+            <Label layoutX="209.0" layoutY="306.0" text="Senha">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="209.0" layoutY="263.0" text="Usuário">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfLogin" layoutX="293.0" layoutY="261.0" prefHeight="25.0" prefWidth="202.0" />
+            <PasswordField fx:id="tfSenha" layoutX="293.0" layoutY="304.0" onAction="#Login" prefHeight="25.0" prefWidth="202.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
