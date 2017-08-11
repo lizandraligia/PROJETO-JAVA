@@ -5,53 +5,30 @@ import br.ufrpe.LsCine.dados.RepositorioConta;
 import br.ufrpe.LsCine.interfaces.IRepositorioConta;
 
 
-public class CadastroConta implements IRepositorioConta{
+public class CadastroConta{
 
-	private ArrayList<Conta> contas;
+	private IRepositorioConta repositorioConta;
 	
-	public RepositorioConta(){
-		Conta user = new Conta("admin","admin");
-		this.contas = new ArrayList<Conta>();
-		this.contas.add(user);
-	}
-
-	public ArrayList<Conta> getContas() {
-		return contas;
-	}
-
-	public void setContas(ArrayList<Conta> contas) {
-		this.contas = contas;
-	}
-
-	public boolean adicionar(Conta conta){
-		this.contas.add(conta);
-		return true;
+	public CadastroConta(IRepositorioConta repositorio){
+		this.repositorioConta = repositorio;
 	}
 	
-	public Conta buscar(Conta conta){
-		if(conta == null){
-			return null;
-		}
-		for (int i = 0; i<contas.size() ; i++){	
-			if(conta.equals(contas.get(i).getLogin())){
-				if(conta.equals(contas.get(i).getSenha())){
-				return contas.get(i);
-				}
-			}			
-		}
-		return null;
+	public boolean logar(String login, String senha){
+		Conta conta = new Conta(login, senha);
+		
+		for(int i = 0; i < this.repositorioConta.getContas().size(); i++){
+			if(this.repositorioConta.getContas().get(i).equals(conta)){
+				return true;
+			}
+		}	
+		return false;
 	}
 	
+	public boolean adicionarConta(Conta conta){
+		return this.repositorioConta.adicionar(conta);
+	}
 	
-	public boolean remover(Conta login) {
-		if(login==null){
-			return false;
-		}
-		Conta posicao = this.buscar(login);
-		if(posicao != null){
-			this.contas.remove(posicao);
-			return true;
-		}
-		return false;	
+	public boolean removerConta(Conta login){
+		return this.repositorioConta.remover(login);
 	}
 }
