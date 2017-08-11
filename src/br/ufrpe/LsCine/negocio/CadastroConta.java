@@ -2,29 +2,56 @@ package br.ufrpe.LsCine.negocio;
 import br.ufrpe.LsCine.negocio.beans.Conta;
 import java.util.ArrayList;
 import br.ufrpe.LsCine.dados.RepositorioConta;
+import br.ufrpe.LsCine.interfaces.IRepositorioConta;
 
 
-public class CadastroConta {
+public class CadastroConta implements IRepositorioConta{
 
-private RepositorioConta repositorioConta;
+	private ArrayList<Conta> contas;
 	
-	public CadastroConta(){
-		this.repositorioConta = new RepositorioConta();
+	public RepositorioConta(){
+		Conta user = new Conta("admin","admin");
+		this.contas = new ArrayList<Conta>();
+		this.contas.add(user);
+	}
+
+	public ArrayList<Conta> getContas() {
+		return contas;
+	}
+
+	public void setContas(ArrayList<Conta> contas) {
+		this.contas = contas;
+	}
+
+	public boolean adicionar(Conta conta){
+		this.contas.add(conta);
+		return true;
 	}
 	
-	public boolean logar(Conta login){
-		return this.repositorioConta.logar(login);		
+	public Conta buscar(Conta conta){
+		if(conta == null){
+			return null;
+		}
+		for (int i = 0; i<contas.size() ; i++){	
+			if(conta.equals(contas.get(i).getLogin())){
+				if(conta.equals(contas.get(i).getSenha())){
+				return contas.get(i);
+				}
+			}			
+		}
+		return null;
 	}
 	
-	public void adicionarConta(Conta conta){
-		this.repositorioConta.adicionar(conta);
-	}
 	
-	public void removerConta(String login){
-		this.repositorioConta.remover(login);
-	}
-	
-	public void listaContas(){
-		this.repositorioConta.listar();
+	public boolean remover(Conta login) {
+		if(login==null){
+			return false;
+		}
+		Conta posicao = this.buscar(login);
+		if(posicao != null){
+			this.contas.remove(posicao);
+			return true;
+		}
+		return false;	
 	}
 }
