@@ -29,7 +29,6 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		Fachada sistema = Fachada.getInstancia();
 	}
 	
 	public static BorderPane getRoot() { 
