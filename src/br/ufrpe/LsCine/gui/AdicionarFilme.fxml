@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.ufrpe.LsCine.gui.AdicionarFilmeController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="266.0" layoutY="141.0" text="Adicionar Filme ">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="200.0" layoutY="251.0" text="Nome">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="185.0" layoutY="292.0" text="Duração">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="92.0" layoutY="337.0" text="Classificação Indicativa">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="266.0" layoutY="247.0" prefHeight="25.0" prefWidth="265.0" />
+            <TextField layoutX="266.0" layoutY="288.0" prefHeight="25.0" prefWidth="265.0" />
+            <TextField layoutX="266.0" layoutY="333.0" prefHeight="25.0" prefWidth="265.0" />
+            <Button layoutX="266.0" layoutY="404.0" mnemonicParsing="false" onAction="#inserir" prefHeight="25.0" prefWidth="82.0" text="Salvar" />
+            <Button layoutX="453.0" layoutY="404.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="78.0" text="Voltar" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

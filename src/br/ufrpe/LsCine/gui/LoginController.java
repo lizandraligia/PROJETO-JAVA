@@ -21,14 +21,14 @@ public class LoginController {
 		String login = this.tfLogin.getText();
 		String senha = this.tfSenha.getText();
 		try{
-			this.fachada.logar(new Conta(login,senha));
-			Visual.getInstance().getMenu();
-			System.out.println("funfou");
+			this.fachada.getCadastroCo().logar(login, senha);
+			Telas.getInstance().getMenu();
 
 		}
 		catch(Exception e){
 			this.lblError.setText(e.getMessage());
 		}
 	}
+	
 
 }

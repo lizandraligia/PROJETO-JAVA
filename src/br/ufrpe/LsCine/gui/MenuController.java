@@ -14,26 +14,50 @@ public class MenuController implements Initializable{
 		
 	}
 		
-		
+	public void home(){
+		try{
+			Telas.getInstance().getMenu();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	/*
 	public void financeiro(){	
 		try{	
 			this.fachada.totalFinanceiroIngresso();
-			Visual.getInstance();
+			Visual.getInstance().getMenu();
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-	}
+	}*/
 	
 	public void sair(){
 		try{
-			Visual.getInstance().getLogin();
+			Telas.getInstance().getLogin();
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
 	}
-
 	
+	public void adicionarFilme(){
+		try{
+			Telas.getInstance().getAdicionarFilme();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void financeiro(){
+		try{
+			Telas.getInstance().getFinanceiro();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 }

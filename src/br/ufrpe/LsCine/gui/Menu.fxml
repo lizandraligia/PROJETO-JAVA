@@ -14,30 +14,36 @@
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.Blend?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.ufrpe.LsCine.gui.MenuController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.MenuController">
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Inicio">  </Menu>
+         <menus>
+          <Menu mnemonicParsing="false" onAction="#home" text="Inicio"> 
+          <items>
+              <MenuItem mnemonicParsing="false" onAction="#home" text="Inicio" />
+           </items>
+          </Menu>
           <Menu mnemonicParsing="false" text="Geral">
             <items>
-              <MenuItem mnemonicParsing="false" text="Adicionar filme" />
+              <MenuItem mnemonicParsing="false" onAction="#adicionarFilme" text="Adicionar filme" />
               <MenuItem mnemonicParsing="false" text="Modificar filme" />
               <MenuItem mnemonicParsing="false" text="Remover filme" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Financeiro">  
+          <Menu mnemonicParsing="false"  text="Financeiro">  
+           <items>
+              <MenuItem mnemonicParsing="false" onAction="#financeiro" text="Financeiro" />
+           </items>
           </Menu>
           <Menu mnemonicParsing="false" onAction="#sair" text="Sair">
+          <items>
+              <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair" />
+           </items>
           </Menu>
-        </menus>
+         </menus>
       </MenuBar>
    </top>
-   <left>
-      <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </left>
 </BorderPane>
