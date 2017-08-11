@@ -19,7 +19,7 @@ public class Fachada {
 		this.cadastroI = new CadastroIngresso(new RepositorioIngresso());
 		this.cadastroSa = new CadastroSalas();
 		this.cadastroSe = new CadastroSessao();
-		this.cadastroCo = new CadastroConta();
+		this.cadastroCo = new CadastroConta(new RepositorioConta());
 	}
 	
 	public static Fachada getInstancia(){
@@ -118,21 +118,33 @@ public class Fachada {
 	}
 	
 	//CONTA
-	
-	public void adicionarConta(Conta conta){
-		this.cadastroCo.adicionarConta(conta);
+
+	public boolean adicionarConta(Conta conta){
+		return this.cadastroCo.adicionarConta(conta);
 	}
 	
-	public void removerConta(String login){
-		this.cadastroCo.removerConta(login);
+	public boolean removerConta(Conta login){
+		return this.cadastroCo.removerConta(login);
 	}
 	
-	public boolean logar(Conta login){
-		return this.cadastroCo.logar(login);
+	public boolean logar(String login, String senha){
+		return this.cadastroCo.logar(login, senha);
 	}
-	
-	public void listaContas(){
-		this.cadastroCo.listaContas();
+
+	public CadastroConta getCadastroCo() {
+		return cadastroCo;
+	}
+
+	public void setCadastroCo(CadastroConta cadastroCo) {
+		this.cadastroCo = cadastroCo;
+	}
+
+	public CadastroFilme getCadastroF() {
+		return cadastroF;
+	}
+
+	public void setCadastroF(CadastroFilme cadastroF) {
+		this.cadastroF = cadastroF;
 	}
 	
 }
