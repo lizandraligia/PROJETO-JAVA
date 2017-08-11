@@ -6,13 +6,9 @@ public interface IRepositorioConta {
 
 	public boolean adicionar(Conta conta);
 	
-	public Conta buscarLogin(String nome);
+	public Conta buscar(Conta conta);
 	
-	public Conta buscarSenha(String nome);
+	public boolean remover(Conta login);
 	
-	public boolean remover(String login);
-	
-	public boolean logar(Conta login);
-	
-	public void listar();
+	public ArrayList<Conta> getContas();
 }
