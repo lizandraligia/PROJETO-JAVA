@@ -1,8 +1,5 @@
 package br.ufrpe.LsCine.gui;
 
-//import java.awt.Label;
-//import java.awt.TextField;
-
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Conta;
 import javafx.fxml.FXML;
@@ -14,7 +11,7 @@ public class LoginController {
 
 	@FXML TextField tfLogin;
 	@FXML PasswordField tfSenha;
-	@FXML Label lblError;
+	
 	private Fachada fachada = Fachada.getInstancia();
 	
 	public void Login(){
@@ -26,7 +23,7 @@ public class LoginController {
 
 		}
 		catch(Exception e){
-			this.lblError.setText(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 	}
 	
