@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import br.ufrpe.LsCine.dados.*;
 import br.ufrpe.LsCine.negocio.beans.*;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
+import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
 
 public class Fachada {
 
