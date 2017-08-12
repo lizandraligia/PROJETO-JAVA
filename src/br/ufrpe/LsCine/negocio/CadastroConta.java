@@ -3,6 +3,7 @@ import br.ufrpe.LsCine.negocio.beans.Conta;
 import java.util.ArrayList;
 import br.ufrpe.LsCine.dados.RepositorioConta;
 import br.ufrpe.LsCine.interfaces.IRepositorioConta;
+import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
 
 
 public class CadastroConta{
@@ -13,7 +14,7 @@ public class CadastroConta{
 		this.repositorioConta = repositorio;
 	}
 	
-	public boolean logar(String login, String senha){
+	public boolean logar(String login, String senha) throws LoginIncorretoException{
 		Conta conta = new Conta(login, senha);
 		
 		for(int i = 0; i < this.repositorioConta.getContas().size(); i++){
@@ -21,7 +22,7 @@ public class CadastroConta{
 				return true;
 			}
 		}	
-		return false;
+		throw new LoginIncorretoException();
 	}
 	
 	public boolean adicionarConta(Conta conta){
