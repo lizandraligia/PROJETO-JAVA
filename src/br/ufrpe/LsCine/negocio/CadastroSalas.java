@@ -1,41 +1,39 @@
 package br.ufrpe.LsCine.negocio;
+import java.util.ArrayList;
+
 import br.ufrpe.LsCine.dados.RepositorioSalas;
+import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
+import br.ufrpe.LsCine.interfaces.IRepositorioSalas;
 import br.ufrpe.LsCine.negocio.beans.Salas;
 
 public class CadastroSalas {
 	
-	private RepositorioSalas repositorioSalas;
+	private IRepositorioSalas repositorioSalas;
 	
-	public CadastroSalas() {
-		this.repositorioSalas = new RepositorioSalas();
+	public CadastroSalas(IRepositorioSalas repositorio) {
+		this.repositorioSalas = repositorio;
 	}
 	
 	public boolean adicionar(Salas sala){
 		if (sala == null) {
 			return false;
 		}
-		if(repositorioSalas.getLim() == repositorioSalas.getSala().length){
-			return false;
-		}
-		if(!this.repositorioSalas.existe(sala.getNumero())){
-			return false;
-		}
 		return this.repositorioSalas.adicionar(sala);
 	}
 		
 	public boolean remover(int idSala){
-		if(this.repositorioSalas.buscar(idSala) != null){
+		if(this.repositorioSalas.procurar(idSala) != null){
 				return this.repositorioSalas.remover(idSala);
 		}
 		return false;
 	}
 	
 	public Salas procurarId(int idSala){
-		return this.repositorioSalas.buscar(idSala);		
+		return this.repositorioSalas.procurar(idSala);		
 	}
 	
 	public String procurarTipo(int idSala){
-		return this.repositorioSalas.buscar(idSala).getTipo();
+		return this.repositorioSalas.procurar(idSala).getTipo();
 	} 
 	
 	public boolean editar(Salas sala){
@@ -45,12 +43,12 @@ public class CadastroSalas {
 		return this.repositorioSalas.alterar(sala);
 	}
 	
-	public RepositorioSalas getRepositorioSalas() {		
+	public IRepositorioSalas getRepositorioSalas() {		
 		return this.repositorioSalas;
 	}
 	
-	public void listar(){
-		this.repositorioSalas.listar();
+	public ArrayList<Salas> listar(){
+		return this.repositorioSalas.listar();
 	}
 
 }
