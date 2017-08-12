@@ -233,22 +233,24 @@ public class Tela {
 					String minutos = input.next();
 					Date data = new Date();
 					Date data2 = new Date();
-					/*int final1;
+					int final1, hrsfim, minfim;
 					final1 = filmes.getDuracao();
-					final1 = final1 / 2;
+					final1 = final1 / 60;
+					hrsfim = Integer.parseInt(horas) + final1;
 					int final2 = filmes.getDuracao();
-					final2 = final2 % 2;*/
+					final2 = final2 % 60;
+					minfim = Integer.parseInt(minutos) + final2;
 					data.setHours(Integer.parseInt(horas));
 					data.setMinutes(Integer.parseInt(minutos));
-					
-					data2.setMinutes(data.getMinutes() + filmes.getDuracao());
+					data2.setHours(hrsfim);
+					data2.setMinutes(minfim);
 					//data.setHours(Integer.parseInt(horas + final1));
 					//data.setMinutes(Integer.parseInt(minutos + final2));
 					Sessao sessao = new Sessao(filmes, salan, data, data2, id);
 					fachada.adicionarSessao(sessao);
 					break;
 				
-				case 2:
+				/*case 2:
 					fachada.listarSessoes();
 					System.out.println("\n\nDigite o nome do filme:");
 					String snome = input.nextLine();
@@ -271,7 +273,7 @@ public class Tela {
 					else{
 						fachada.buscarSessaoPorSala(sal);
 					}
-					break;
+					break;*/
 				case 4: 
 					System.out.println("Digite a ID da sessao que deseja remover:");
 					int remove = input.nextInt();
@@ -315,6 +317,7 @@ public class Tela {
 					System.out.println("1- 3D");
 					System.out.println("2- IMAX 2D");
 					System.out.println("3- IMAX 3D");
+					System.out.println("4- NORMAL");
 					do{
 					chs = input.nextInt();					
 					switch(chs){
@@ -330,13 +333,21 @@ public class Tela {
 						s3d = true;
 						imax = true;
 						break;
+					case 4:
+						s3d = false;
+						imax = false;
+						break;
 					default:
 							System.out.println("Opcao invalida.");
 							break;
 					}
-					}while(chs > 3 || chs < 1);
+					}while(chs > 4 || chs < 1);
 					Salas nova = new Salas(num,s3d,imax);
-					fachada.adicionarSala(nova);
+					if(fachada.adicionarSala(nova)){
+						System.out.println("Sala adicionada com sucesso");
+					}else{
+						System.out.println("Não foi possível adicionar a sala");
+					}
 					break;
 				
 				case 2:
@@ -354,8 +365,13 @@ public class Tela {
 				
 				case 3:
 					int css;
-					System.out.println("Salas cadastradas no momento.");
-					fachada.listarSalas();
+					ArrayList<Salas> lista = new ArrayList<Salas>();
+					try{
+					lista = fachada.listarSalas();
+					System.out.println("Salas cadastradas no momento.");					
+					for(int l = 0; l<lista.size(); l++){
+						System.out.println(lista.get(l).toString());
+					}
 					System.out.println("Digite o numero da sala que deseja remover.");
 					css = input.nextInt();
 					if(fachada.procurarIdSala(css) != null){
@@ -363,7 +379,9 @@ public class Tela {
 					}else{
 						System.out.println("Nao foi possivel remover a sala.");
 					}
-										
+					}catch(Exception e){
+						System.out.println("Não existe salas cadastradas no momento.");
+					}										
 					break;
 				case 4:
 					int cho;
@@ -383,7 +401,7 @@ public class Tela {
 					if(fachada.procurarIdSala(cha) != null){
 						boolean v3d = false;
 						boolean vimax = false;					
-						System.out.println("Tipo de sessão:");
+						System.out.println("Tipo de sessÃ£o:");
 						System.out.println("1- 3D");
 						System.out.println("2- IMAX 2D");
 						System.out.println("3- IMAX 3D");
