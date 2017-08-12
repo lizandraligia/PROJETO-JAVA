@@ -1,14 +1,15 @@
 package br.ufrpe.LsCine.negocio;
 import br.ufrpe.LsCine.dados.RepositorioSessao;
+import br.ufrpe.LsCine.interfaces.IRepositorioSessao;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
 
 public class CadastroSessao {
 
-	private RepositorioSessao repositorior;
+	private IRepositorioSessao repositorioSessao;
 	
-	public CadastroSessao() {
-		this.repositorior = new RepositorioSessao();
+	public CadastroSessao(IRepositorioSessao repositorio) {
+		this.repositorioSessao = repositorio;
 	}
 	
 	public boolean adicionarSessao(Sessao sessao){
@@ -16,7 +17,7 @@ public class CadastroSessao {
 			return false;
 		}
 		
-		if(sessao.getSala().getTipo().equals("IMAX 3D")){
+		/*if(sessao.getSala().getTipo().equals("IMAX 3D")){
 			if(this.repositorior.getLim() == 2) {
 				return false;
 			}
@@ -32,14 +33,14 @@ public class CadastroSessao {
 			if(this.repositorior.getLim() == 4) {
 				return false;
 			}
-		}
-		return this.repositorior.adicionar(sessao);
+		}*/
+		return this.repositorioSessao.adicionar(sessao);
 		
 	}
 	
 	public boolean removerSessao(int id){
-		if(this.repositorior.buscar(id)!=null){
-			return this.repositorior.remover(id);
+		if(this.repositorioSessao.procurar(id)!=null){
+			return this.repositorioSessao.remover(id);
 		}
 		return false;
 	}
@@ -47,28 +48,28 @@ public class CadastroSessao {
 		return true;
 	}
 	
-	public void buscarPorFilme(String nome){
-			if(this.repositorior.buscarNome(nome) != null){
-				this.repositorior.listarNome(nome);
+	/*public void buscarPorFilme(String nome){
+			if(this.repositorioSessao.buscarNome(nome) != null){
+				this.repositorioSessao.listarNome(nome);
 			}		
 	}
 	
 	public void buscarPorSala(int sala){
-			if(this.repositorior.buscar(sala) != null){
-				this.repositorior.listarSala(sala);
+			if(this.repositorioSessao.buscar(sala) != null){
+				this.repositorioSessao.listarSala(sala);
 			}		
-	}		
+	}		*/
 	
-	public RepositorioSessao getRepositorioSessao() {
-		return repositorior;
+	public IRepositorioSessao getRepositorioSessao() {
+		return repositorioSessao;
 	}
 
 	public void setRepositorioSessao(RepositorioSessao repositorioSessao) {
-		this.repositorior = repositorioSessao;
+		this.repositorioSessao = repositorioSessao;
 	}
 	
 	public void listar(){
-		this.repositorior.listar();
+		this.repositorioSessao.listar();
 	}
 
 }
