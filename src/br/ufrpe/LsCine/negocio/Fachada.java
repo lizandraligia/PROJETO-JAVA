@@ -17,8 +17,8 @@ public class Fachada {
 	private Fachada(){
 		this.cadastroF = new CadastroFilme(new RepositorioFilme());
 		this.cadastroI = new CadastroIngresso(new RepositorioIngresso());
-		this.cadastroSa = new CadastroSalas();
-		this.cadastroSe = new CadastroSessao();
+		this.cadastroSa = new CadastroSalas(new RepositorioSalas());
+		this.cadastroSe = new CadastroSessao(new RepositorioSessao());
 		this.cadastroCo = new CadastroConta(new RepositorioConta());
 	}
 	
@@ -87,8 +87,8 @@ public class Fachada {
 		return this.cadastroSa.editar(sala);
 	}
 	
-	public void listarSalas(){
-		this.cadastroSa.listar();
+	public ArrayList<Salas> listarSalas(){
+		return this.cadastroSa.listar();
 	}
 	
 	//SESSAO
@@ -109,13 +109,13 @@ public class Fachada {
 		this.cadastroSe.listar();
 	}
 	
-	public void buscarSessaoPorFilme(String nome){
+	/*public void buscarSessaoPorFilme(String nome){
 		this.cadastroSe.buscarPorFilme(nome);
 	}
 	
 	public void buscarSessaoPorSala(int sala){
 		this.cadastroSe.buscarPorSala(sala);
-	}
+	}*/
 	
 	//CONTA
 
