@@ -6,9 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.ufrpe.LsCine.gui.AdicionarFilmeController">
-   <center>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarFilmeController">
+   <bottom>
       <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="266.0" layoutY="141.0" text="Adicionar Filme ">
@@ -16,27 +15,32 @@
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="200.0" layoutY="251.0" text="Nome">
+            <Label layoutX="176.0" layoutY="252.0" text="Nome">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="185.0" layoutY="292.0" text="Duração">
+            <Label layoutX="176.0" layoutY="302.0" text="Duração">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="92.0" layoutY="337.0" text="Classificação Indicativa">
+            <Label layoutX="176.0" layoutY="335.0" text="Classificação ">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="266.0" layoutY="247.0" prefHeight="25.0" prefWidth="265.0" />
-            <TextField layoutX="266.0" layoutY="288.0" prefHeight="25.0" prefWidth="265.0" />
-            <TextField layoutX="266.0" layoutY="333.0" prefHeight="25.0" prefWidth="265.0" />
-            <Button layoutX="266.0" layoutY="404.0" mnemonicParsing="false" onAction="#inserir" prefHeight="25.0" prefWidth="82.0" text="Salvar" />
-            <Button layoutX="453.0" layoutY="404.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="78.0" text="Voltar" />
+            <TextField fx:id="tfNome" layoutX="266.0" layoutY="247.0" prefHeight="25.0" prefWidth="265.0" />
+            <TextField fx:id="tfDuracao" layoutX="266.0" layoutY="297.0" prefHeight="25.0" prefWidth="265.0" />
+            <Button layoutX="620.0" layoutY="247.0" mnemonicParsing="false" onAction="#inserir" prefHeight="25.0" prefWidth="82.0" text="Salvar" />
+            <Button layoutX="621.0" layoutY="290.0" mnemonicParsing="false" onAction="#voltar" prefHeight="25.0" prefWidth="81.0" text="Voltar" />
+            <Label layoutX="184.0" layoutY="348.0" text="Indicativa">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="cbClassificacao" layoutX="266.0" layoutY="339.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
-   </center>
+   </bottom>
 </BorderPane>
