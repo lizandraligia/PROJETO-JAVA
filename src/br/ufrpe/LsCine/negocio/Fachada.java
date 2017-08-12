@@ -127,7 +127,7 @@ public class Fachada {
 		return this.cadastroCo.removerConta(login);
 	}
 	
-	public boolean logar(String login, String senha){
+	public boolean logar(String login, String senha) throws LoginIncorretoException{
 		return this.cadastroCo.logar(login, senha);
 	}
 
