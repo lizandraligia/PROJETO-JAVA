@@ -4,9 +4,9 @@ public class Filme {
 
 	private String nome;
 	private int duracao; 
-	private int classificacao; 
+	private String classificacao; 
 	
-	public Filme(String nome, int duracao, int classificacao){
+	public Filme(String nome, int duracao, String classificacao){
 		this.nome = nome;
 		this.duracao = duracao;
 		this.classificacao = classificacao;	
@@ -17,7 +17,7 @@ public class Filme {
 	}
 	
 	public String toString() {
-		return "Filme [Nome: " + nome + ", duracao: " + duracao + ", classificacao " + this.getClassificacao() + "]";
+		return "Filme [Nome: " + nome + ", duracao: " + duracao + ", classificacao " + classificacao + "]";
 	}
 	
 	public String getNome() {
@@ -37,7 +37,7 @@ public class Filme {
 	}
 	
 	public String getClassificacao() {
-		if(classificacao==1){
+		/*if(classificacao==1){
 			return "Livre";
 		}
 		if(classificacao==2){
@@ -55,10 +55,11 @@ public class Filme {
 		if(classificacao==6){
 			return "+18";
 		}
-		return"nao encontrada";
+		return"nao encontrada";*/
+		return classificacao;
 	}
 	
-	public void setClassificacao(int classificacao) {
+	public void setClassificacao(String classificacao) {
 		this.classificacao = classificacao;
 	}
 

@@ -18,7 +18,7 @@ public class LoginController {
 		String login = this.tfLogin.getText();
 		String senha = this.tfSenha.getText();
 		try{
-			this.fachada.getCadastroCo().logar(login, senha);
+			this.fachada.logar(login, senha);
 			Telas.getInstance().getMenu();
 
 		}
