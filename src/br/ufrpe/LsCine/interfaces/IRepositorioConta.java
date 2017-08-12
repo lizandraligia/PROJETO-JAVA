@@ -1,6 +1,7 @@
 package br.ufrpe.LsCine.interfaces;
 
 import br.ufrpe.LsCine.negocio.beans.Conta;
+import java.util.ArrayList;
 
 public interface IRepositorioConta {
 
