@@ -132,6 +132,8 @@ public class Fachada {
 		return this.cadastroCo.logar(login, senha);
 	}
 
+	//GETTERS E SETTERS
+
 	public CadastroConta getCadastroCo() {
 		return cadastroCo;
 	}
@@ -146,6 +148,30 @@ public class Fachada {
 
 	public void setCadastroF(CadastroFilme cadastroF) {
 		this.cadastroF = cadastroF;
+	}
+
+	public CadastroIngresso getCadastroI() {
+		return cadastroI;
+	}
+
+	public void setCadastroI(CadastroIngresso cadastroI) {
+		this.cadastroI = cadastroI;
+	}
+
+	public CadastroSalas getCadastroSa() {
+		return cadastroSa;
+	}
+
+	public void setCadastroSa(CadastroSalas cadastroSa) {
+		this.cadastroSa = cadastroSa;
+	}
+
+	public CadastroSessao getCadastroSe() {
+		return cadastroSe;
+	}
+
+	public void setCadastroSe(CadastroSessao cadastroSe) {
+		this.cadastroSe = cadastroSe;
 	}
 	
 }
