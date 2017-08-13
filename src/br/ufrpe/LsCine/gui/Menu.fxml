@@ -11,16 +11,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.MenuController">
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
             <TableView layoutX="44.0" layoutY="29.0" prefHeight="420.0" prefWidth="368.0">
               <columns>
-                <TableColumn prefWidth="190.0" text="Filme" />
+                <TableColumn fx:id="FilmesNome" prefWidth="190.0" text="Filme" />
                 <TableColumn prefWidth="67.0" text="Clas." />
-                  <TableColumn prefWidth="110.0" text="Horários" />
+                  <TableColumn prefWidth="110.0" text="Horário" />
               </columns>
             </TableView>
          </children></AnchorPane>
@@ -40,7 +39,17 @@
               <MenuItem mnemonicParsing="false" text="Remover filme" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false"  text="Financeiro">  
+          <Menu mnemonicParsing="false" text="Geral">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#adicionarSala" text="Adicionar Sala" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Geral">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#adicionarSessao" text="Adicionar Sessao" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Financeiro">  
            <items>
               <MenuItem mnemonicParsing="false" onAction="#financeiro" text="Financeiro" />
            </items>
