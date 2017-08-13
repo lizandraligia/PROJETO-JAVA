@@ -51,6 +51,24 @@ public class MenuController implements Initializable{
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void adicionarSala(){
+		try{
+			Telas.getInstance().getAdicionarSala();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void adicionarSessao(){
+		try{
+			Telas.getInstance().getAdicionarSessao();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 
 	public void financeiro(){
 		try{
