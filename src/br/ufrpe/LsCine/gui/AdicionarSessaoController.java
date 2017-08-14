@@ -50,11 +50,7 @@ public class AdicionarSessaoController implements Initializable {
 			data2.setHours(hrsfim);
 			data2.setMinutes(minfim);			
 			Sessao sessao = new Sessao(filmes, salan, data, data2, Integer.parseInt(ID.getText()));
-			fachada.getInstancia().getCadastroSe().adicionarSessao(sessao);
-			for(int i=0; i<fachada.getInstancia().getCadastroSe().listar() i++){
-				System.out.println(fachada.getInstancia().getCadastroSa().listar().get(i).toString());
-			}
-			
+			fachada.getInstancia().getCadastroSe().adicionarSessao(sessao);			
 			
 		}
 		catch(Exception e){

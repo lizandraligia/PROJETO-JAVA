@@ -22,6 +22,8 @@ public class MenuController implements Initializable{
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	
 	/*
 	public void financeiro(){	
 		try{	
@@ -61,9 +63,27 @@ public class MenuController implements Initializable{
 		}
 	}
 	
+	public void removerSala(){
+		try{
+			Telas.getInstance().getRemoverSala();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void adicionarSessao(){
 		try{
 			Telas.getInstance().getAdicionarSessao();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void removerSessao(){
+		try{
+			Telas.getInstance().getRemoverSessao();
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
@@ -78,4 +98,6 @@ public class MenuController implements Initializable{
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	
 }

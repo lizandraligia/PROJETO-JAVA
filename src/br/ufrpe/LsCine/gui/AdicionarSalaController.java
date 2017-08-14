@@ -10,6 +10,7 @@ import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Salas;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 
 public class AdicionarSalaController implements Initializable {
 	
@@ -30,13 +31,20 @@ public class AdicionarSalaController implements Initializable {
 		try{
 			Salas sala = new Salas(Integer.parseInt(JXID.getText()), s3D.selectedProperty().get(), IMAX.selectedProperty().get());
 			fachada.getInstancia().getCadastroSa().adicionar(sala);
+			System.out.println("adicionado");
+			
 			for(int i=0; i<fachada.getInstancia().getCadastroSa().listar().size(); i++){
 				System.out.println(fachada.getInstancia().getCadastroSa().listar().get(i).toString());
 			}
 			
+			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+	        dialogoInfo.setTitle("A SALA FOI ADICIONADA COM SUCESSO!");
+	        dialogoInfo.setHeaderText(null);
+	        dialogoInfo.setContentText(sala.toString());
+	        dialogoInfo.showAndWait();
 			
-		}
-		catch(Exception e){
+			
+		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 	}

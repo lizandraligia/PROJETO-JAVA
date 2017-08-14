@@ -8,12 +8,15 @@ public class Telas {
 
 	BorderPane paneLogin;
 	BorderPane border;
-	FXMLLoader login, menu, adicionarFilme, financeiro, adicionarSala, adicionarSessao;
+	FXMLLoader login, menu, adicionarFilme, financeiro, adicionarSala, adicionarSessao, adicionado, removerSala, removerSessao;
 	BorderPane paneMenu;
 	BorderPane paneAdicionarFilme; 
 	BorderPane paneFinanceiro;
 	BorderPane paneAdicionarSala;
 	BorderPane paneAdicionarSessao;
+	BorderPane paneRemoverSala;
+	BorderPane paneRemoverSessao;
+	
 	
 	
 	public static Telas instancia;
@@ -39,6 +42,10 @@ public class Telas {
 			this.paneAdicionarSala = adicionarSala.load();
 			adicionarSessao = new FXMLLoader(this.getClass().getResource("AdicionarSessao.fxml"));
 			this.paneAdicionarSessao = adicionarSessao.load();
+			removerSala = new FXMLLoader(this.getClass().getResource("RemoverSala.fxml"));
+			this.paneRemoverSala = removerSala.load();
+			removerSessao = new FXMLLoader(this.getClass().getResource("RemoverSessao.fxml"));
+			this.paneRemoverSessao = removerSessao.load();
 			this.border = Main.getRoot();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -68,5 +75,15 @@ public class Telas {
 	public void getAdicionarSessao(){
 		border.setCenter(this.paneAdicionarSessao);
 	}
+	
+	public void getRemoverSala(){
+		border.setCenter(this.paneRemoverSala);
+	}
+	
+	public void getRemoverSessao(){
+		border.setCenter(this.paneRemoverSessao);
+	}
+	
+	
 	
 }

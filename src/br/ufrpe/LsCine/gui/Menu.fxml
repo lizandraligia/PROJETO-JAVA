@@ -32,21 +32,23 @@
               <MenuItem mnemonicParsing="false" onAction="#home" text="Inicio" />
            </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Geral">
+          <Menu mnemonicParsing="false" text="Filmes">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#adicionarFilme" text="Adicionar filme" />
               <MenuItem mnemonicParsing="false" text="Modificar filme" />
               <MenuItem mnemonicParsing="false" text="Remover filme" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Geral">
+          <Menu mnemonicParsing="false" text="Salas">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#adicionarSala" text="Adicionar Sala" />
+              <MenuItem mnemonicParsing="false" onAction="#removerSala" text="Remover Sala" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Geral">
+          <Menu mnemonicParsing="false" text="Sessões">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#adicionarSessao" text="Adicionar Sessao" />
+              <MenuItem mnemonicParsing="false" onAction="#removerSessao" text="Remover Sessao" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Financeiro">  
