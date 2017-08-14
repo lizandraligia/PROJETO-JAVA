@@ -1,4 +1,6 @@
 package br.ufrpe.LsCine.negocio;
+import java.util.ArrayList;
+
 import br.ufrpe.LsCine.dados.RepositorioSessao;
 import br.ufrpe.LsCine.interfaces.IRepositorioSessao;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
@@ -17,23 +19,6 @@ public class CadastroSessao {
 			return false;
 		}
 		
-		/*if(sessao.getSala().getTipo().equals("IMAX 3D")){
-			if(this.repositorior.getLim() == 2) {
-				return false;
-			}
-		}
-		
-		if(sessao.getSala().getTipo().equals("IMAX 2D")){
-			if(this.repositorior.getLim() == 2) {
-				return false;
-			}
-		}
-		
-		if(sessao.getSala().getTipo().equals("3D")){
-			if(this.repositorior.getLim() == 4) {
-				return false;
-			}
-		}*/
 		return this.repositorioSessao.adicionar(sessao);
 		
 	}
@@ -48,13 +33,17 @@ public class CadastroSessao {
 		return true;
 	}
 	
-	/*public void buscarPorFilme(String nome){
+	public void buscarPorFilme(String nome){
 			if(this.repositorioSessao.buscarNome(nome) != null){
 				this.repositorioSessao.listarNome(nome);
 			}		
 	}
 	
-	public void buscarPorSala(int sala){
+	public Sessao procurarID(int codigo){
+			return this.repositorioSessao.procurar(codigo);			
+	}
+	
+	/*public void buscarPorSala(int sala){
 			if(this.repositorioSessao.buscar(sala) != null){
 				this.repositorioSessao.listarSala(sala);
 			}		
@@ -68,8 +57,8 @@ public class CadastroSessao {
 		this.repositorioSessao = repositorioSessao;
 	}
 	
-	public void listar(){
-		this.repositorioSessao.listar();
+	public ArrayList<Sessao> listar(){
+		return this.repositorioSessao.listar();
 	}
 
 }
