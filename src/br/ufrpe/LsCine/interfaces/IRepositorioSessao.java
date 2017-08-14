@@ -10,6 +10,7 @@ public interface IRepositorioSessao {
 	public boolean remover(int numero);	
 	public boolean alterar(Sessao sala);	
 	public ArrayList<Sessao> listar();
-	public int buscar(Sessao sala);	
+	public void listarNome(String nome);
+	public Sessao buscarNome(String nome);
 	
 }
