@@ -93,7 +93,7 @@ public class RepositorioSalas implements IRepositorioSalas, Serializable{
 	
 	public Salas procurar(int codigo) {		
 		int posicao = this.retornarPosicao(codigo);		
-		return (posicao != -1) ? this.salas.get(codigo) : null; 
+		return (posicao != -1) ? this.salas.get(posicao) : null; 
 	}
 	
 	private int retornarPosicao(int numero) {		
