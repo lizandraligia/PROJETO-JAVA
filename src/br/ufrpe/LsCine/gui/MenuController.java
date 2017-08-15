@@ -75,6 +75,15 @@ public class MenuController implements Initializable{
 		}
 	}
 	
+	public void removerFilme(){
+		try{
+			Telas.getInstance().getRemoverFilme();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void adicionarSala(){
 		try{
 			Telas.getInstance().getAdicionarSala();
