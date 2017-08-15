@@ -8,13 +8,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 
 public class AdicionarFilmeController{
 	
 	private Fachada fachada = Fachada.getInstancia();
 	
-	@FXML TextField tfNome, tfDuracao;
-	@FXML ChoiceBox<String> cbClassificacao, cbIdioma;
+	@FXML JFXTextField tfNome, tfDuracao;
+	@FXML JFXComboBox <String> cbIdioma, cbClassificacao; 
 	@FXML ObservableList<String> list = FXCollections.observableArrayList("Livre","+10","+12","+14","+16","+18");
 	@FXML ObservableList<String> list2 = FXCollections.observableArrayList("Dublado","Legendado");
 	
