@@ -89,6 +89,15 @@ public class MenuController implements Initializable{
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void comprarIngresso(){
+		try{
+			Telas.getInstance().getComprarIngresso();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 
 	public void financeiro(){
 		try{

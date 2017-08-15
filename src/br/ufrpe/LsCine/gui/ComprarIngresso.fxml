@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.ComprarIngressoController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="118.0" layoutY="23.0" text="COMPRAR INGRESSO">
+               <font>
+                  <Font name="Arial Bold" size="48.0" />
+               </font>
+            </Label>
+            <ListView fx:id="list" layoutX="420.0" layoutY="94.0" prefHeight="431.0" prefWidth="316.0" />
+            <JFXToggleButton fx:id="Meia" layoutX="68.0" layoutY="282.0" />
+            <Label layoutX="68.0" layoutY="165.0" text="ID DA SESSÃO: ">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="226.0" text="ASSENTO:">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="IDS" layoutX="209.0" layoutY="163.0" />
+            <JFXTextField fx:id="Letra" layoutX="209.0" layoutY="224.0" prefHeight="25.0" prefWidth="55.0" text="A-J" />
+            <JFXTextField fx:id="Num" layoutX="277.0" layoutY="224.0" prefHeight="25.0" prefWidth="55.0" text="1-20" />
+            <JFXButton buttonType="RAISED" layoutX="68.0" layoutY="419.0" onAction="#comprar" prefHeight="43.0" prefWidth="104.0" text="COMPRAR">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="253.0" layoutY="419.0" onAction="#voltar" prefHeight="43.0" prefWidth="104.0" text="VOLTAR">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
