@@ -4,16 +4,34 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import br.ufrpe.LsCine.negocio.Fachada;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MenuController implements Initializable{
 
 	private Fachada fachada = Fachada.getInstancia();
+	
+	@FXML TableView <Filme> tabela;
+	@FXML TableColumn <Filme, String> tcFilme, tcClas, tcIdioma;
+	@FXML TableColumn <Filme, Integer> tcDur;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 	}
 		
+	public void tabela(){
+		tcFilme.setCellValueFactory(new PropertyValueFactory<Filme, String>("nome"));
+		tcDur.setCellValueFactory(new PropertyValueFactory<Filme, Integer>("duracao"));
+		tcClas.setCellValueFactory(new PropertyValueFactory<Filme, String>("classificacao"));
+		tcIdioma.setCellValueFactory(new PropertyValueFactory<Filme, String>("idioma"));
+		
+		tabela.setItems(FXCollections.observableList(Fachada.getInstancia().getCadastroF().getRepositorioF().listar()));
+		tabela.refresh();
+	}
+	
 	public void home(){
 		try{
 			Telas.getInstance().getMenu();
