@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.ufrpe.LsCine.gui.RemoverFilmeController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="275.0" layoutY="91.0" text="Remover Filme">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="178.0" layoutY="252.0" text="Nome do filme">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="tfNome" layoutX="311.0" layoutY="248.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXButton layoutX="178.0" layoutY="350.0" onAction="#removerb" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #6495ED;" text="Remover" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="437.0" layoutY="350.0" onAction="#voltar" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #6495ED;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
