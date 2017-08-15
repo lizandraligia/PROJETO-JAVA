@@ -40,6 +40,12 @@
                </font>
             </Label>
             <ChoiceBox fx:id="cbClassificacao" layoutX="266.0" layoutY="339.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="cbIdioma" layoutX="266.0" layoutY="384.0" prefWidth="150.0" />
+            <Label layoutX="181.0" layoutY="389.0" text="Idioma">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </bottom>
