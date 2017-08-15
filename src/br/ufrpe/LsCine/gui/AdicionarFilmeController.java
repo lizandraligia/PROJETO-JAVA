@@ -9,7 +9,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class AdicionarFilmeController implements Initializable{
+public class AdicionarFilmeController{
 	
 	private Fachada fachada = Fachada.getInstancia();
 	
