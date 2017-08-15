@@ -1,5 +1,8 @@
 package br.ufrpe.LsCine.exceptions;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class FilmeExistenteException extends Exception {
 	
 	public FilmeExistenteException() {
