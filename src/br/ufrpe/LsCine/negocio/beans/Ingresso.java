@@ -3,15 +3,18 @@ package br.ufrpe.LsCine.negocio.beans;
 public class Ingresso {
 
 	private int tipo; 
+	private int lugar;
 	private float valor;
 	private Sessao sessao; 
 	private int id;
 	
-	public Ingresso(int tipo, float valor, Sessao sessao){
+	public Ingresso(int tipo, float valor, Sessao sessao, int lugar, int id){
 		this.tipo = tipo;
 		this.valor = valor;
+		this.valor = this.getValor();
 		this.sessao = sessao;
-		//this.id = id;
+		this.lugar = lugar;
+		this.id = id;
 	}
 	
 	public Ingresso(){
@@ -56,4 +59,11 @@ public class Ingresso {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "Ingresso \ntipo=" + tipo + "\nlugar=" + lugar + "\nvalor=" + valor + "\nsessao=" + sessao + "\nid=" + id;
+	}
+	
+	
 }

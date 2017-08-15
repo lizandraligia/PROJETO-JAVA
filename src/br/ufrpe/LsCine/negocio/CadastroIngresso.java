@@ -20,10 +20,9 @@ public class CadastroIngresso {
 		this.repositorioI = repositorioI;
 	}
 
-	public boolean cadastrar(Ingresso ingresso){
-		
-		if(this.repositorioI.inserir(ingresso)==true){
-			return true;
+	public boolean cadastrar(Ingresso ingresso){		
+		if(ingresso!=null){
+			return this.repositorioI.inserir(ingresso);
 		}
 		return false;
 	}
