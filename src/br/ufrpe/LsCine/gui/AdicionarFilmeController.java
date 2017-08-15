@@ -37,6 +37,12 @@ public class AdicionarFilmeController{
 			Fachada.getInstancia().getCadastroF().cadastrar(f);
 			//fachada.getInstancia().getCadastroF().cadastrar(f);
 			
+			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+	        	dialogoInfo.setTitle("Filme adicionado com sucesso!");
+	        	dialogoInfo.setHeaderText(null);
+	        	dialogoInfo.setContentText(f.toString());
+	        	dialogoInfo.showAndWait();
+			
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
