@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -14,19 +16,14 @@
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="447.0" layoutY="344.0" mnemonicParsing="false" onAction="#Login" text="Entrar" />
-            <Label layoutX="209.0" layoutY="306.0" text="Senha">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="209.0" layoutY="263.0" text="Usuário">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="tfLogin" layoutX="293.0" layoutY="261.0" prefHeight="25.0" prefWidth="202.0" />
-            <PasswordField fx:id="tfSenha" layoutX="293.0" layoutY="304.0" onAction="#Login" prefHeight="25.0" prefWidth="202.0" />
+            <ImageView fitHeight="610.0" fitWidth="760.0" layoutX="-7.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagens/Login.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="320.0" layoutY="502.0" mnemonicParsing="false" onAction="#Login" opacity="0.0" prefHeight="46.0" prefWidth="116.0" />
+            <TextField fx:id="tfLogin" layoutX="352.0" layoutY="419.0" prefHeight="25.0" prefWidth="147.0" />
+            <PasswordField fx:id="tfSenha" layoutX="352.0" layoutY="458.0" onAction="#Login" prefHeight="25.0" prefWidth="149.0" />
          </children>
       </AnchorPane>
    </center>

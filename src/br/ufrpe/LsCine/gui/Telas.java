@@ -8,10 +8,17 @@ public class Telas {
 
 	BorderPane paneLogin;
 	BorderPane border;
-	FXMLLoader login, menu, adicionarFilme, financeiro;
+	FXMLLoader login, menu, adicionarFilme, financeiro, adicionarSala, adicionarSessao, adicionado, removerSala, removerSessao,  removerFilme;
 	BorderPane paneMenu;
 	BorderPane paneAdicionarFilme; 
 	BorderPane paneFinanceiro;
+	BorderPane paneAdicionarSala;
+	BorderPane paneAdicionarSessao;
+	BorderPane paneRemoverSala;
+	BorderPane paneRemoverSessao;
+	BorderPane paneRemoverFilme;
+	
+	
 	
 	public static Telas instancia;
 	
@@ -32,6 +39,16 @@ public class Telas {
 			this.paneAdicionarFilme = adicionarFilme.load();
 			financeiro = new FXMLLoader(this.getClass().getResource("Financeiro.fxml"));
 			this.paneFinanceiro = financeiro.load();
+			adicionarSala = new FXMLLoader(this.getClass().getResource("AdicionarSala.fxml"));
+			this.paneAdicionarSala = adicionarSala.load();
+			adicionarSessao = new FXMLLoader(this.getClass().getResource("AdicionarSessao.fxml"));
+			this.paneAdicionarSessao = adicionarSessao.load();
+			removerSala = new FXMLLoader(this.getClass().getResource("RemoverSala.fxml"));
+			this.paneRemoverSala = removerSala.load();
+			removerSessao = new FXMLLoader(this.getClass().getResource("RemoverSessao.fxml"));
+			this.paneRemoverSessao = removerSessao.load();
+			removerFilme = new FXMLLoader(this.getClass().getResource("RemoverFilme.fxml"));
+			this.paneRemoverFilme = removerFilme.load();
 			this.border = Main.getRoot();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -52,6 +69,26 @@ public class Telas {
 	
 	public void getFinanceiro(){
 		border.setCenter(this.paneFinanceiro);
+	}
+	
+	public void getAdicionarSala(){
+		border.setCenter(this.paneAdicionarSala);
+	}
+	
+	public void getAdicionarSessao(){
+		border.setCenter(this.paneAdicionarSessao);
+	}
+	
+	public void getRemoverSala(){
+		border.setCenter(this.paneRemoverSala);
+	}
+	
+	public void getRemoverSessao(){
+		border.setCenter(this.paneRemoverSessao);
+	}
+	
+	public void getRemoverFilme(){
+		border.setCenter(this.paneRemoverFilme);
 	}
 	
 	

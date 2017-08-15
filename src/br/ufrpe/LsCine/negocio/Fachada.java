@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import br.ufrpe.LsCine.dados.*;
 import br.ufrpe.LsCine.negocio.beans.*;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
+import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
 
 public class Fachada {
 
@@ -17,8 +18,8 @@ public class Fachada {
 	private Fachada(){
 		this.cadastroF = new CadastroFilme(new RepositorioFilme());
 		this.cadastroI = new CadastroIngresso(new RepositorioIngresso());
-		this.cadastroSa = new CadastroSalas();
-		this.cadastroSe = new CadastroSessao();
+		this.cadastroSa = new CadastroSalas(new RepositorioSalas());
+		this.cadastroSe = new CadastroSessao(new RepositorioSessao());
 		this.cadastroCo = new CadastroConta(new RepositorioConta());
 	}
 	
@@ -87,8 +88,8 @@ public class Fachada {
 		return this.cadastroSa.editar(sala);
 	}
 	
-	public void listarSalas(){
-		this.cadastroSa.listar();
+	public ArrayList<Salas> listarSalas(){
+		return this.cadastroSa.listar();
 	}
 	
 	//SESSAO
@@ -109,13 +110,13 @@ public class Fachada {
 		this.cadastroSe.listar();
 	}
 	
-	public void buscarSessaoPorFilme(String nome){
+	/*public void buscarSessaoPorFilme(String nome){
 		this.cadastroSe.buscarPorFilme(nome);
 	}
 	
 	public void buscarSessaoPorSala(int sala){
 		this.cadastroSe.buscarPorSala(sala);
-	}
+	}*/
 	
 	//CONTA
 
@@ -131,6 +132,8 @@ public class Fachada {
 		return this.cadastroCo.logar(login, senha);
 	}
 
+	//GETTERS E SETTERS
+
 	public CadastroConta getCadastroCo() {
 		return cadastroCo;
 	}
@@ -145,6 +148,30 @@ public class Fachada {
 
 	public void setCadastroF(CadastroFilme cadastroF) {
 		this.cadastroF = cadastroF;
+	}
+
+	public CadastroIngresso getCadastroI() {
+		return cadastroI;
+	}
+
+	public void setCadastroI(CadastroIngresso cadastroI) {
+		this.cadastroI = cadastroI;
+	}
+
+	public CadastroSalas getCadastroSa() {
+		return cadastroSa;
+	}
+
+	public void setCadastroSa(CadastroSalas cadastroSa) {
+		this.cadastroSa = cadastroSa;
+	}
+
+	public CadastroSessao getCadastroSe() {
+		return cadastroSe;
+	}
+
+	public void setCadastroSe(CadastroSessao cadastroSe) {
+		this.cadastroSe = cadastroSe;
 	}
 	
 }

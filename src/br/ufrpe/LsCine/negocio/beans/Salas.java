@@ -11,6 +11,17 @@ public class Salas {
 		this.numero = numero;
 		this.s3d = s3d;
 		this.imax = imax;
+		
+		if(this.s3d == true && this.imax == true){
+			this.tipo = "IMAX 3D";
+		}else if(this.s3d == true && this.imax != true){
+			this.tipo = "3D";
+		}else if(this.s3d != true && this.imax == true){
+			this.tipo = "IMAX 2D";
+		}else if(this.s3d != true && this.imax != true){
+			this.tipo = "Normal";
+		}
+		
 	}
 	
 	public Salas() {
@@ -45,16 +56,7 @@ public class Salas {
 	}
 	
 	public String getTipo() {
-		if(this.s3d == true && this.imax == true){
-			return "IMAX 3D";
-		}else if(this.s3d == true && this.imax != true){
-			return "3D";
-		}else if(this.s3d != true && this.imax == true){
-			return "IMAX 2D";
-		}else if(this.s3d != true && this.imax != true){
-			return "Normal";
-		}
-		return "nao disponivel";
+		return this.tipo;
 	}
 
 	public void setTipo(String tipo) {
@@ -62,7 +64,7 @@ public class Salas {
 	}
 
 	public String toString() {
-		return "Sala " + this.numero + "\ntipo= " + this.getTipo();
+		return "\tSala " + this.numero + "\n\tTipo= " + this.getTipo();
 	}
 
 }
