@@ -1,25 +1,28 @@
 package br.ufrpe.LsCine.gui;
 
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class AdicionarFilmeController implements Initializable{
 	
 	private Fachada fachada = Fachada.getInstancia();
 	
 	@FXML TextField tfNome, tfDuracao;
+	@FXML ChoiceBox<String> cbClassificacao, cbIdioma;
+	@FXML ObservableList<String> list = FXCollections.observableArrayList("Livre","+10","+12","+14","+16","+18");
+	@FXML ObservableList<String> list2 = FXCollections.observableArrayList("Dublado","Legendado");
 	
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+	@FXML
+	public void initialize() {
+		cbClassificacao.setItems(list);
+		cbIdioma.setItems(list2);
 	}
 	
 	public void inserir(){
@@ -27,7 +30,10 @@ public class AdicionarFilmeController implements Initializable{
 			Filme f = new Filme();
 			f.setNome(tfNome.getText());
 			f.setDuracao(Integer.valueOf(tfDuracao.getText()));
-			fachada.getInstancia().getCadastroF().cadastrar(f);
+			f.setClassificacao(cbClassificacao.getValue());
+			f.setIdioma(cbIdioma.getValue());
+			Fachada.getInstancia().getCadastroF().cadastrar(f);
+			//fachada.getInstancia().getCadastroF().cadastrar(f);
 			
 		}
 		catch(Exception e){
