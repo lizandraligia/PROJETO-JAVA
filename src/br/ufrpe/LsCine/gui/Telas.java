@@ -8,12 +8,8 @@ public class Telas {
 
 	BorderPane paneLogin;
 	BorderPane border;
-<<<<<<< HEAD
 	FXMLLoader login, menu, adicionarFilme, financeiro, adicionarSala, adicionarSessao, adicionado,
-				removerSala, removerSessao, comprarIngresso;
-=======
-	FXMLLoader login, menu, adicionarFilme, financeiro, adicionarSala, adicionarSessao, adicionado, removerSala, removerSessao,  removerFilme;
->>>>>>> 8432f6832531133fc7b43cda80ed3c8424830849
+				removerSala, removerSessao, comprarIngresso,  removerFilme;
 	BorderPane paneMenu;
 	BorderPane paneAdicionarFilme; 
 	BorderPane paneFinanceiro;
@@ -21,11 +17,8 @@ public class Telas {
 	BorderPane paneAdicionarSessao;
 	BorderPane paneRemoverSala;
 	BorderPane paneRemoverSessao;
-<<<<<<< HEAD
 	BorderPane paneComprarIngresso;
-=======
 	BorderPane paneRemoverFilme;
->>>>>>> 8432f6832531133fc7b43cda80ed3c8424830849
 	
 	
 	
@@ -56,13 +49,10 @@ public class Telas {
 			this.paneRemoverSala = removerSala.load();
 			removerSessao = new FXMLLoader(this.getClass().getResource("RemoverSessao.fxml"));
 			this.paneRemoverSessao = removerSessao.load();
-<<<<<<< HEAD
 			comprarIngresso = new FXMLLoader(this.getClass().getResource("ComprarIngresso.fxml"));
 			this.paneComprarIngresso = comprarIngresso.load();
-=======
 			removerFilme = new FXMLLoader(this.getClass().getResource("RemoverFilme.fxml"));
 			this.paneRemoverFilme = removerFilme.load();
->>>>>>> 8432f6832531133fc7b43cda80ed3c8424830849
 			this.border = Main.getRoot();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -100,17 +90,13 @@ public class Telas {
 	public void getRemoverSessao(){
 		border.setCenter(this.paneRemoverSessao);
 	}
-	
-<<<<<<< HEAD
+
 	public void getComprarIngresso(){
 		border.setCenter(this.paneComprarIngresso);
 	}
 	
-=======
 	public void getRemoverFilme(){
 		border.setCenter(this.paneRemoverFilme);
-	}
->>>>>>> 8432f6832531133fc7b43cda80ed3c8424830849
-	
+	}	
 	
 }
