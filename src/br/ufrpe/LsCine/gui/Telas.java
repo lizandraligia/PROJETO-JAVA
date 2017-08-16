@@ -59,12 +59,18 @@ public class Telas {
 		} 
 	}
 	
+	public FXMLLoader getFilme(){
+		return this.menu;
+	}
+	
 	public void getLogin(){	
 		border.setCenter(this.paneLogin);	
 	}
 	
 	public void getMenu(){	
 		border.setCenter(this.paneMenu);
+		MenuController controlador = this.getFilme().getController();
+		controlador.tabela();
 	}
 	
 	public void getAdicionarFilme(){
