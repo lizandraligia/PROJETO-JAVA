@@ -23,10 +23,7 @@
                   <TableColumn fx:id="tcClas" prefWidth="67.0" text="Clas." />
               </columns>
             </TableView>
-            <JFXButton buttonType="RAISED" layoutX="496.0" layoutY="94.0" onAction="#comprarIngresso" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #FF6A6A;" text="Comprar Ingresso" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
+            
             </JFXButton>
          </children></AnchorPane>
    </center>
