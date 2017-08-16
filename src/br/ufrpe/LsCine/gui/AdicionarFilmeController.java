@@ -23,7 +23,6 @@ public class AdicionarFilmeController{
 	@FXML
 	public void initialize() {
 		cbClassificacao.setItems(list);
-		cbIdioma.setItems(list2);
 	}
 	
 	public void inserir(){
