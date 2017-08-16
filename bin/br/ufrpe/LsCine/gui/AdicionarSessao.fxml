@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarSessaoController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXTextField fx:id="Sala" layoutX="341.0" layoutY="270.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXTextField fx:id="HORAFIM" layoutX="416.0" layoutY="310.0" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #F5F5F5;" text="Minutos" />
+            <JFXTextField fx:id="Filme" layoutX="341.0" layoutY="234.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXTextField fx:id="HORAINI" layoutX="342.0" layoutY="310.0" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #F5F5F5;" text="Horas" />
+            <Label layoutX="290.0" layoutY="238.0" text="Filme:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="297.0" layoutY="274.0" prefHeight="17.0" prefWidth="43.0" text="Sala:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="230.0" layoutY="314.0" text="Horário(Início):" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="266.0" layoutY="116.0" text="Adicionar Sessão" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="311.0" layoutY="353.0" text="ID:" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="ID" layoutX="341.0" layoutY="348.0" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXButton buttonType="RAISED" layoutX="200.0" layoutY="469.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="476.0" layoutY="469.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXToggleButton fx:id="leg" layoutX="312.0" layoutY="393.0" text="Legendado" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXToggleButton>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

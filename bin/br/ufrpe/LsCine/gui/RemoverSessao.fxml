@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.RemoverSessaoController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="189.0" layoutY="277.0" text="Escolha a sessão: " textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="IDSessao" layoutX="398.0" layoutY="275.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXButton buttonType="RAISED" layoutX="189.0" layoutY="427.0" onAction="#removerb" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Remover" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="440.0" layoutY="427.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </JFXButton> 
+            <Label layoutX="266.0" layoutY="116.0" text="Excluir Sessão" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.MenuController">
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tabela" layoutX="36.0" layoutY="25.0" prefHeight="428.0" prefWidth="336.0" style="-fx-background-color: #FF6A6A;">
+              <columns>
+                <TableColumn fx:id="tcFilme" prefWidth="160.0" text="Filme" />
+                <TableColumn fx:id="tcDur" prefWidth="67.0" text="Duracao" />
+                  <TableColumn fx:id="tcClas" prefWidth="109.0" text="Clas." />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+          <Menu mnemonicParsing="false" onAction="#home" text="Inicio"> 
+          <items>
+              <MenuItem mnemonicParsing="false" onAction="#home" text="Inicio" />
+           </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Filmes">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#adicionarFilme" text="Adicionar filme" />
+              <MenuItem mnemonicParsing="false" onAction="#removerFilme" text="Remover filme" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Salas">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#adicionarSala" text="Adicionar Sala" />
+              <MenuItem mnemonicParsing="false" onAction="#removerSala" text="Remover Sala" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Sessões">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#adicionarSessao" text="Adicionar Sessao" />
+              <MenuItem mnemonicParsing="false" onAction="#removerSessao" text="Remover Sessao" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Financeiro">  
+           <items>
+              <MenuItem mnemonicParsing="false" onAction="#financeiro" text="Financeiro" />
+              <MenuItem mnemonicParsing="false" onAction="#comprarIngresso" text="Comprar" />
+           </items>
+          </Menu>
+          <Menu mnemonicParsing="false" onAction="#sair" text="Sair">
+          <items>
+              <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair" />
+           </items>
+          </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
