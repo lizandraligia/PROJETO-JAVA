@@ -16,14 +16,14 @@
    <center>
       <AnchorPane prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="610.0" fitWidth="760.0" layoutX="-7.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="622.0" fitWidth="770.0" layoutX="-7.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagens/Login.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="320.0" layoutY="502.0" mnemonicParsing="false" onAction="#Login" opacity="0.0" prefHeight="46.0" prefWidth="116.0" />
-            <TextField fx:id="tfLogin" layoutX="352.0" layoutY="419.0" prefHeight="25.0" prefWidth="147.0" />
-            <PasswordField fx:id="tfSenha" layoutX="352.0" layoutY="458.0" onAction="#Login" prefHeight="25.0" prefWidth="149.0" />
+            <Button layoutX="325.0" layoutY="507.0" mnemonicParsing="false" onAction="#Login" opacity="0.0" prefHeight="46.0" prefWidth="116.0" />
+            <TextField fx:id="tfLogin" layoutX="357.0" layoutY="424.0" prefHeight="25.0" prefWidth="147.0" />
+            <PasswordField fx:id="tfSenha" layoutX="357.0" layoutY="463.0" onAction="#Login" prefHeight="25.0" prefWidth="149.0" />
          </children>
       </AnchorPane>
    </center>
