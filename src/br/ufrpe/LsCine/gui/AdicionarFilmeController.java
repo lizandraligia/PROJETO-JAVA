@@ -17,10 +17,8 @@ public class AdicionarFilmeController{
 	private Fachada fachada = Fachada.getInstancia();
 	
 	@FXML JFXTextField tfNome, tfDuracao;
-	@FXML JFXComboBox <String> cbIdioma, cbClassificacao; 
-	@FXML ObservableList<String> list = FXCollections.observableArrayList("Livre","+10","+12","+14","+16","+18");
-	@FXML ObservableList<String> list2 = FXCollections.observableArrayList("Dublado","Legendado");
-	
+	@FXML JFXComboBox <String> cbClassificacao; 
+	@FXML ObservableList<String> list = FXCollections.observableArrayList("Livre","+10","+12","+14","+16","+18");	
 	
 	@FXML
 	public void initialize() {
@@ -34,7 +32,6 @@ public class AdicionarFilmeController{
 			f.setNome(tfNome.getText());
 			f.setDuracao(Integer.valueOf(tfDuracao.getText()));
 			f.setClassificacao(cbClassificacao.getValue());
-			f.setIdioma(cbIdioma.getValue());
 			Fachada.getInstancia().getCadastroF().cadastrar(f);
 			//fachada.getInstancia().getCadastroF().cadastrar(f);
 			
