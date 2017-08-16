@@ -8,61 +8,49 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.MenuController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarFilmeController">
    <center>
-      <AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tabela" layoutX="35.0" layoutY="34.0" prefHeight="433.0" prefWidth="429.0" style="-fx-background-color: #FF6A6A;">
-              <columns>
-                <TableColumn fx:id="tcFilme" prefWidth="260.0" text="Filme" />
-                <TableColumn fx:id="tcDur" prefWidth="101.0" text="Duração" />
-                  <TableColumn fx:id="tcClas" prefWidth="67.0" text="Clas." />
-              </columns>
-            </TableView>
-            <JFXButton buttonType="RAISED" layoutX="496.0" layoutY="94.0" onAction="#comprarIngresso" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #FF6A6A;" text="Comprar Ingresso" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <Label layoutX="266.0" layoutY="116.0" text="Adicionar Filme " textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="168.0" layoutY="240.0" text="Nome" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="169.0" layoutY="292.0" text="Duração" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="167.0" layoutY="335.0" text="Classificação " textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="168.0" layoutY="357.0" text="Indicativa" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="tfNome" layoutX="266.0" layoutY="240.0" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXTextField fx:id="tfDuracao" layoutX="265.0" layoutY="290.0" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="459.0" onAction="#inserir" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Salvar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-         </children></AnchorPane>
+            <JFXButton buttonType="RAISED" layoutX="423.0" layoutY="459.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXComboBox fx:id="cbClassificacao" layoutX="334.0" layoutY="345.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #DCDCDC;" />
+         </children>
+      </AnchorPane>
    </center>
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-         <menus>
-          <Menu mnemonicParsing="false" onAction="#home" onHiding="#home" onShowing="#home" text="Inicio"> 
-          <items>
-              <MenuItem mnemonicParsing="false" onAction="#home" text="Inicio" />
-           </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Filmes">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#adicionarFilme" text="Adicionar filme" />
-              <MenuItem mnemonicParsing="false" onAction="#removerFilme" text="Remover filme" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Salas">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#adicionarSala" text="Adicionar Sala" />
-              <MenuItem mnemonicParsing="false" onAction="#removerSala" text="Remover Sala" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Sessões">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#adicionarSessao" text="Adicionar Sessao" />
-              <MenuItem mnemonicParsing="false" onAction="#removerSessao" text="Remover Sessao" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Financeiro">  
-           <items>
-              <MenuItem mnemonicParsing="false" onAction="#financeiro" text="Financeiro" />
-           </items>
-          </Menu>
-          <Menu mnemonicParsing="false" onAction="#sair" text="Sair">
-          <items>
-              <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair" />
-           </items>
-          </Menu>
-         </menus>
-      </MenuBar>
-   </top>
 </BorderPane>
