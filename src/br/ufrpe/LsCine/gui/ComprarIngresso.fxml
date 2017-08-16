@@ -9,36 +9,36 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.ComprarIngressoController">
    <center>
-      <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="118.0" layoutY="23.0" text="COMPRAR INGRESSO">
+            <Label layoutX="254.0" layoutY="67.0" text="Comprar Ingresso" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="48.0" />
+                  <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <ListView fx:id="list" layoutX="420.0" layoutY="94.0" prefHeight="431.0" prefWidth="316.0" />
-            <JFXToggleButton fx:id="Meia" layoutX="68.0" layoutY="282.0" />
-            <Label layoutX="68.0" layoutY="165.0" text="ID DA SESSÃO: ">
+            <ListView fx:id="list" layoutX="420.0" layoutY="123.0" prefHeight="431.0" prefWidth="316.0" />
+            <JFXToggleButton fx:id="Meia" layoutX="68.0" layoutY="282.0" text="Meia" textFill="WHITE" />
+            <Label layoutX="68.0" layoutY="165.0" text="ID da sessão: " textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="226.0" text="ASSENTO:">
+            <Label layoutX="68.0" layoutY="226.0" text="Lugar:" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="IDS" layoutX="209.0" layoutY="163.0" />
-            <JFXTextField fx:id="Letra" layoutX="209.0" layoutY="224.0" prefHeight="25.0" prefWidth="55.0" text="A-J" />
-            <JFXTextField fx:id="Num" layoutX="277.0" layoutY="224.0" prefHeight="25.0" prefWidth="55.0" text="1-20" />
-            <JFXButton buttonType="RAISED" layoutX="68.0" layoutY="419.0" onAction="#comprar" prefHeight="43.0" prefWidth="104.0" text="COMPRAR">
+            <JFXTextField fx:id="IDS" layoutX="209.0" layoutY="163.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXTextField fx:id="Letra" layoutX="209.0" layoutY="224.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #F5F5F5;" text="A-J" />
+            <JFXTextField fx:id="Num" layoutX="277.0" layoutY="224.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #F5F5F5;" text="1-20" />
+            <JFXButton buttonType="RAISED" layoutX="68.0" layoutY="419.0" onAction="#comprar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Comprar" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="253.0" layoutY="419.0" onAction="#voltar" prefHeight="43.0" prefWidth="104.0" text="VOLTAR">
+            <JFXButton buttonType="RAISED" layoutX="253.0" layoutY="419.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton>
          </children>

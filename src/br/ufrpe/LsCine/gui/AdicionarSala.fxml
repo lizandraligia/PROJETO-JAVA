@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
@@ -9,39 +11,44 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarSalaController">
-   <left>
-      <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="167.0" layoutY="69.0" text="ADICIONAR SALA">
+            <Label layoutX="266.0" layoutY="116.0" text="Adicionar Sala" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="48.0" />
+                  <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="167.0" layoutY="286.0" prefHeight="29.0" prefWidth="25.0" text="ID">
+            <Label layoutX="317.0" layoutY="265.0" prefHeight="29.0" prefWidth="25.0" text="ID:" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="24.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="JXID" layoutX="216.0" layoutY="288.0" prefHeight="25.0" prefWidth="50.0" />
-            <JFXCheckBox fx:id="IMAX" layoutX="400.0" layoutY="292.0" text="IMAX" />
-            <JFXCheckBox fx:id="s3D" layoutX="288.0" layoutY="292.0" text="3D" />
-            <JFXButton layoutX="216.0" layoutY="384.0" onAction="#inserir" style="-fx-background-color: #6495ED;" text="ADICIONAR" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXTextField fx:id="JXID" layoutX="359.0" layoutY="267.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXCheckBox fx:id="IMAX" layoutX="371.0" layoutY="361.0" text="IMAX" textFill="WHITE" />
+            <JFXCheckBox fx:id="s3D" layoutX="292.0" layoutY="361.0" prefHeight="17.0" prefWidth="44.0" text="3D" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" layoutX="243.0" layoutY="456.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
                <effect>
                   <DropShadow color="#00000050" />
                </effect>
             </JFXButton>
-            <JFXButton layoutX="375.0" layoutY="384.0" onAction="#voltar" style="-fx-background-color: #6495ED;" text="VOLTAR" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="404.0" layoutY="456.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <effect>
                   <DropShadow color="#00000050" />
                </effect>
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton>
+            <Label layoutX="329.0" layoutY="301.0" prefHeight="31.0" prefWidth="61.0" text="Tipos" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-   </left>
+   </center>
 </BorderPane>

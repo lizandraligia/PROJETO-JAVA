@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
@@ -23,6 +24,7 @@ public class AdicionarSessaoController implements Initializable {
 	@FXML JFXTextField Sala;
 	@FXML JFXTextField HORAINI;
 	@FXML JFXTextField HORAFIM;
+	@FXML JFXToggleButton leg;
 	
 	
 	
@@ -49,7 +51,7 @@ public class AdicionarSessaoController implements Initializable {
 			data.setMinutes(Integer.parseInt(HORAFIM.getText()));
 			data2.setHours(hrsfim);
 			data2.setMinutes(minfim);			
-			Sessao sessao = new Sessao(filmes, salan, data, data2, Integer.parseInt(ID.getText()));
+			Sessao sessao = new Sessao(filmes, salan, data, data2, Integer.parseInt(ID.getText()), leg.isSelected());
 			fachada.getInstancia().getCadastroSe().adicionarSessao(sessao);			
 			
 		}

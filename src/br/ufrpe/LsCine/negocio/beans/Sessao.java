@@ -4,27 +4,36 @@ import java.util.Date;
 
 public class Sessao {
 	
+	public Sessao() {
+		super();
+	}
+
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 	private Filme filme;
 	private Salas sala;
 	private Date hrinicio;
 	private Date hrfim;
 	private int id;
-	private Boolean[] cadeira = new Boolean[200];
+	private boolean[] cadeira = new boolean[200];
+	private boolean leg;
 	
 	
-	public Sessao(Filme filme, Salas sala, Date hrinicio, Date hrfim, int id) {
+	
+	
+	public Sessao(Filme filme, Salas sala, Date hrinicio, Date hrfim, int id, boolean leg) {
 	
 		this.filme = filme;
 		this.sala = sala;
 		this.hrinicio = hrinicio;
 		this.hrfim = hrfim;
 		this.id = id;
+		this.leg = leg;
 		for(int i = 0; i<200; i++){
 			this.cadeira[i] = false;
 		}
 		
-	}	
+	}
+	
 
 	public Filme getFilme() {
 		return filme;
