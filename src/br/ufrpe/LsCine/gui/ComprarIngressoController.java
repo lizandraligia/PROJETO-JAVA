@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
 import br.ufrpe.LsCine.negocio.Fachada;
+import br.ufrpe.LsCine.negocio.beans.Filme;
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.collections.FXCollections;
@@ -19,7 +20,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ComprarIngressoController implements Initializable {
 	
@@ -30,16 +34,25 @@ private Fachada fachada = Fachada.getInstancia();
 	@FXML JFXTextField Num;
 	@FXML JFXToggleButton Meia;
 	
-	@FXML ListView<Sessao> list = new ListView<Sessao>();
-	ObservableList<Sessao> items =FXCollections.observableArrayList(fachada.getInstancia().getCadastroSe().listar());
-	
-	
-	
+	@FXML TableView <Sessao> tabela;
+	@FXML TableColumn <Filme, String> tcFilme, tcClas;
+	@FXML TableColumn <Filme, Integer> tcDur;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		list.setItems(items);
+		
 	}
+		
+	/*public void tabela(){
+		tcFilme.setCellValueFactory(new PropertyValueFactory<Filme, String>("nome"));
+		tcDur.setCellValueFactory(new PropertyValueFactory<Filme, Integer>("duracao"));
+		tcClas.setCellValueFactory(new PropertyValueFactory<Filme, String>("classificacao"));
+		
+		tabela.setItems(FXCollections.observableList(Fachada.getInstancia().getCadastroSe().listar()));
+		tabela.refresh();
+	}*/
+	
+	
 	
 	public void comprar(){		
 		try{
@@ -51,18 +64,30 @@ private Fachada fachada = Fachada.getInstancia();
 			}
 			Sessao sessao = fachada.getInstancia().getCadastroSe().procurarID(Integer.parseInt(IDS.getText()));
 			int lugar = this.assento(Letra.getText(), Integer.parseInt(Num.getText()));
-			int id = fachada.getInstancia().getCadastroI().listar().size();			
+			int id = fachada.getInstancia().getCadastroI().listar().size();
 			Ingresso ingresso = new Ingresso(x, this.valor(), sessao, lugar, id);
+			
+			
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Confirmar Compra");
 			alert.setHeaderText("Você tem certeza de que quer comprar o ingresso?");
 			alert.setContentText(ingresso.toString());
-
 			Optional<ButtonType> result = alert.showAndWait();
-			if (result.get() == ButtonType.OK){
-				fachada.getInstancia().getCadastroI().cadastrar(ingresso);	
-			}			
+			
+			
+			if(ingresso.getSessao().setCadeira(lugar)){
+				if (result.get() == ButtonType.OK){
+					ingresso.getSessao().setCadeira(lugar);
+					fachada.getInstancia().getCadastroI().cadastrar(ingresso);	
+				}	
+			}else{
+				Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+		        dialogoInfo.setTitle("ERRO");
+		        dialogoInfo.setHeaderText(null);
+		        dialogoInfo.setContentText("O lugar escolhido já foi ocupado!");
+		        dialogoInfo.showAndWait();
+			}
 							
 		}
 		catch(Exception e){

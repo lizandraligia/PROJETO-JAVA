@@ -14,6 +14,7 @@ import br.ufrpe.LsCine.negocio.beans.Salas;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 
 public class AdicionarSessaoController implements Initializable {
 	
@@ -52,7 +53,17 @@ public class AdicionarSessaoController implements Initializable {
 			data2.setHours(hrsfim);
 			data2.setMinutes(minfim);			
 			Sessao sessao = new Sessao(filmes, salan, data, data2, Integer.parseInt(ID.getText()), leg.isSelected());
-			fachada.getInstancia().getCadastroSe().adicionarSessao(sessao);			
+			fachada.getInstancia().getCadastroSe().adicionarSessao(sessao);
+			
+			for(int i=0; i<fachada.getInstancia().getCadastroSe().listar().size(); i++){
+				System.out.println(fachada.getInstancia().getCadastroSe().listar().get(i).toString());
+			}
+			
+			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+	        dialogoInfo.setTitle("A SESSÃO FOI ADICIONADA COM SUCESSO!");
+	        dialogoInfo.setHeaderText(null);
+	        dialogoInfo.setContentText(sessao.toString());
+	        dialogoInfo.showAndWait();
 			
 		}
 		catch(Exception e){
