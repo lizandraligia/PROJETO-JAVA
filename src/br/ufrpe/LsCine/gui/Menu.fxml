@@ -24,7 +24,6 @@
               </columns>
             </TableView>
             
-            </JFXButton>
          </children></AnchorPane>
    </center>
    <top>
