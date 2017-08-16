@@ -22,6 +22,7 @@ public class Main extends Application {
 			primaryStage.setTitle("LsCine");
 			primaryStage.getIcons().add(new Image("/br/ufrpe/LsCine/imagens/Logo.png"));
 			primaryStage.setResizable(false);
+			//primaryStage.setMaximized(true);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
