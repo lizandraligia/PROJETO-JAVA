@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -23,6 +24,12 @@
                   <TableColumn fx:id="tcClas" prefWidth="67.0" text="Clas." />
               </columns>
             </TableView>
+            <JFXButton buttonType="RAISED" layoutX="516.0" layoutY="87.0" onAction="#comprarIngresso" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #FF6A6A;" text="Comprar Ingresso" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            
             
          </children></AnchorPane>
    </center>
