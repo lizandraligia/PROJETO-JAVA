@@ -9,54 +9,48 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarFilmeController">
-   <bottom>
-      <AnchorPane prefHeight="600.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="266.0" layoutY="141.0" text="Adicionar Filme " textOverrun="WORD_ELLIPSIS">
+            <Label layoutX="266.0" layoutY="116.0" text="Adicionar Filme " textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="167.0" layoutY="253.0" text="Nome">
+            <Label layoutX="168.0" layoutY="240.0" text="Nome" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="168.0" layoutY="303.0" text="Duração">
+            <Label layoutX="169.0" layoutY="292.0" text="Duração" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="170.0" layoutY="336.0" text="Classificação ">
+            <Label layoutX="167.0" layoutY="335.0" text="Classificação " textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="172.0" layoutY="349.0" text="Indicativa">
+            <Label layoutX="168.0" layoutY="357.0" text="Indicativa" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="173.0" layoutY="390.0" text="Idioma">
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
             <JFXTextField fx:id="tfNome" layoutX="266.0" layoutY="240.0" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC;" />
-            <JFXTextField fx:id="tfDuracao" layoutX="266.0" layoutY="290.0" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC;" />
-            <JFXButton layoutX="621.0" layoutY="248.0" onAction="#inserir" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #6495ED;" text="Salvar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXTextField fx:id="tfDuracao" layoutX="265.0" layoutY="290.0" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="459.0" onAction="#inserir" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Salvar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXComboBox fx:id="cbIdioma" layoutX="263.0" layoutY="385.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #DCDCDC;" />
-            <JFXButton layoutX="621.0" layoutY="298.0" onAction="#voltar" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #6495ED;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="423.0" layoutY="459.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXComboBox fx:id="cbClassificacao" layoutX="265.0" layoutY="344.0" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXComboBox fx:id="cbClassificacao" layoutX="334.0" layoutY="345.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #DCDCDC;" />
          </children>
       </AnchorPane>
-   </bottom>
+   </center>
 </BorderPane>
