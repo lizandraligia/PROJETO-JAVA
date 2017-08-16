@@ -17,7 +17,7 @@ public class MenuController implements Initializable{
 	private Fachada fachada = Fachada.getInstancia();
 	
 	@FXML TableView <Filme> tabela;
-	@FXML TableColumn <Filme, String> tcFilme, tcClas, tcIdioma;
+	@FXML TableColumn <Filme, String> tcFilme, tcClas;
 	@FXML TableColumn <Filme, Integer> tcDur;
 	
 	@Override
@@ -29,7 +29,6 @@ public class MenuController implements Initializable{
 		tcFilme.setCellValueFactory(new PropertyValueFactory<Filme, String>("nome"));
 		tcDur.setCellValueFactory(new PropertyValueFactory<Filme, Integer>("duracao"));
 		tcClas.setCellValueFactory(new PropertyValueFactory<Filme, String>("classificacao"));
-		tcIdioma.setCellValueFactory(new PropertyValueFactory<Filme, String>("idioma"));
 		
 		tabela.setItems(FXCollections.observableList(Fachada.getInstancia().getCadastroF().getRepositorioF().listar()));
 		tabela.refresh();
