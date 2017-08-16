@@ -20,6 +20,8 @@ public class Main extends Application {
 			Scene scene = new Scene(root,750,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("LsCine");
+			primaryStage.getIcons().add(new Image("/br/ufrpe/LsCine/imagens/Logo.png"));
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
