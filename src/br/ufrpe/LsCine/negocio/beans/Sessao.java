@@ -71,12 +71,12 @@ public class Sessao {
 		return cadeira[i];
 	}
 
-	public void setCadeira(int i) {
+	public boolean setCadeira(int i) {
 		if(this.cadeira[i] == false){
 			this.cadeira[i] = true;
-			System.out.println("Compra efetuada.");
+			return true;
 		}else{
-			System.out.println("Cadeira ocupada.");
+			return false;
 		}
 	}
 
