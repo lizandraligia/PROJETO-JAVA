@@ -18,7 +18,7 @@ public class Main extends Application {
 		try {
 			//BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
 			this.root = FXMLLoader.load(getClass().getResource("/br/ufrpe/LsCine/gui/Login.fxml"));
-			Scene scene = new Scene(root,750,600);
+			Scene scene = new Scene(root,1020,680);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("LsCine");
 			primaryStage.getIcons().add(new Image("/br/ufrpe/LsCine/imagens/Logo.png"));
