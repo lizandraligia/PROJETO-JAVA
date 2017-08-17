@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class RemoverFilmeController implements Initializable{
 
@@ -33,6 +35,8 @@ public class RemoverFilmeController implements Initializable{
 	
 	public void removerb(){
 		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
 		alert.setTitle("Confirmar exclusão");
 		alert.setHeaderText("Você tem certeza de que quer excluir?");
 		alert.setContentText(Fachada.getInstancia().getCadastroF().buscar(tfNome.getText()).toString());

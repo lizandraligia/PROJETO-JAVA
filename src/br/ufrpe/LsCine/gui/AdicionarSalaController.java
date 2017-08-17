@@ -11,6 +11,8 @@ import br.ufrpe.LsCine.negocio.beans.Salas;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class AdicionarSalaController implements Initializable {
 	
@@ -38,6 +40,8 @@ public class AdicionarSalaController implements Initializable {
 			}
 			
 			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+			Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
 	        dialogoInfo.setTitle("A SALA FOI ADICIONADA COM SUCESSO!");
 	        dialogoInfo.setHeaderText(null);
 	        dialogoInfo.setContentText(sala.toString());

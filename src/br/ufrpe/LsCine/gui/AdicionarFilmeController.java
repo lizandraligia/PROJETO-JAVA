@@ -5,6 +5,8 @@ import br.ufrpe.LsCine.negocio.beans.Filme;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import javafx.scene.control.ChoiceBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,10 +37,12 @@ public class AdicionarFilmeController{
 			//fachada.getInstancia().getCadastroF().cadastrar(f);
 			
 			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-	        	dialogoInfo.setTitle("Filme adicionado com sucesso!");
-	        	dialogoInfo.setHeaderText(null);
-	        	dialogoInfo.setContentText(f.toString());
-	        	dialogoInfo.showAndWait();
+			Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
+        	dialogoInfo.setTitle("Filme adicionado com sucesso!");
+        	dialogoInfo.setHeaderText(null);
+        	dialogoInfo.setContentText(f.toString());
+        	dialogoInfo.showAndWait();
 			
 		}
 		catch(Exception e){

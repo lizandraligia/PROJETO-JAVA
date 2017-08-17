@@ -15,6 +15,8 @@ import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class AdicionarSessaoController implements Initializable {
 	
@@ -60,6 +62,8 @@ public class AdicionarSessaoController implements Initializable {
 			}
 			
 			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+			Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
 	        dialogoInfo.setTitle("A SESSÃO FOI ADICIONADA COM SUCESSO!");
 	        dialogoInfo.setHeaderText(null);
 	        dialogoInfo.setContentText(sessao.toString());

@@ -24,6 +24,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class ComprarIngressoController implements Initializable {
 	
@@ -70,6 +72,8 @@ private Fachada fachada = Fachada.getInstancia();
 			
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION);
+			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
 			alert.setTitle("Confirmar Compra");
 			alert.setHeaderText("Você tem certeza de que quer comprar o ingresso?");
 			alert.setContentText(ingresso.toString());
@@ -83,6 +87,8 @@ private Fachada fachada = Fachada.getInstancia();
 				}	
 			}else{
 				Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
+				Stage stagee = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
+				stagee.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
 		        dialogoInfo.setTitle("ERRO");
 		        dialogoInfo.setHeaderText(null);
 		        dialogoInfo.setContentText("O lugar escolhido já foi ocupado!");
