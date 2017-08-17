@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarFilmeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarFilmeController">
    <center>
-      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="266.0" layoutY="116.0" text="Adicionar Filme " textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>

@@ -15,32 +15,25 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.MenuController">
    <center>
-      <AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tabela" layoutX="35.0" layoutY="34.0" prefHeight="433.0" prefWidth="429.0" style="-fx-background-color: #FF6A6A;">
+            <TableView fx:id="tabela" layoutX="35.0" layoutY="34.0" prefHeight="580.0" prefWidth="488.0" style="-fx-background-color: #FF6A6A;">
               <columns>
-                <TableColumn fx:id="tcFilme" prefWidth="260.0" text="Filme" />
-                <TableColumn fx:id="tcDur" prefWidth="101.0" text="Duração" />
-                  <TableColumn fx:id="tcClas" prefWidth="67.0" text="Clas." />
+                <TableColumn fx:id="tcFilme" prefWidth="284.0" text="Filme" />
+                <TableColumn fx:id="tcDur" prefWidth="132.0" text="Duração" />
+                  <TableColumn fx:id="tcClas" prefWidth="71.33334350585938" text="Clas." />
               </columns>
             </TableView>
-            <JFXButton buttonType="RAISED" layoutX="516.0" layoutY="87.0" onAction="#comprarIngresso" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #FF6A6A;" text="Comprar Ingresso" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="671.0" layoutY="64.0" onAction="#comprarIngresso" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #FF6A6A;" text="Comprar Ingresso" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
-            </JFXButton>
-            
-            
+            </JFXButton>   
          </children></AnchorPane>
    </center>
    <top>
       <MenuBar BorderPane.alignment="CENTER">
          <menus>
-          <Menu mnemonicParsing="false" onAction="#home" onHiding="#home" onShowing="#home" text="Inicio"> 
-          <items>
-              <MenuItem mnemonicParsing="false" onAction="#home" text="Inicio" />
-           </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Filmes">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#adicionarFilme" text="Adicionar filme" />
@@ -59,13 +52,9 @@
               <MenuItem mnemonicParsing="false" onAction="#removerSessao" text="Remover Sessao" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Financeiro">  
+          <Menu mnemonicParsing="false" text="Arquivo">  
            <items>
               <MenuItem mnemonicParsing="false" onAction="#financeiro" text="Financeiro" />
-           </items>
-          </Menu>
-          <Menu mnemonicParsing="false" onAction="#sair" text="Sair">
-          <items>
               <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair" />
            </items>
           </Menu>

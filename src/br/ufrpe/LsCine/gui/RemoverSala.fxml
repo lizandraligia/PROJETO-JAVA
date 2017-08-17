@@ -9,22 +9,22 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.RemoverSalaController">
    <center>
-      <AnchorPane prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="174.0" layoutY="290.0" text="Escolha a sala: " textFill="WHITE">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="IDSala" layoutX="383.0" layoutY="288.0" style="-fx-background-color: #F5F5F5;"/>
-            <JFXButton buttonType="RAISED" layoutX="168.0" layoutY="389.0" onAction="#removerb" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Remover">
+            <JFXTextField fx:id="IDSala" layoutX="383.0" layoutY="288.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXButton buttonType="RAISED" layoutX="174.0" layoutY="386.0" onAction="#removerb" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Remover" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="419.0" layoutY="389.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar">
+            <JFXButton buttonType="RAISED" layoutX="419.0" layoutY="389.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton>
             <Label layoutX="266.0" layoutY="116.0" text="Excluir Sala" textAlignment="CENTER" textFill="WHITE">
