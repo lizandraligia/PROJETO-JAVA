@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -11,27 +13,53 @@
    <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="189.0" layoutY="277.0" text="Escolha a sessão: " textFill="WHITE">
+            <Rectangle fill="#ff6a6a" height="682.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="258.0" onAction="#filme" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Filmes" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="360.0" onAction="#sala" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Salas" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="464.0" onAction="#sessao" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Sessões" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="568.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Financeiro" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="482.0" layoutY="300.0" text="ID da sessão " textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="IDSessao" layoutX="398.0" layoutY="275.0" style="-fx-background-color: #F5F5F5;" />
-            <JFXButton buttonType="RAISED" layoutX="189.0" layoutY="427.0" onAction="#removerb" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Remover" textFill="WHITE">
+            <JFXTextField fx:id="IDSessao" layoutX="647.0" layoutY="298.0" prefHeight="25.0" prefWidth="151.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXButton buttonType="RAISED" layoutX="482.0" layoutY="496.0" onAction="#removerb" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Remover" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="440.0" layoutY="427.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="713.0" layoutY="496.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton> 
-            <Label layoutX="266.0" layoutY="116.0" text="Excluir Sessão" textAlignment="CENTER" textFill="WHITE">
+            <Label layoutX="547.0" layoutY="117.0" text="Excluir Sessão" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
+            <ImageView fitHeight="188.0" fitWidth="264.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/Logo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

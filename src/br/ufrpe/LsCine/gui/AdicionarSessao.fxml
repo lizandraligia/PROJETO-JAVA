@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import com.jfoenix.controls.*?>
@@ -11,51 +13,82 @@
    <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <JFXTextField fx:id="Sala" layoutX="341.0" layoutY="270.0" style="-fx-background-color: #F5F5F5;" />
-            <JFXTextField fx:id="HORAFIM" layoutX="416.0" layoutY="310.0" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #F5F5F5;" text="Minutos" />
-            <JFXTextField fx:id="Filme" layoutX="341.0" layoutY="234.0" style="-fx-background-color: #F5F5F5;" />
-            <JFXTextField fx:id="HORAINI" layoutX="342.0" layoutY="310.0" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #F5F5F5;" text="Horas" />
-            <Label layoutX="290.0" layoutY="238.0" text="Filme:" textFill="WHITE">
+            <Rectangle fill="#ff6a6a" height="682.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="258.0" onAction="#filme" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Filmes" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="360.0" onAction="#sala" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Salas" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="464.0" onAction="#sessao" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Sessões" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="568.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Financeiro" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="Sala" layoutX="528.0" layoutY="278.0" prefHeight="25.0" prefWidth="307.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXTextField fx:id="HORAFIM" layoutX="604.0" layoutY="323.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #F5F5F5;" text="Minutos" />
+            <JFXTextField fx:id="Filme" layoutX="527.0" layoutY="236.0" prefHeight="25.0" prefWidth="308.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXTextField fx:id="HORAINI" layoutX="528.0" layoutY="323.0" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #F5F5F5;" text="Horas" />
+            <Label layoutX="452.0" layoutY="238.0" text="Filme" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="297.0" layoutY="274.0" prefHeight="17.0" prefWidth="43.0" text="Sala:" textFill="WHITE">
+            <Label layoutX="452.0" layoutY="280.0" prefHeight="21.0" prefWidth="53.0" text="Sala" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="230.0" layoutY="314.0" text="Horário(Início):" textFill="WHITE">
+            <Label layoutX="451.0" layoutY="318.0" text="Horário" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="266.0" layoutY="116.0" text="Adicionar Sessão" textFill="WHITE">
+            <Label layoutX="541.0" layoutY="101.0" text="Adicionar Sessão" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="311.0" layoutY="353.0" text="ID:" textFill="WHITE">
+            <Label layoutX="735.0" layoutY="325.0" text="ID" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="ID" layoutX="776.0" layoutY="323.0" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXButton buttonType="RAISED" layoutX="449.0" layoutY="496.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="728.0" layoutY="496.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXToggleButton fx:id="leg" layoutX="437.0" layoutY="365.0" text="Legendado" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </JFXToggleButton>
+            <ImageView fitHeight="188.0" fitWidth="264.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/Logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="453.0" layoutY="335.0" text="(Início)" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="ID" layoutX="341.0" layoutY="348.0" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #F5F5F5;" />
-            <JFXButton buttonType="RAISED" layoutX="200.0" layoutY="469.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="476.0" layoutY="469.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXToggleButton fx:id="leg" layoutX="312.0" layoutY="393.0" text="Legendado" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXToggleButton>
          </children>
       </AnchorPane>
    </center>

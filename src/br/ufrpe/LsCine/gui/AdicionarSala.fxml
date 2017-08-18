@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
@@ -14,20 +15,47 @@
    <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="266.0" layoutY="116.0" text="Adicionar Sala" textFill="WHITE">
+            <Rectangle fill="#ff6a6a" height="682.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="258.0" onAction="#filme" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Filmes" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="360.0" onAction="#sala" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Salas" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="464.0" onAction="#sessao" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Sessões" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="568.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Financeiro" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="577.0" layoutY="101.0" text="Adicionar Sala" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="317.0" layoutY="265.0" prefHeight="29.0" prefWidth="25.0" text="ID:" textFill="WHITE">
+            <Label layoutX="576.0" layoutY="265.0" prefHeight="29.0" prefWidth="25.0" text="ID" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="JXID" layoutX="359.0" layoutY="267.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #F5F5F5;" />
-            <JFXCheckBox fx:id="IMAX" layoutX="371.0" layoutY="361.0" text="IMAX" textFill="WHITE" />
-            <JFXCheckBox fx:id="s3D" layoutX="292.0" layoutY="361.0" prefHeight="17.0" prefWidth="44.0" text="3D" textFill="WHITE" />
-            <JFXButton buttonType="RAISED" layoutX="243.0" layoutY="456.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXTextField fx:id="JXID" layoutX="627.0" layoutY="267.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXCheckBox fx:id="IMAX" layoutX="681.0" layoutY="313.0" text="IMAX" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXCheckBox>
+            <JFXCheckBox fx:id="s3D" layoutX="600.0" layoutY="313.0" prefHeight="17.0" prefWidth="44.0" text="3D" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXCheckBox>
+            <JFXButton buttonType="RAISED" layoutX="496.0" layoutY="477.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -35,7 +63,7 @@
                   <DropShadow color="#00000050" />
                </effect>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="404.0" layoutY="456.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="691.0" layoutY="477.0" onAction="#voltar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <effect>
                   <DropShadow color="#00000050" />
                </effect>
@@ -43,11 +71,16 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </JFXButton>
-            <Label layoutX="329.0" layoutY="301.0" prefHeight="31.0" prefWidth="61.0" text="Tipos" textFill="WHITE">
+            <Label layoutX="546.0" layoutY="307.0" prefHeight="31.0" prefWidth="61.0" text="Tipos" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
+            <ImageView fitHeight="188.0" fitWidth="264.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/Logo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>
