@@ -81,7 +81,7 @@ public class RepositorioSalas implements IRepositorioSalas, Serializable{
 			int search = buscar(sala);
 			if(sala != null && search < 0 && this.retornarPosicao(sala.getNumero()) == -1){
 				this.salas.add(sala);
-				//this.salvarArquivo();
+				this.salvarArquivo();
 				return true;
 			}
 			return false;
@@ -116,7 +116,7 @@ public class RepositorioSalas implements IRepositorioSalas, Serializable{
 		
 
 		this.salas.remove(this.salas.get(SalaRemover));
-		//this.salvarArquivo();
+		this.salvarArquivo();
 		return true;
 
 
@@ -130,7 +130,7 @@ public class RepositorioSalas implements IRepositorioSalas, Serializable{
 		int search = buscar(sala);
 		if(sala != null && search!=-1){
 			this.salas.set(search, sala);
-			//this.salvarArquivo();
+			this.salvarArquivo();
 			return true;
 		}
 		return false;

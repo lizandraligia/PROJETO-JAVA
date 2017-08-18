@@ -5,11 +5,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import br.ufrpe.LsCine.interfaces.IRepositorioSessao;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
-public class RepositorioSessao implements IRepositorioSessao{
+public class RepositorioSessao implements IRepositorioSessao, Serializable{
 	
 	public 	ArrayList<Sessao> sessoes;
 	private static IRepositorioSessao instancia;
@@ -55,7 +56,7 @@ public class RepositorioSessao implements IRepositorioSessao{
 	}
 	
 	public void salvarArquivo(){
-		File out = new File("Salas.dat");
+		File out = new File("Sessoes.dat");
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         
@@ -80,7 +81,7 @@ public class RepositorioSessao implements IRepositorioSessao{
 			int search = buscar(sessao);
 			if(sessao != null && search < 0 && this.retornarPosicao(sessao.getId()) == -1){
 				this.sessoes.add(sessao);
-				//this.salvarArquivo();
+				this.salvarArquivo();
 				return true;
 			}
 			return false;
@@ -115,7 +116,7 @@ public class RepositorioSessao implements IRepositorioSessao{
 		
 
 		this.sessoes.remove(this.sessoes.get(SessaoRemover));
-		//this.salvarArquivo();
+		this.salvarArquivo();
 		return true;
 
 
@@ -129,7 +130,7 @@ public class RepositorioSessao implements IRepositorioSessao{
 		int search = buscar(sessao);
 		if(sessao != null && search!=-1){
 			this.sessoes.set(search, sessao);
-			//this.salvarArquivo();
+			this.salvarArquivo();
 			return true;
 		}
 		return false;
