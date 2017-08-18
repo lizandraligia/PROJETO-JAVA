@@ -1,6 +1,8 @@
 package br.ufrpe.LsCine.negocio.beans;
 
-public class Salas {
+import java.io.Serializable;
+
+public class Salas implements Serializable{
 	
 	private int numero;
 	private boolean s3d;

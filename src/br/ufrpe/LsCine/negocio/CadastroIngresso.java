@@ -1,5 +1,6 @@
 package br.ufrpe.LsCine.negocio;
 
+import br.ufrpe.LsCine.dados.RepositorioIngresso;
 import br.ufrpe.LsCine.interfaces.IRepositorioIngresso;
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
 import java.util.ArrayList;
@@ -8,8 +9,8 @@ public class CadastroIngresso {
 
 	private IRepositorioIngresso repositorioI;
 	
-	public CadastroIngresso(IRepositorioIngresso repositorio){
-		this.repositorioI = repositorio;
+	public CadastroIngresso(){
+		this.repositorioI = RepositorioIngresso.getInstance();
 	}
 
 	public IRepositorioIngresso getRepositorioI() {

@@ -1,6 +1,8 @@
 package br.ufrpe.LsCine.negocio.beans;
 
-public class Ingresso {
+import java.io.Serializable;
+
+public class Ingresso implements Serializable{
 
 	private int tipo; 
 	private int lugar;

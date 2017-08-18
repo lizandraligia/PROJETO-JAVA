@@ -2,7 +2,7 @@ package br.ufrpe.LsCine.negocio;
 import java.util.ArrayList;
 
 import br.ufrpe.LsCine.dados.RepositorioSalas;
-import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
+import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
 import br.ufrpe.LsCine.interfaces.IRepositorioSalas;
 import br.ufrpe.LsCine.negocio.beans.Salas;
 
@@ -10,15 +10,25 @@ public class CadastroSalas {
 	
 	private IRepositorioSalas repositorioSalas;
 	
-	public CadastroSalas(IRepositorioSalas repositorio) {
-		this.repositorioSalas = repositorio;
+	public CadastroSalas() {
+		this.repositorioSalas = RepositorioSalas.getInstance();
 	}
 	
-	public boolean adicionar(Salas sala){
-		if (sala == null) {
-			return false;
+	
+	
+	public boolean adicionar(Salas sala) throws IDSalaInvalidoException{
+		
+		Salas salaExiste = this.repositorioSalas.procurar(sala.getNumero());
+		if(salaExiste != null){
+			throw new IDSalaInvalidoException();
 		}
-		return this.repositorioSalas.adicionar(sala);
+		
+		if (sala != null) {
+			this.repositorioSalas.adicionar(sala);
+			return true;
+		}
+		return false;
+
 	}
 		
 	public boolean remover(int idSala){

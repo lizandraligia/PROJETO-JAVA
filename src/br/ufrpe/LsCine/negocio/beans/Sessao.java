@@ -1,8 +1,9 @@
 package br.ufrpe.LsCine.negocio.beans;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Sessao {
+public class Sessao implements Serializable{
 	
 	public Sessao() {
 		super();
@@ -27,7 +28,7 @@ public class Sessao {
 		this.hrinicio = hrinicio;
 		this.hrfim = hrfim;
 		this.id = id;
-		this.leg = leg;
+		this.setLeg(leg);
 		for(int i = 0; i<200; i++){
 			this.cadeira[i] = false;
 		}
@@ -101,6 +102,16 @@ public class Sessao {
 			}
 		}
 		return false;
+	}
+
+
+	public boolean isLeg() {
+		return leg;
+	}
+
+
+	public void setLeg(boolean leg) {
+		this.leg = leg;
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import br.ufrpe.LsCine.dados.*;
 import br.ufrpe.LsCine.negocio.beans.*;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
+import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
 import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
 
 public class Fachada {
@@ -16,11 +17,11 @@ public class Fachada {
 	private static Fachada instancia; 
 	
 	private Fachada(){
-		this.cadastroF = new CadastroFilme(new RepositorioFilme());
-		this.cadastroI = new CadastroIngresso(new RepositorioIngresso());
-		this.cadastroSa = new CadastroSalas(new RepositorioSalas());
-		this.cadastroSe = new CadastroSessao(new RepositorioSessao());
-		this.cadastroCo = new CadastroConta(new RepositorioConta());
+		this.cadastroF = new CadastroFilme();
+		this.cadastroI = new CadastroIngresso();
+		this.cadastroSa = new CadastroSalas();
+		this.cadastroSe = new CadastroSessao();
+		this.cadastroCo = new CadastroConta();
 	}
 	
 	public static Fachada getInstancia(){
@@ -68,7 +69,7 @@ public class Fachada {
 	
 	//SALA
 	
-	public boolean adicionarSala(Salas sala){
+	public boolean adicionarSala(Salas sala) throws IDSalaInvalidoException{
 		return this.cadastroSa.adicionar(sala);
 	}
 	

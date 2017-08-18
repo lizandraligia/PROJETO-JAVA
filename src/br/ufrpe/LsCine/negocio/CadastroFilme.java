@@ -3,14 +3,15 @@ package br.ufrpe.LsCine.negocio;
 import java.util.ArrayList;
 import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
 import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.dados.RepositorioFilme;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
 
 public class CadastroFilme {
 
 	private IRepositorioFilme repositorioF;
 	
-	public CadastroFilme(IRepositorioFilme repositorio){
-		this.repositorioF = repositorio; 
+	public CadastroFilme(){
+		this.repositorioF = RepositorioFilme.getInstance(); 
 	}
 	
 	public IRepositorioFilme getRepositorioF() {

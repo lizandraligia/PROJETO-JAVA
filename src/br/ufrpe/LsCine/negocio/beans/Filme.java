@@ -1,6 +1,8 @@
 package br.ufrpe.LsCine.negocio.beans;
 
-public class Filme {
+import java.io.Serializable;
+
+public class Filme implements Serializable{
 
 	private String nome;
 	private int duracao; 

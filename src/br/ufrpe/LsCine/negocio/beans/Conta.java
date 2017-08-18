@@ -1,6 +1,8 @@
 package br.ufrpe.LsCine.negocio.beans;
 
-public class Conta {
+import java.io.Serializable;
+
+public class Conta implements Serializable {
 	
 	private String login;
 	private String senha;

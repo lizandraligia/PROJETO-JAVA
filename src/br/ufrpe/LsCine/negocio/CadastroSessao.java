@@ -10,8 +10,8 @@ public class CadastroSessao {
 
 	private IRepositorioSessao repositorioSessao;
 	
-	public CadastroSessao(IRepositorioSessao repositorio) {
-		this.repositorioSessao = repositorio;
+	public CadastroSessao() {
+		this.repositorioSessao = RepositorioSessao.getInstance();
 	}
 	
 	public boolean adicionarSessao(Sessao sessao){

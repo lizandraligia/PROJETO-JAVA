@@ -1,6 +1,5 @@
 package br.ufrpe.LsCine.negocio;
 import br.ufrpe.LsCine.negocio.beans.Conta;
-import java.util.ArrayList;
 import br.ufrpe.LsCine.dados.RepositorioConta;
 import br.ufrpe.LsCine.interfaces.IRepositorioConta;
 import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
@@ -10,8 +9,8 @@ public class CadastroConta{
 
 	private IRepositorioConta repositorioConta;
 	
-	public CadastroConta(IRepositorioConta repositorio){
-		this.repositorioConta = repositorio;
+	public CadastroConta(){
+		this.repositorioConta = RepositorioConta.getInstance();
 	}
 	
 	public boolean logar(String login, String senha) throws LoginIncorretoException{
