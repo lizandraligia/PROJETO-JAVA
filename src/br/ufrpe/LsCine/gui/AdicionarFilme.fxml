@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
@@ -12,44 +14,70 @@
    <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="266.0" layoutY="116.0" text="Adicionar Filme " textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6a6a" height="682.0" layoutX="-2.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="258.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Filmes" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="360.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Salas" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="464.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Sessões" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="568.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Financeiro" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="509.0" layoutY="100.0" text="Adicionar Filme " textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="168.0" layoutY="240.0" text="Nome" textFill="WHITE">
+            <Label layoutX="458.0" layoutY="248.0" text="Nome" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="169.0" layoutY="292.0" text="Duração" textFill="WHITE">
+            <Label layoutX="457.0" layoutY="302.0" text="Duração" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="167.0" layoutY="335.0" text="Classificação " textFill="WHITE">
+            <Label layoutX="457.0" layoutY="355.0" text="Classificação " textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="168.0" layoutY="357.0" text="Indicativa" textFill="WHITE">
+            <Label layoutX="458.0" layoutY="376.0" text="Indicativa" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="tfNome" layoutX="266.0" layoutY="240.0" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC;" />
-            <JFXTextField fx:id="tfDuracao" layoutX="265.0" layoutY="290.0" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #DCDCDC;" />
-            <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="459.0" onAction="#inserir" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Salvar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXTextField fx:id="tfNome" layoutX="536.0" layoutY="246.0" prefHeight="25.0" prefWidth="331.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXTextField fx:id="tfDuracao" layoutX="547.0" layoutY="300.0" prefHeight="25.0" prefWidth="318.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXButton buttonType="RAISED" layoutX="461.0" layoutY="528.0" onAction="#inserir" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Salvar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="423.0" layoutY="459.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="750.0" layoutY="528.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXComboBox fx:id="cbClassificacao" layoutX="334.0" layoutY="345.0" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXComboBox fx:id="cbClassificacao" layoutX="578.0" layoutY="361.0" prefHeight="25.0" prefWidth="286.0" style="-fx-background-color: #DCDCDC;" />
+            <ImageView fitHeight="188.0" fitWidth="264.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Desktop/Logo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

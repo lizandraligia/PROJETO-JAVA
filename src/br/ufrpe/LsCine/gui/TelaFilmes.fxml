@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.image.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.MenuController">
-   <top>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.TelaFilmesController">
+   <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff6a6a" height="682.0" layoutX="-2.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
-            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="258.0" onAction="#filme" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Filmes" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <Rectangle fill="#ff6a6a" height="682.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="258.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Filmes" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -45,28 +39,31 @@
                   <Image url="@../../../../../../../Desktop/Logo.png" />
                </image>
             </ImageView>
-            <TableView fx:id="tabela" layoutX="347.0" layoutY="119.0" prefHeight="514.0" prefWidth="470.0" style="-fx-border-width: 2; -fx-border-color: #FF6A6A;">
-              <columns>
-                <TableColumn prefWidth="255.00003051757812" text="Filme" />
-                <TableColumn prefWidth="129.0" text="Duração" />
-                  <TableColumn prefWidth="82.0" text="Clas." />
-              </columns>
-            </TableView>
-            <Label layoutX="493.0" layoutY="68.0" text="Filmes em exibição" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="360.0" onAction="#adicionar" style="-fx-background-color: #FF6A6A;" text="Adicionar Filme" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="853.0" layoutY="545.0" onAction="#comprarIngresso" style="-fx-background-color: #FF6A6A;" text="Realizar compra" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
-               <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="853.0" layoutY="601.0" onAction="#sair" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #FF6A6A;" text="Sair" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="424.0" onAction="#remover" prefHeight="39.0" prefWidth="158.0" style="-fx-background-color: #FF6A6A;" text="Remover Filme" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="478.0" layoutY="162.0" text="O que deseja fazer?" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="478.0" layoutY="122.0" text="Gerenciamento de filmes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="489.0" onAction="#voltar" prefHeight="39.0" prefWidth="158.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
          </children></AnchorPane>
-   </top>
+   </center>
 </BorderPane>
