@@ -1,10 +1,10 @@
 package br.ufrpe.LsCine.gui;
 
-public class TelaFilmesController {
-	
+public class TelaSalasController {
+
 	public void adicionar(){
 		try{
-			Telas.getInstance().getAdicionarFilme();
+			Telas.getInstance().getAdicionarSala();
 			System.out.println("funfou");
 		}
 		catch(Exception e){
@@ -14,7 +14,7 @@ public class TelaFilmesController {
 	
 	public void remover(){
 		try{
-			Telas.getInstance().getRemoverFilme();
+			Telas.getInstance().getRemoverSala();
 			System.out.println("funfou");
 		}
 		catch(Exception e){

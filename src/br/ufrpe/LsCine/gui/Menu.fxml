@@ -25,12 +25,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="360.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Salas" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="360.0" onAction="#salas" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Salas" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="464.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Sessões" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="464.0" onAction="#sessao" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Sessões" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -42,7 +42,7 @@
             </JFXButton>
             <ImageView fitHeight="188.0" fitWidth="264.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/Logo.png" />
+                  <Image url="@../imagens/Logo.png" />
                </image>
             </ImageView>
             <TableView fx:id="tabela" layoutX="347.0" layoutY="119.0" prefHeight="514.0" prefWidth="470.0" style="-fx-border-width: 2; -fx-border-color: #FF6A6A;">

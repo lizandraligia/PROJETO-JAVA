@@ -74,6 +74,24 @@ public class MenuController implements Initializable{
 		}
 	}
 	
+	public void salas(){
+		try{
+			Telas.getInstance().getTelaSalas();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void sessao(){
+		try{
+			Telas.getInstance().getTelaSessao();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	/*
 	public void adicionarFilme(){
 		try{

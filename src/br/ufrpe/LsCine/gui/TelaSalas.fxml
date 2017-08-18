@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.TelaFilmesController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.TelaSalasController">
    <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
@@ -39,12 +39,12 @@
                   <Image url="@../imagens/Logo.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="360.0" onAction="#adicionar" style="-fx-background-color: #FF6A6A;" text="Adicionar Filme" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="360.0" onAction="#adicionar" prefHeight="39.0" prefWidth="162.0" style="-fx-background-color: #FF6A6A;" text="Adicionar Sala" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="424.0" onAction="#remover" prefHeight="39.0" prefWidth="158.0" style="-fx-background-color: #FF6A6A;" text="Remover Filme" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="424.0" onAction="#remover" prefHeight="39.0" prefWidth="162.0" style="-fx-background-color: #FF6A6A;" text="Remover Sala" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -54,12 +54,12 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="478.0" layoutY="122.0" text="Gerenciamento de filmes" textFill="WHITE">
+            <Label layoutX="478.0" layoutY="122.0" text="Gerenciamento de salas" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="489.0" onAction="#voltar" prefHeight="39.0" prefWidth="158.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="489.0" onAction="#voltar" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

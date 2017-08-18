@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -11,27 +13,53 @@
    <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="266.0" layoutY="116.0" text="Remover Filme" textFill="WHITE">
+            <Rectangle fill="#ff6a6a" height="682.0" stroke="#03030300" strokeType="INSIDE" strokeWidth="0.0" width="283.0" />
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="258.0" onAction="#filme" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Filmes" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="360.0" onAction="#sala" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Salas" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="464.0" onAction="#sessao" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Sessões" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="568.0" prefHeight="64.0" prefWidth="195.0" style="-fx-background-color: #191970; -fx-background-radius: 0;" text="Financeiro" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="538.0" layoutY="111.0" text="Remover Filme" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="262.0" text="Nome do filme" textFill="WHITE">
+            <Label layoutX="474.0" layoutY="279.0" text="Nome do filme" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="tfNome" layoutX="324.0" layoutY="260.0" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: #DCDCDC;" />
-            <JFXButton buttonType="RAISED" layoutX="178.0" layoutY="390.0" onAction="#removerb" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Remover" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXTextField fx:id="tfNome" layoutX="475.0" layoutY="309.0" prefHeight="25.0" prefWidth="331.0" style="-fx-background-color: #DCDCDC;" />
+            <JFXButton buttonType="RAISED" layoutX="475.0" layoutY="450.0" onAction="#removerb" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Remover" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="438.0" layoutY="390.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="696.0" layoutY="450.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
+            <ImageView fitHeight="188.0" fitWidth="264.0" layoutX="9.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/Logo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>
