@@ -1,8 +1,9 @@
 package br.ufrpe.LsCine.negocio.beans;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.io.Serializable;
 
-public class Sessao {
+public class Sessao implements Serializable{
 	
 	public Sessao() {
 		super();
