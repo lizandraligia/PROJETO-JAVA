@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -27,7 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class ComprarIngressoController implements Initializable {
+public class ComprarIngressoController{
 	
 private Fachada fachada = Fachada.getInstancia();
 	
@@ -35,24 +36,21 @@ private Fachada fachada = Fachada.getInstancia();
 	@FXML JFXTextField Letra;
 	@FXML JFXTextField Num;
 	@FXML JFXToggleButton Meia;
+	@FXML Label labelFilme, labelSala, labelHora;
 	
-	@FXML TableView <Sessao> tabela;
-	@FXML TableColumn <Filme, String> tcFilme, tcClas;
-	@FXML TableColumn <Filme, Integer> tcDur;
-	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+	@FXML
+	public void initialize() {
+		//Sessao s = new Sessao();
+		/*Sessao sessao = new Sessao();
+		String nome = sessao.getNome();
+		String clas = sessao.getClassificacao();
+		String tipo = sessao.getTipo();
+		String hora = sessao.getHrinicio();
+		this.labelFilme.setText(nome);
+		this.labelHora.setText(hora);
+		this.labelSala.setText(tipo);*/
+		//s.setNome(labelFilme.getText());
 	}
-		
-	/*public void tabela(){
-		tcFilme.setCellValueFactory(new PropertyValueFactory<Filme, String>("nome"));
-		tcDur.setCellValueFactory(new PropertyValueFactory<Filme, Integer>("duracao"));
-		tcClas.setCellValueFactory(new PropertyValueFactory<Filme, String>("classificacao"));
-		
-		tabela.setItems(FXCollections.observableList(Fachada.getInstancia().getCadastroSe().listar()));
-		tabela.refresh();
-	}*/
 	
 	
 	
@@ -164,6 +162,37 @@ private Fachada fachada = Fachada.getInstancia();
 		
 	}
 	
+	public void filme(){
+		try{
+			Telas.getInstance().getTelaFilmes();
+			System.out.println("funfou");
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
 	
+	public void sala(){
+		try{
+			Telas.getInstance().getTelaSalas();
+			System.out.println("funfou");
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	public void sessao(){
+		try{
+			Telas.getInstance().getTelaSessao();
+			System.out.println("funfou");
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		
+	}
 
 }

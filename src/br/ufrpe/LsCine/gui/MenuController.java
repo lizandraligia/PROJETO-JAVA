@@ -1,9 +1,12 @@
 package br.ufrpe.LsCine.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.negocio.beans.Salas;
+import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,27 +14,57 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
 
-public class MenuController implements Initializable{
+public class MenuController{
 
 	private Fachada fachada = Fachada.getInstancia();
 	
-	@FXML TableView <Filme> tabela;
-	@FXML TableColumn <Filme, String> tcFilme, tcClas;
-	@FXML TableColumn <Filme, Integer> tcDur;
+	@FXML TableView <Sessao> tabela;
+	@FXML TableColumn <Sessao, String> tcNome, tcHorario, tcClas, tcSala;
+	//@FXML TableColumn <Filme, Integer> tcDur;
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+	@FXML
+	public void initialize() {
+		tabela.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+        @Override
+	        public void handle(MouseEvent event) {
+	        	tabela.getSelectionModel().getSelectedItem();
+	        	comprarIngresso();
+	        }
+		});
 	}
+	
 		
 	public void tabela(){
-		tcFilme.setCellValueFactory(new PropertyValueFactory<Filme, String>("nome"));
-		tcDur.setCellValueFactory(new PropertyValueFactory<Filme, Integer>("duracao"));
-		tcClas.setCellValueFactory(new PropertyValueFactory<Filme, String>("classificacao"));
 		
-		tabela.setItems(FXCollections.observableList(Fachada.getInstancia().getCadastroF().getRepositorioF().listar()));
+		tcNome.setCellValueFactory(new PropertyValueFactory<Sessao, String>("nome"));
+		tcHorario.setCellValueFactory(new PropertyValueFactory<Sessao, String>("hrinicio"));
+		tcSala.setCellValueFactory(new PropertyValueFactory<Sessao, String>("tipo"));
+		//tcDur.setCellValueFactory(new PropertyValueFactory<Filme, Integer>("duracao"));
+		tcClas.setCellValueFactory(new PropertyValueFactory<Sessao, String>("classificacao"));
+		
+		tabela.setItems(FXCollections.observableList(Fachada.getInstancia().getCadastroSe().getRepositorioSessao().listar()));
 		tabela.refresh();
+	}
+	
+/*	
+	public void clique(){
+		
+		Sessao sessao = tabela.getSelectionModel().getSelectedItem();
+		String nome = sessao.getNome();
+		String clas = sessao.getClassificacao();
+		String tipo = sessao.getTipo();
+		String hora = sessao.getHrinicio();
+		System.out.println(tabela.getOnMouseClicked());
+		//tabela.getSelectionModel().getSelectedItem().toString();
+	}*/
+	
+	@FXML 
+	public void handleMouseClick(MouseEvent arg0) throws IOException {
+
 	}
 	
 	public void home(){
@@ -42,18 +75,6 @@ public class MenuController implements Initializable{
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	
-	/*
-	public void financeiro(){	
-		try{	
-			this.fachada.totalFinanceiroIngresso();
-			Visual.getInstance().getMenu();
-		}
-		catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-	}*/
 	
 	public void sair(){
 		try{

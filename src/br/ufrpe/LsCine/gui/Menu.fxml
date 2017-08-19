@@ -45,11 +45,12 @@
                   <Image url="@../imagens/Logo.png" />
                </image>
             </ImageView>
-            <TableView fx:id="tabela" layoutX="347.0" layoutY="119.0" prefHeight="514.0" prefWidth="470.0" style="-fx-border-width: 2; -fx-border-color: #FF6A6A;">
+            <TableView fx:id="tabela" layoutX="314.0" layoutY="119.0" prefHeight="514.0" prefWidth="541.0" style="-fx-border-width: 2; -fx-border-color: #FF6A6A;">
               <columns>
-                <TableColumn prefWidth="255.00003051757812" text="Filme" />
-                <TableColumn prefWidth="129.0" text="Duração" />
-                  <TableColumn prefWidth="82.0" text="Clas." />
+                <TableColumn fx:id="tcNome" prefWidth="280.0" text="Filme" />
+                <TableColumn fx:id="tcClas" prefWidth="64.0" text="Clas." />
+                  <TableColumn fx:id="tcHorario" prefWidth="109.0" text="Horário" />
+                  <TableColumn fx:id="tcSala" prefWidth="85.0" text="Sala" />
               </columns>
             </TableView>
             <Label layoutX="493.0" layoutY="68.0" text="Filmes em exibição" textFill="WHITE">
@@ -57,12 +58,12 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="853.0" layoutY="545.0" onAction="#comprarIngresso" style="-fx-background-color: #FF6A6A;" text="Realizar compra" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="874.0" layoutY="552.0" onAction="#comprarIngresso" style="-fx-background-color: #FF6A6A;" text="Realizar compra" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="853.0" layoutY="601.0" onAction="#sair" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #FF6A6A;" text="Sair" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="875.0" layoutY="600.0" onAction="#sair" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #FF6A6A;" text="Sair" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
