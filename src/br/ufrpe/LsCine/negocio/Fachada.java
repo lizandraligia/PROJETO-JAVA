@@ -107,8 +107,8 @@ public class Fachada {
 		return this.cadastroSe.conferirHorario();
 	}*/
 	
-	public void listarSessoes(){
-		this.cadastroSe.listar();
+	public ArrayList<Sessao> listarSessoes(){
+		return this.cadastroSe.listar();
 	}
 	
 	/*public void buscarSessaoPorFilme(String nome){
