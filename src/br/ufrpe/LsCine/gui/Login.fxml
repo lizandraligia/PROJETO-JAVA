@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -14,16 +16,36 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.LoginController">
    <center>
-      <AnchorPane prefHeight="680.0" prefWidth="1020.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="622.0" fitWidth="770.0" layoutX="-7.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+            <Rectangle arcHeight="10.0" arcWidth="12.0" fill="#ff6a6a" height="177.0" layoutX="292.0" layoutY="439.0" stroke="MIDNIGHTBLUE" strokeType="INSIDE" strokeWidth="2.0" width="445.0" />
+            <ImageView fitHeight="387.0" fitWidth="594.0" layoutX="233.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Imagens/Login.jpg" />
+                  <Image url="@../imagens/Logo.png" />
                </image>
             </ImageView>
-            <Button layoutX="325.0" layoutY="507.0" mnemonicParsing="false" onAction="#Login" opacity="0.0" prefHeight="46.0" prefWidth="116.0" />
-            <TextField fx:id="tfLogin" layoutX="357.0" layoutY="424.0" prefHeight="25.0" prefWidth="147.0" />
-            <PasswordField fx:id="tfSenha" layoutX="357.0" layoutY="463.0" onAction="#Login" prefHeight="25.0" prefWidth="149.0" />
+            <JFXButton buttonType="RAISED" layoutX="607.0" layoutY="580.0" onAction="#Login" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #191970;" text="Entrar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="456.0" layoutY="476.0" text="Usuário" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="456.0" layoutY="530.0" text="Senha" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="tfLogin" focusColor="#5c0f89" layoutX="542.0" layoutY="479.0" prefHeight="25.0" prefWidth="152.0" unFocusColor="MIDNIGHTBLUE" />
+            <JFXPasswordField fx:id="tfSenha" focusColor="#5c0f89" layoutX="542.0" layoutY="533.0" onAction="#Login" prefHeight="25.0" prefWidth="155.0" unFocusColor="MIDNIGHTBLUE" />
+            <ImageView fitHeight="117.0" fitWidth="127.0" layoutX="319.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/login.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>
