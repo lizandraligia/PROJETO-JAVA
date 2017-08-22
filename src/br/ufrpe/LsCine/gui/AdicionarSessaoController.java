@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
@@ -12,6 +13,8 @@ import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
 import br.ufrpe.LsCine.negocio.beans.Salas;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -23,23 +26,28 @@ public class AdicionarSessaoController implements Initializable {
 	private Fachada fachada = Fachada.getInstancia();
 	
 	@FXML JFXTextField ID;
-	@FXML JFXTextField Filme;
-	@FXML JFXTextField Sala;
 	@FXML JFXTextField HORAINI;
 	@FXML JFXTextField HORAFIM;
 	@FXML JFXToggleButton leg;
+	@FXML JFXComboBox <Filme> cbFilmes; 
+	@FXML JFXComboBox <Salas> cbSalas; 
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 	}
 	
+	public void atualizar(){
+		cbFilmes.setItems(FXCollections.observableArrayList(fachada.listarFilme()));
+		cbSalas.setItems(FXCollections.observableArrayList(fachada.listarSalas()));
+		ID.setText(String.valueOf(fachada.listarSessoes().size() + 1));
+	}
+	
 	public void inserir(){
 		try{
-			Filme filmes = new Filme();
-			Salas salan = new Salas();
-			filmes = fachada.buscarFilme(Filme.getText());
-			salan = fachada.procurarIdSala(Integer.parseInt(Sala.getText()));
+			Filme filmes = cbFilmes.getValue();
+			Salas salan = cbSalas.getValue();
 			Date data = new Date();
 			Date data2 = new Date();
 			int final1 = filmes.getDuracao();
@@ -52,7 +60,7 @@ public class AdicionarSessaoController implements Initializable {
 			data.setMinutes(Integer.parseInt(HORAFIM.getText()));
 			data2.setHours(hrsfim);
 			data2.setMinutes(minfim);			
-			Sessao sessao = new Sessao(filmes, salan, data, data2, Integer.parseInt(ID.getText()), leg.isSelected());
+			Sessao sessao = new Sessao(filmes, salan, data, data2, fachada.listarSessoes().size() + 1, leg.isSelected());
 			fachada.getInstancia().getCadastroSe().adicionarSessao(sessao);
 			
 			for(int i=0; i<fachada.getInstancia().getCadastroSe().listar().size(); i++){
@@ -62,7 +70,7 @@ public class AdicionarSessaoController implements Initializable {
 			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
 			Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
 			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
-	        dialogoInfo.setTitle("A SESSÃO FOI ADICIONADA COM SUCESSO!");
+	        dialogoInfo.setTitle("A SESSÃƒO FOI ADICIONADA COM SUCESSO!");
 	        dialogoInfo.setHeaderText(null);
 	        dialogoInfo.setContentText(sessao.toString());
 	        dialogoInfo.showAndWait();
