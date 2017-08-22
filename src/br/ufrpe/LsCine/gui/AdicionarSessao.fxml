@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarSessaoController">
-   <center>
+   <right>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
             <Rectangle fill="#ff6a6a" height="682.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
@@ -34,9 +34,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="Sala" layoutX="528.0" layoutY="278.0" prefHeight="25.0" prefWidth="307.0" style="-fx-background-color: #F5F5F5;" />
             <JFXTextField fx:id="HORAFIM" layoutX="604.0" layoutY="323.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #F5F5F5;" text="Minutos" />
-            <JFXTextField fx:id="Filme" layoutX="527.0" layoutY="236.0" prefHeight="25.0" prefWidth="308.0" style="-fx-background-color: #F5F5F5;" />
             <JFXTextField fx:id="HORAINI" layoutX="528.0" layoutY="323.0" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #F5F5F5;" text="Horas" />
             <Label layoutX="452.0" layoutY="238.0" text="Filme" textFill="WHITE">
                <font>
@@ -58,12 +56,12 @@
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="735.0" layoutY="325.0" text="ID" textFill="WHITE">
+            <Label layoutX="692.0" layoutY="325.0" text="ID" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="ID" layoutX="776.0" layoutY="323.0" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXTextField fx:id="ID" editable="false" layoutX="722.0" layoutY="323.0" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F5F5F5;" />
             <JFXButton buttonType="RAISED" layoutX="449.0" layoutY="496.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
@@ -89,7 +87,9 @@
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
+            <JFXComboBox fx:id="cbFilmes" layoutX="528.0" layoutY="238.0" prefHeight="22.0" prefWidth="306.0" style="-fx-background-color: #CDCDCD;" />
+            <JFXComboBox fx:id="cbSalas" layoutX="528.0" layoutY="279.0" prefHeight="22.0" prefWidth="306.0" style="-fx-background-color: #CDCDCD;" />
          </children>
       </AnchorPane>
-   </center>
+   </right>
 </BorderPane>
