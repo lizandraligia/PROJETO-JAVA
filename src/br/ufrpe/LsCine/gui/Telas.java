@@ -106,6 +106,8 @@ public class Telas {
 	
 	public void getAdicionarSessao(){
 		border.setCenter(this.paneAdicionarSessao);
+		AdicionarSessaoController controlador = adicionarSessao.getController();
+		controlador.atualizar();
 	}
 	
 	public void getRemoverSala(){
