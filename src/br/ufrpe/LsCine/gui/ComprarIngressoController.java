@@ -194,5 +194,14 @@ private Fachada fachada = Fachada.getInstancia();
 		}
 		
 	}
+	
+	public void financeiro(){
+		try{
+			Telas.getInstance().getFinanceiro();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

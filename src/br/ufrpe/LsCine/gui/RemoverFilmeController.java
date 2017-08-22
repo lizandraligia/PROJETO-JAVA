@@ -89,4 +89,13 @@ public class RemoverFilmeController implements Initializable{
 		}
 		
 	}
+	
+	public void financeiro(){
+		try{
+			Telas.getInstance().getFinanceiro();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 }

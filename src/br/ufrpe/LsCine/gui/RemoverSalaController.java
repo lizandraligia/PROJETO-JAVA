@@ -91,5 +91,14 @@ public class RemoverSalaController implements Initializable {
 		}
 		
 	}
+	
+	public void financeiro(){
+		try{
+			Telas.getInstance().getFinanceiro();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

@@ -1,7 +1,19 @@
 package br.ufrpe.LsCine.gui;
 
+import br.ufrpe.LsCine.negocio.Fachada;
+
 public class FinanceiroController {
 
+	public void lucro(){
+		try{
+			Fachada.getInstancia().getCadastroI().getRepositorioI().financeiroIngresso();
+			System.out.println("funfou");
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	
 	public void voltar(){
 		try{
@@ -44,5 +56,14 @@ public class FinanceiroController {
 			System.out.println(e.getMessage());
 		}
 		
+	}
+	
+	public void financeiro(){
+		try{
+			Telas.getInstance().getFinanceiro();
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 }
