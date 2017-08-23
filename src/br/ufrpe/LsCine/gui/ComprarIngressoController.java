@@ -113,7 +113,7 @@ private Fachada fachada = Fachada.getInstancia();
 			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
         	dialogoInfo.setTitle("Compra realizada com sucesso!");
         	dialogoInfo.setHeaderText(null);
-        	//dialogoInfo.setContentText("");
+        	dialogoInfo.setContentText(" Filme: " + sessao.getNome() + " Valor: R$" + valor() );
         	dialogoInfo.showAndWait();
 			atualizarSessao();		
 			

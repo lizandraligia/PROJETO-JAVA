@@ -19,10 +19,6 @@ public class CadastroSessao {
 			return false;
 		}
 		
-		if(repositorioSessao.conferirHorario(sessao.getSala().getNumero(), sessao.getHrinicio(), sessao.getHrfim())) {
-			return false;
-		}
-		
 		return this.repositorioSessao.adicionar(sessao);
 		
 	}
@@ -33,14 +29,6 @@ public class CadastroSessao {
 		}
 		return false;
 	}
-	
-	public boolean editarSessao(Sessao sessao){
-		if(this.repositorioSessao.procurar(sessao.getId())!=null){
-			return this.repositorioSessao.alterar(sessao);
-		}
-		return false;
-	}
-	
 	public boolean conferirHorario(){
 		return true;
 	}

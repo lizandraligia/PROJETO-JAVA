@@ -7,8 +7,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
 
+import br.ufrpe.LsCine.comparadores.ComparadorSessao;
 import br.ufrpe.LsCine.interfaces.IRepositorioSessao;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
@@ -139,7 +140,11 @@ public class RepositorioSessao implements IRepositorioSessao, Serializable{
 	}
 	
 	public ArrayList<Sessao> listar(){
-		return this.sessoes;
+		ArrayList<Sessao> ordem = this.sessoes;
+		Collections.sort(ordem, new ComparadorSessao());
+		return ordem;
+		
+		//return this.sessoes;
 	}
 	
 	public void listarNome(String nome) {
@@ -167,29 +172,6 @@ public class RepositorioSessao implements IRepositorioSessao, Serializable{
 		return -1;
 	}
 	
-	public boolean conferirHorario(int sala, Date hrinicio, Date hrfim) {
-		System.out.println(hrinicio.getTime());
-		int s = 0;
-		for(int i = 0; i<this.sessoes.size(); i++){
-			if(this.sessoes.get(i).getSala().getNumero() == sala){			
-				if((hrinicio.before(this.sessoes.get(i).getHrinicio()) && hrfim.before(this.sessoes.get(i).getHrinicio()))) {
-					s++;
-				}
-			}
-		}
-		
-		if(this.sessoes.size() == 0) {
-			s++;
-		}
-		
-
-		if(s == 0) {
-			return true;
-		}
-		return false;
-	}
-	
-
 	/*public void listarSala(int sala) {
 		for(int i = 0; i<this.sessoes.size(); i++){
 			if(this.sessoes.get(i).getSala().getNumero() == sala){			
