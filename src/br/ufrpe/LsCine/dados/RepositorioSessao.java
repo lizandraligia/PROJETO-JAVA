@@ -165,6 +165,28 @@ public class RepositorioSessao implements IRepositorioSessao, Serializable{
 		return -1;
 	}
 	
+	public boolean conferirHorario(int sala, Date hrinicio, Date hrfim) {
+		System.out.println(hrinicio.getTime());
+		int s = 0;
+		for(int i = 0; i<this.sessoes.size(); i++){
+			if(this.sessoes.get(i).getSala().getNumero() == sala){			
+				if((hrinicio.before(this.sessoes.get(i).getHrinicio()) && hrfim.before(this.sessoes.get(i).getHrinicio()))) {
+					s++;
+				}
+			}
+		}
+		
+		if(this.sessoes.size() == 0) {
+			s++;
+		}
+		
+
+		if(s == 0) {
+			return true;
+		}
+		return false;
+	}
+	
 	/*public void listarSala(int sala) {
 		for(int i = 0; i<this.sessoes.size(); i++){
 			if(this.sessoes.get(i).getSala().getNumero() == sala){			
