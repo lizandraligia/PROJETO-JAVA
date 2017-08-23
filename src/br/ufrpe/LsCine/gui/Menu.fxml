@@ -58,11 +58,6 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="874.0" layoutY="552.0" onAction="#comprarIngresso" style="-fx-background-color: #FF6A6A;" text="Realizar compra" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="875.0" layoutY="600.0" onAction="#sair" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #FF6A6A;" text="Sair" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="14.0" />

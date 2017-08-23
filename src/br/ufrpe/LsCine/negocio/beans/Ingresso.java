@@ -62,6 +62,14 @@ public class Ingresso implements Serializable{
 		this.id = id;
 	}
 
+	public int getLugar() {
+		return lugar;
+	}
+
+	public void setLugar(int lugar) {
+		this.lugar = lugar;
+	}
+
 	@Override
 	public String toString() {
 		return "Ingresso \ntipo=" + tipo + "\nlugar=" + lugar + "\nvalor=" + valor + "\nsessao=" + sessao + "\nid=" + id;

@@ -1,59 +1,94 @@
 package br.ufrpe.LsCine.gui;
 
-import java.net.URL;
+import java.io.IOException;
 import java.util.Date;
-import java.util.Optional;
-import java.util.ResourceBundle;
+
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
-import br.ufrpe.LsCine.negocio.beans.GerarIngresso;
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class ComprarIngressoController{
 	
 private Fachada fachada = Fachada.getInstancia();
 	
-	@FXML JFXTextField IDS;
-	@FXML JFXTextField Letra;
-	@FXML JFXTextField Num;
 	@FXML JFXToggleButton Meia;
 	@FXML Label labelFilme, labelSala, labelHora;
+	@FXML JFXButton confirma;
+	@FXML GridPane gridCadeiras;
+
+	private Sessao sessao;
+	int cadeira = -1;
 	
 	@FXML
 	public void initialize() {
-		//Sessao s = new Sessao();
-		/*Sessao sessao = new Sessao();
-		String nome = sessao.getNome();
-		String clas = sessao.getClassificacao();
-		String tipo = sessao.getTipo();
-		String hora = sessao.getHrinicio();
-		this.labelFilme.setText(nome);
-		this.labelHora.setText(hora);
-		this.labelSala.setText(tipo);*/
-		//s.setNome(labelFilme.getText());
+		
 	}
+	@FXML 
+	public void handleMouseClick(MouseEvent arg0) throws IOException {
+
+	}
+	public void atualizarSessao() {
+		for (int r = 0; r < 10; r++) {
+			for (int c = 0; c < 20; c++) {
+				int number = 20 * r + c;
+				if (sessao.getCadeira(number)){
+					Button button = new Button();
+					button.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
+					button.setMinHeight(20);
+					button.setMinWidth(20);
+					button.setDisable(true);
+					gridCadeiras.add(button, c, r);
+				} 
+				else{
+					Button button = new Button();
+					button.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
+					button.setMinHeight(20);
+					button.setMinWidth(20);
+					button.setId(String.valueOf(number));
+					button.setOnMouseClicked(new EventHandler<MouseEvent>(){
+						
+						@Override
+						public void handle(MouseEvent event) {	
+							cadeira = Integer.parseInt(button.getId());
+							//labelErro.setText("Você selecionou a cadeira: " + cadeira);
+							//labelValor.setText("R$" + valor);
+							Meia.setDisable(false);
+							valor();
+							confirma.setDisable(false);
+						}
+					});
+					gridCadeiras.add(button, c, r);
+				}
+			}
+		}
+
+	}	
 	
-	
+	public void setSessao(Sessao selecionado) {
+		this.sessao = selecionado;
+		labelFilme.setText(this.sessao.getNome());
+		labelSala.setText(this.sessao.getTipo());
+		labelHora.setText(this.sessao.getHrinicio());
+		atualizarSessao();
+	}
 	
 	public void comprar(){		
 		try{
@@ -63,48 +98,25 @@ private Fachada fachada = Fachada.getInstancia();
 			}else{
 				x = 1;
 			}
-			Sessao sessao = fachada.getInstancia().getCadastroSe().procurarID(Integer.parseInt(IDS.getText()));
-			int lugar = this.assento(Letra.getText(), Integer.parseInt(Num.getText()));
+			//Sessao sessao = fachada.getInstancia().getCadastroSe().procurarID(Integer.parseInt(IDS.getText()));
+			//int lugar = this.assento(Letra.getText(), Integer.parseInt(Num.getText()));
+			
 			int id = fachada.getInstancia().getCadastroI().listar().size();
-			Ingresso ingresso = new Ingresso(x, this.valor(), sessao, lugar, id);
+			Sessao s = this.sessao;
+			Ingresso ingresso = new Ingresso(x, this.valor(), s, cadeira, id);
+			Fachada.getInstancia().getCadastroI().cadastrar(ingresso);
+			s.setCadeira(cadeira);
+			Fachada.getInstancia().getCadastroSe().getRepositorioSessao().alterar(s);
 			
-			
-			
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+			Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
 			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
-			alert.setTitle("Confirmar Compra");
-			alert.setHeaderText("Você tem certeza de que quer comprar o ingresso?");
-			alert.setContentText(ingresso.toString());
-			Optional<ButtonType> result = alert.showAndWait();
+        	dialogoInfo.setTitle("Compra realizada com sucesso!");
+        	dialogoInfo.setHeaderText(null);
+        	//dialogoInfo.setContentText("");
+        	dialogoInfo.showAndWait();
+			atualizarSessao();		
 			
-			
-			if(ingresso.getSessao().setCadeira(lugar)){
-				if (result.get() == ButtonType.OK){
-					ingresso.getSessao().setCadeira(lugar);
-					fachada.getInstancia().getCadastroI().cadastrar(ingresso);
-					Alert alert1 = new Alert(AlertType.CONFIRMATION);
-					Stage stage1 = (Stage) alert1.getDialogPane().getScene().getWindow();
-					stage1.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
-					alert1.setTitle("Imprimir Ingresso");
-					alert1.setHeaderText("Você deseja imprimir o ingresso?");
-					alert1.setContentText(null);
-					Optional<ButtonType> result1 = alert1.showAndWait();
-					if(result1.get() == ButtonType.OK) {
-						GerarIngresso.geradorPDF(ingresso);
-						
-					}
-					
-				}	
-			}else{
-				Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);
-				Stage stagee = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
-				stagee.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
-		        dialogoInfo.setTitle("ERRO");
-		        dialogoInfo.setHeaderText(null);
-		        dialogoInfo.setContentText("O lugar escolhido já foi ocupado!");
-		        dialogoInfo.showAndWait();
-			}
 							
 		}
 		catch(Exception e){
@@ -127,43 +139,7 @@ private Fachada fachada = Fachada.getInstancia();
 		}
 		return 0;
 	}
-	
-	public int assento(String fila, int num){
-		int x;
-		switch(fila){
-		case "A":
-			return num-1;
-		case "B":
-			x = 19 + num;
-			return x;
-		case "C":
-			x = 39 + num;
-			return x;
-		case "D":
-			x = 59 + num;
-			return x;
-		case "E":
-			x = 79 + num;
-			return x;
-		case "F":
-			x = 99 + num;
-			return x;
-		case "G":
-			x = 119 + num;
-			return x;
-		case "H":
-			x = 139 + num;
-			return x;
-		case "I":
-			x = 159 + num;
-			return x;
-		case "J":
-			x = 179 + num;
-			return x;	
-		}
-		return -1;
-	}
-	
+
 	public void voltar(){
 		try{
 			Telas.getInstance().getMenu();

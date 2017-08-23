@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import com.jfoenix.controls.*?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.FinanceiroController">
-   <center>
+   <bottom>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
             <Rectangle fill="#ff6a6a" height="682.0" stroke="TRANSPARENT" strokeType="INSIDE" width="283.0" />
@@ -39,7 +40,7 @@
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="550.0" layoutY="224.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="613.0" layoutY="360.0" onAction="#voltar" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -49,7 +50,17 @@
                   <Image url="@../imagens/Logo.png" />
                </image>
             </ImageView>
+            <Label layoutX="576.0" layoutY="267.0" text="Lucro total: " textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelValor" layoutX="701.0" layoutY="267.0" text="valor" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-   </center>
+   </bottom>
 </BorderPane>

@@ -78,6 +78,12 @@
                   <Image url="@../imagens/Logo.png" />
                </image>
             </ImageView>
+            <Label layoutX="458.0" layoutY="320.0" text="(em minutos)" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Label>
+ 
          </children>
       </AnchorPane>
    </center>

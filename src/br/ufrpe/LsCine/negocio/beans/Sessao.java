@@ -61,16 +61,16 @@ public class Sessao implements Serializable{
 		this.sala = sala;
 	}
 
-	public Date getHrinicio() {
-		return this.hrinicio;
+	public String getHrinicio() {
+		return sdf.format(this.hrinicio);
 	}
 
 	public void setHrinicio(Date hrinicio) {
 		this.hrinicio = hrinicio;
 	}
 
-	public Date getHrfim() {
-		return this.hrfim;
+	public String getHrfim() {
+		return sdf.format(this.hrfim);
 	}
 
 	public void setHrfim(Date hrfim) {

@@ -19,7 +19,9 @@ public class Filme implements Serializable{
 	}
 	
 	public String toString() {
-		return "Filme [Nome: " + nome + ", duracao: " + duracao + ", classificacao " + classificacao + "]";
+		return "Filme: " + nome + 
+				". Duracao: " + duracao + " minutos" +
+				". Classificacao indicativa: " + classificacao;
 	}
 	
 	public String getNome() {

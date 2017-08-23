@@ -1,19 +1,19 @@
 package br.ufrpe.LsCine.gui;
 
+
 import br.ufrpe.LsCine.negocio.Fachada;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
 
 public class FinanceiroController {
 
-	public void lucro(){
-		try{
-			Fachada.getInstancia().getCadastroI().getRepositorioI().financeiroIngresso();
-			System.out.println("funfou");
-		}
-		catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-	}
-	
+	@FXML Label labelValor;
+
+	public void initialize(){
+		float valor = Fachada.getInstancia().getCadastroI().getRepositorioI().financeiroIngresso();
+		labelValor.setText("R$ " + valor);
+	}	
 	
 	public void voltar(){
 		try{
