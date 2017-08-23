@@ -7,9 +7,11 @@ public class IDSalaInvalidoException extends Exception {
 	
 	public IDSalaInvalidoException() {
 		Alert alert = new Alert(AlertType.INFORMATION);
+		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+		stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
 		alert.setTitle("LsCine");
 		alert.setHeaderText(null);
-		alert.setContentText("ID inv·lido ou repetido! Digite novamente!");
+		alert.setContentText("ID inv√°lido ou repetido! Digite novamente!");
 		alert.showAndWait();
 	}
 }
