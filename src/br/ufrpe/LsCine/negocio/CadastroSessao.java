@@ -43,6 +43,13 @@ public class CadastroSessao {
 			return this.repositorioSessao.procurar(codigo);			
 	}
 	
+	public boolean editarSessao(Sessao sessao){
+		if(this.repositorioSessao.procurar(sessao.getId())!=null){
+			return this.repositorioSessao.alterar(sessao);
+		}
+		return false;
+	}
+	
 	/*public void buscarPorSala(int sala){
 			if(this.repositorioSessao.buscar(sala) != null){
 				this.repositorioSessao.listarSala(sala);
