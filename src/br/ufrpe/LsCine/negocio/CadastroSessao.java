@@ -18,6 +18,9 @@ public class CadastroSessao {
 		if (sessao == null) {
 			return false;
 		}
+		if(repositorioSessao.conferirHorario(sessao.getSala().getNumero(), sessao.getHrinicio(), sessao.getHrfim())) {
+			return false;
+		}
 		
 		return this.repositorioSessao.adicionar(sessao);
 		
