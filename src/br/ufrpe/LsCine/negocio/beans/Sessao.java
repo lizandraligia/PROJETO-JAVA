@@ -9,7 +9,7 @@ public class Sessao implements Serializable{
 		super();
 	}
 
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 	private Filme filme;
 	private Salas sala;
 	private Date hrinicio;
@@ -61,16 +61,16 @@ public class Sessao implements Serializable{
 		this.sala = sala;
 	}
 
-	public String getHrinicio() {
-		return sdf.format(this.hrinicio);
+	public Date getHrinicio() {
+		return this.hrinicio;
 	}
 
 	public void setHrinicio(Date hrinicio) {
 		this.hrinicio = hrinicio;
 	}
 
-	public String getHrfim() {
-		return sdf.format(this.hrfim);
+	public Date getHrfim() {
+		return this.hrfim;
 	}
 
 	public void setHrfim(Date hrfim) {
