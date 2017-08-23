@@ -2,6 +2,8 @@ package br.ufrpe.LsCine.negocio;
 import java.util.ArrayList;
 
 import br.ufrpe.LsCine.dados.RepositorioSessao;
+import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
+import br.ufrpe.LsCine.exceptions.ImpossívelAdicionarSessaoException;
 import br.ufrpe.LsCine.interfaces.IRepositorioSessao;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
@@ -14,12 +16,19 @@ public class CadastroSessao {
 		this.repositorioSessao = RepositorioSessao.getInstance();
 	}
 	
-	public boolean adicionarSessao(Sessao sessao){
-		if (sessao == null) {
-			return false;
+	public boolean adicionarSessao(Sessao sessao) throws ImpossívelAdicionarSessaoException{
+		
+		Sessao sessaoExiste = this.procurarID(sessao.getId());
+		if(sessaoExiste != null){
+			throw new ImpossívelAdicionarSessaoException();
 		}
 		
-		return this.repositorioSessao.adicionar(sessao);
+		if (sessao != null) {
+			return this.repositorioSessao.adicionar(sessao);
+		}
+		
+		return false;
+		
 		
 	}
 	
@@ -39,15 +48,15 @@ public class CadastroSessao {
 			}		
 	}
 	
-	public Sessao procurarID(int codigo){
-			return this.repositorioSessao.procurar(codigo);			
-	}
-	
 	public boolean editarSessao(Sessao sessao){
 		if(this.repositorioSessao.procurar(sessao.getId())!=null){
 			return this.repositorioSessao.alterar(sessao);
 		}
 		return false;
+	}
+	
+	public Sessao procurarID(int codigo){
+			return this.repositorioSessao.procurar(codigo);			
 	}
 	
 	/*public void buscarPorSala(int sala){

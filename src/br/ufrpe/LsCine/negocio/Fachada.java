@@ -5,6 +5,7 @@ import br.ufrpe.LsCine.dados.*;
 import br.ufrpe.LsCine.negocio.beans.*;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
 import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
+import br.ufrpe.LsCine.exceptions.ImpossívelAdicionarSessaoException;
 import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
 import br.ufrpe.LsCine.exceptions.ValorInvalidoException;
 
@@ -96,7 +97,7 @@ public class Fachada {
 	
 	//SESSAO
 	
-	public boolean adicionarSessao(Sessao sessao){
+	public boolean adicionarSessao(Sessao sessao) throws ImpossívelAdicionarSessaoException{
 		return this.cadastroSe.adicionarSessao(sessao);
 	}
 	
