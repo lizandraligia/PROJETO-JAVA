@@ -130,8 +130,8 @@ public class RepositorioSessao implements IRepositorioSessao, Serializable{
 	}
 	
 	public boolean alterar(Sessao sessao){
-		int search = buscar(sessao);
-		if(sessao != null && search!=-1){
+		int search = this.retornarPosicao(sessao.getId());
+		if(search != -1){
 			this.sessoes.set(search, sessao);
 			this.salvarArquivo();
 			return true;
