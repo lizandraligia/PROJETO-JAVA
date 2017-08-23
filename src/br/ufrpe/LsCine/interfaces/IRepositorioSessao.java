@@ -14,6 +14,6 @@ public interface IRepositorioSessao {
 	public ArrayList<Sessao> listar();
 	public void listarNome(String nome);
 	public Sessao buscarNome(String nome);
-	public boolean conferirHorario(int sala, Date hrinicio, Date hrfim);
+	//public boolean conferirHorario(int sala, Date hrinicio, Date hrfim);
 	
 }
