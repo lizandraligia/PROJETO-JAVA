@@ -132,6 +132,8 @@ public class Telas {
 	
 	public void getEditarSessao(){
 		border.setCenter(this.paneEditarSessao);
+		EditarSessaoController controlador = editarSessao.getController();
+		controlador.atualizar();
 	}	
 	
 }
