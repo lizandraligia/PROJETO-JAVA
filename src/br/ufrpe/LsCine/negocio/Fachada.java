@@ -6,6 +6,7 @@ import br.ufrpe.LsCine.negocio.beans.*;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
 import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
 import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
+import br.ufrpe.LsCine.exceptions.ValorInvalidoException;
 
 public class Fachada {
 
@@ -33,7 +34,7 @@ public class Fachada {
 	
 	//FILME 
 	
-	public boolean cadastrarFilme(Filme filme) throws FilmeExistenteException{
+	public boolean cadastrarFilme(Filme filme) throws FilmeExistenteException, ValorInvalidoException{
 		return this.cadastroF.cadastrar(filme);
 	}
 	

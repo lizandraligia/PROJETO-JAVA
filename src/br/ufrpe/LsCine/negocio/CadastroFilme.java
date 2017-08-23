@@ -5,6 +5,7 @@ import br.ufrpe.LsCine.interfaces.IRepositorioFilme;
 import br.ufrpe.LsCine.negocio.beans.Filme;
 import br.ufrpe.LsCine.dados.RepositorioFilme;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
+import br.ufrpe.LsCine.exceptions.ValorInvalidoException;
 
 public class CadastroFilme {
 
@@ -22,11 +23,14 @@ public class CadastroFilme {
 		this.repositorioF = repositorioF;
 	}
 
-	public boolean cadastrar(Filme filme) throws FilmeExistenteException{
+	public boolean cadastrar(Filme filme) throws ValorInvalidoException, FilmeExistenteException{
 		
 		Filme filmeExiste = this.repositorioF.buscarFilme(filme.getNome());
 		if(filmeExiste != null){
 			throw new FilmeExistenteException();
+		}
+		if(filme.getDuracao()<0){
+			throw new ValorInvalidoException();
 		}
 		
 		if(this.repositorioF.inserirFilme(filme)==true){
@@ -34,7 +38,7 @@ public class CadastroFilme {
 				return true;
 			}
 		}
-		return false;
+		throw new ValorInvalidoException();
 	}
 	
 	public Filme buscar(String nome){
