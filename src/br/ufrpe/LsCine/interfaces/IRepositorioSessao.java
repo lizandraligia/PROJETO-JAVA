@@ -1,6 +1,8 @@
 package br.ufrpe.LsCine.interfaces;
 
 import java.util.ArrayList;
+import java.util.Date;
+
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
 public interface IRepositorioSessao {

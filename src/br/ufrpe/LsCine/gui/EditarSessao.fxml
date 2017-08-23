@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.AdicionarSessaoController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.LsCine.gui.EditarSessaoController">
    <center>
       <AnchorPane prefHeight="680.0" prefWidth="1020.0" style="-fx-background-color: #104E8B;" BorderPane.alignment="CENTER">
          <children>
@@ -51,7 +51,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="541.0" layoutY="101.0" text="Adicionar Sessão" textFill="WHITE">
+            <Label layoutX="583.0" layoutY="101.0" text="Alterar Sessão" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="28.0" />
                </font>
@@ -61,8 +61,8 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="ID" alignment="CENTER" editable="false" layoutX="722.0" layoutY="323.0" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F5F5F5;" />
-            <JFXButton buttonType="RAISED" layoutX="449.0" layoutY="496.0" onAction="#inserir" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textFill="WHITE">
+            <JFXTextField fx:id="ID" alignment="CENTER" editable="true" layoutX="722.0" layoutY="323.0" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #F5F5F5;" />
+            <JFXButton buttonType="RAISED" layoutX="449.0" layoutY="496.0" onAction="#alterar" prefWidth="104.0" style="-fx-background-color: #FF6A6A;" text="Adicionar" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

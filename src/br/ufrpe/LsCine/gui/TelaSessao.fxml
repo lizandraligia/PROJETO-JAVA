@@ -44,7 +44,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="424.0" onAction="#remover" prefHeight="39.0" prefWidth="171.0" style="-fx-background-color: #FF6A6A;" text="Remover Sessão" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="464.0" onAction="#remover" prefHeight="39.0" prefWidth="171.0" style="-fx-background-color: #FF6A6A;" text="Remover Sessão" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -59,7 +59,12 @@
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="489.0" onAction="#voltar" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+            <JFXButton buttonType="RAISED" layoutX="558.0" layoutY="515.0" onAction="#voltar" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #FF6A6A;" text="Voltar" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="412.0" onAction="#editar" prefHeight="39.0" prefWidth="171.0" style="-fx-background-color: #FF6A6A;" text="Alterar Sessão" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

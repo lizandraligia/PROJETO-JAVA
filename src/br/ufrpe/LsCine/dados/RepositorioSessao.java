@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
+
 import br.ufrpe.LsCine.interfaces.IRepositorioSessao;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
@@ -187,6 +189,7 @@ public class RepositorioSessao implements IRepositorioSessao, Serializable{
 		return false;
 	}
 	
+
 	/*public void listarSala(int sala) {
 		for(int i = 0; i<this.sessoes.size(); i++){
 			if(this.sessoes.get(i).getSala().getNumero() == sala){			

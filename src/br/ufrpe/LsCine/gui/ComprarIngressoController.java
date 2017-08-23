@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXToggleButton;
 
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.negocio.beans.GerarIngresso;
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.collections.FXCollections;
@@ -81,7 +82,19 @@ private Fachada fachada = Fachada.getInstancia();
 			if(ingresso.getSessao().setCadeira(lugar)){
 				if (result.get() == ButtonType.OK){
 					ingresso.getSessao().setCadeira(lugar);
-					fachada.getInstancia().getCadastroI().cadastrar(ingresso);	
+					fachada.getInstancia().getCadastroI().cadastrar(ingresso);
+					Alert alert1 = new Alert(AlertType.CONFIRMATION);
+					Stage stage1 = (Stage) alert1.getDialogPane().getScene().getWindow();
+					stage1.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
+					alert1.setTitle("Imprimir Ingresso");
+					alert1.setHeaderText("Você deseja imprimir o ingresso?");
+					alert1.setContentText(null);
+					Optional<ButtonType> result1 = alert1.showAndWait();
+					if(result1.get() == ButtonType.OK) {
+						GerarIngresso.geradorPDF(ingresso);
+						
+					}
+					
 				}	
 			}else{
 				Alert dialogoInfo = new Alert(Alert.AlertType.ERROR);

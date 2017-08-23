@@ -21,7 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class AdicionarSessaoController implements Initializable {
+public class EditarSessaoController implements Initializable {
 	
 	private Fachada fachada = Fachada.getInstancia();
 	
@@ -41,10 +41,9 @@ public class AdicionarSessaoController implements Initializable {
 	public void atualizar(){
 		cbFilmes.setItems(FXCollections.observableArrayList(fachada.listarFilme()));
 		cbSalas.setItems(FXCollections.observableArrayList(fachada.listarSalas()));
-		ID.setText(String.valueOf(fachada.listarSessoes().size() + 1));
 	}
 	
-	public void inserir(){
+	public void alterar(){
 		try{
 			Filme filmes = cbFilmes.getValue();
 			Salas salan = cbSalas.getValue();
@@ -60,16 +59,16 @@ public class AdicionarSessaoController implements Initializable {
 			data.setMinutes(Integer.parseInt(HORAFIM.getText()));
 			data2.setHours(hrsfim);
 			data2.setMinutes(minfim);			
-			Sessao sessao = new Sessao(filmes, salan, data, data2, fachada.listarSessoes().size() + 1, leg.isSelected());
+			Sessao sessao = new Sessao(filmes, salan, data, data2, Integer.parseInt(ID.getText()), leg.isSelected());
 			
 			for(int i=0; i<fachada.getInstancia().getCadastroSe().listar().size(); i++){
 				System.out.println(fachada.getInstancia().getCadastroSe().listar().get(i).toString());
 			}
-			if(fachada.getInstancia().getCadastroSe().adicionarSessao(sessao)) {
+			if(fachada.getInstancia().getCadastroSe().editarSessao(sessao)) {
 				Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
 				Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
 				stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
-		        dialogoInfo.setTitle("A SESSAO FOI ADICIONADA COM SUCESSO!");
+		        dialogoInfo.setTitle("A SESSAO FOI ALTERADA COM SUCESSO!");
 		        dialogoInfo.setHeaderText(null);
 		        dialogoInfo.setContentText(sessao.toString());
 		        dialogoInfo.showAndWait();

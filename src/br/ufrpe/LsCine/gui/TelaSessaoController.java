@@ -12,6 +12,16 @@ public class TelaSessaoController {
 		}
 	}
 	
+	public void editar(){
+		try{
+			Telas.getInstance().getEditarSessao();
+			System.out.println("funfou");
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void remover(){
 		try{
 			Telas.getInstance().getRemoverSessao();
