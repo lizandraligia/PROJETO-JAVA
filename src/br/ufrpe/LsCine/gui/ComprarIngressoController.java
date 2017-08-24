@@ -9,7 +9,6 @@ import com.jfoenix.controls.JFXToggleButton;
 
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
-import br.ufrpe.LsCine.negocio.beans.GerarIngresso;
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.event.EventHandler;
@@ -70,7 +69,7 @@ private Fachada fachada = Fachada.getInstancia();
 						@Override
 						public void handle(MouseEvent event) {	
 							cadeira = Integer.parseInt(button.getId());
-							//labelErro.setText("Você selecionou a cadeira: " + cadeira);
+							//labelErro.setText("VocÃª selecionou a cadeira: " + cadeira);
 							//labelValor.setText("R$" + valor);
 							Meia.setDisable(false);
 							valor();
