@@ -2,19 +2,21 @@ package br.ufrpe.LsCine.gui;
 
 import java.io.IOException;
 import java.util.Date;
-
+import java.util.Optional;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
+import br.ufrpe.LsCine.negocio.beans.GerarIngresso;
 import br.ufrpe.LsCine.negocio.beans.Ingresso;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -107,17 +109,28 @@ private Fachada fachada = Fachada.getInstancia();
 			Fachada.getInstancia().getCadastroI().cadastrar(ingresso);
 			s.setCadeira(cadeira);
 			Fachada.getInstancia().getCadastroSe().getRepositorioSessao().alterar(s);
-			
-			Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-			Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
-			stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
-        	dialogoInfo.setTitle("Compra realizada com sucesso!");
-        	dialogoInfo.setHeaderText(null);
-        	dialogoInfo.setContentText(" Filme: " + sessao.getNome() + " Valor: R$" + valor() );
-        	dialogoInfo.showAndWait();
-			atualizarSessao();		
-			
-							
+			if(s.getCadeira(cadeira)){
+				Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+				Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
+				stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
+	        	dialogoInfo.setTitle("Compra realizada com sucesso!");
+	        	dialogoInfo.setHeaderText(null);
+	        	dialogoInfo.setContentText(" Filme: " + sessao.getNome() + " Valor: R$" + ingresso.getValor());
+	        	dialogoInfo.showAndWait();
+				atualizarSessao();	
+			}
+			if(!s.getCadeira(cadeira)){
+				Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+				Stage stage = (Stage) dialogoInfo.getDialogPane().getScene().getWindow();
+				stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));
+	        	dialogoInfo.setTitle("L's Cine");
+	        	dialogoInfo.setHeaderText("Cadeira ocupada!");
+	        	dialogoInfo.setContentText(null);
+	        	dialogoInfo.showAndWait();
+				atualizarSessao();
+			}
+	
+									
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());

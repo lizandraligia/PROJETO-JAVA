@@ -3,6 +3,7 @@ package br.ufrpe.LsCine.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
 import br.ufrpe.LsCine.negocio.beans.Salas;
@@ -170,7 +171,12 @@ public class MenuController{
 	
 	public void comprarIngresso(){
 		try{
-			Telas.getInstance().getComprarIngresso();
+			//Telas.getInstance().getComprarIngresso();
+			Sessao selecionado = tabela.getSelectionModel().getSelectedItem();
+			if(selecionado != null){
+				Telas.getInstance().getComprarIngresso(selecionado);
+				System.out.println(selecionado);
+			}
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());

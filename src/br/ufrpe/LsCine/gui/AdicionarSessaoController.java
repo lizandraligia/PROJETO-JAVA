@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
+import br.ufrpe.LsCine.exceptions.SessaoException;
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
 import br.ufrpe.LsCine.negocio.beans.Salas;
@@ -44,7 +45,7 @@ public class AdicionarSessaoController implements Initializable {
 		ID.setText(String.valueOf(fachada.listarSessoes().size() + 1));
 	}
 	
-	public void inserir(){
+	public void inserir() throws SessaoException{
 		try{
 			Filme filmes = cbFilmes.getValue();
 			Salas salan = cbSalas.getValue();
@@ -78,8 +79,9 @@ public class AdicionarSessaoController implements Initializable {
 			}
 			
 		}
-		catch(Exception e){
-			System.out.println(e.getMessage());
+		catch(Exception SessaoException){
+			throw new SessaoException();
+			//System.out.println(e.getMessage());
 		}
 	}
 

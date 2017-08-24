@@ -3,7 +3,8 @@ import java.util.ArrayList;
 
 import br.ufrpe.LsCine.dados.RepositorioSessao;
 import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
-import br.ufrpe.LsCine.exceptions.ImpossívelAdicionarSessaoException;
+import br.ufrpe.LsCine.exceptions.NaoExisteException;
+import br.ufrpe.LsCine.exceptions.SessaoException;
 import br.ufrpe.LsCine.interfaces.IRepositorioSessao;
 import br.ufrpe.LsCine.negocio.beans.Sessao;
 
@@ -16,27 +17,27 @@ public class CadastroSessao {
 		this.repositorioSessao = RepositorioSessao.getInstance();
 	}
 	
-	public boolean adicionarSessao(Sessao sessao) throws ImpossívelAdicionarSessaoException{
+	public boolean adicionarSessao(Sessao sessao) throws SessaoException{
 		
 		Sessao sessaoExiste = this.procurarID(sessao.getId());
 		if(sessaoExiste != null){
-			throw new ImpossívelAdicionarSessaoException();
+			throw new SessaoException();
 		}
 		
 		if (sessao != null) {
 			return this.repositorioSessao.adicionar(sessao);
 		}
 		
-		return false;
+		throw new SessaoException();
 		
 		
 	}
 	
-	public boolean removerSessao(int id){
+	public boolean removerSessao(int id) throws NaoExisteException{
 		if(this.repositorioSessao.procurar(id)!=null){
 			return this.repositorioSessao.remover(id);
 		}
-		return false;
+		throw new NaoExisteException();
 	}
 	public boolean conferirHorario(){
 		return true;
@@ -48,11 +49,11 @@ public class CadastroSessao {
 			}		
 	}
 	
-	public boolean editarSessao(Sessao sessao){
+	public boolean editarSessao(Sessao sessao) throws SessaoException{
 		if(this.repositorioSessao.procurar(sessao.getId())!=null){
 			return this.repositorioSessao.alterar(sessao);
 		}
-		return false;
+		throw new SessaoException();
 	}
 	
 	public Sessao procurarID(int codigo){

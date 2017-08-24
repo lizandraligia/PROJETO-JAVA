@@ -1,5 +1,6 @@
 package br.ufrpe.LsCine.gui;
 
+import br.ufrpe.LsCine.exceptions.ValorInvalidoException;
 import br.ufrpe.LsCine.negocio.Fachada;
 import br.ufrpe.LsCine.negocio.beans.Filme;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class AdicionarFilmeController{
 		cbClassificacao.setItems(list);
 	}
 	
-	public void inserir(){
+	public void inserir() throws ValorInvalidoException{
 		try{
 			Filme f = new Filme();
 			f.setNome(tfNome.getText());
@@ -45,8 +46,9 @@ public class AdicionarFilmeController{
         	dialogoInfo.showAndWait();
 			
 		}
-		catch(Exception e){
-			System.out.println(e.getMessage());
+		catch(Exception ValorInvalidoException){
+			//System.out.println(e.getMessage());
+			throw new ValorInvalidoException();
 		}
 	}
 

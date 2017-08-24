@@ -2,6 +2,7 @@ package br.ufrpe.LsCine.gui;
 
 
 import br.ufrpe.LsCine.negocio.Fachada;
+import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -13,8 +14,9 @@ public class FinanceiroController {
 	public void initialize(){
 		float valor = Fachada.getInstancia().getCadastroI().getRepositorioI().financeiroIngresso();
 		labelValor.setText("R$ " + valor);
+		
 	}	
-	
+		
 	public void voltar(){
 		try{
 			Telas.getInstance().getMenu();

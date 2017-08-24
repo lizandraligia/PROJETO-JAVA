@@ -5,8 +5,9 @@ import br.ufrpe.LsCine.dados.*;
 import br.ufrpe.LsCine.negocio.beans.*;
 import br.ufrpe.LsCine.exceptions.FilmeExistenteException;
 import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
-import br.ufrpe.LsCine.exceptions.ImpossívelAdicionarSessaoException;
+import br.ufrpe.LsCine.exceptions.SessaoException;
 import br.ufrpe.LsCine.exceptions.LoginIncorretoException;
+import br.ufrpe.LsCine.exceptions.NaoExisteException;
 import br.ufrpe.LsCine.exceptions.ValorInvalidoException;
 
 public class Fachada {
@@ -43,7 +44,7 @@ public class Fachada {
 		return this.cadastroF.buscar(nome);
 	}
 	
-	public boolean removerFilme(String nome){
+	public boolean removerFilme(String nome) throws NaoExisteException{
 		return this.cadastroF.remover(nome);
 	}
 	
@@ -75,7 +76,7 @@ public class Fachada {
 		return this.cadastroSa.adicionar(sala);
 	}
 	
-	public boolean removerSala(int idSala){
+	public boolean removerSala(int idSala) throws NaoExisteException{
 		return this.cadastroSa.remover(idSala);
 	}
 	
@@ -97,11 +98,11 @@ public class Fachada {
 	
 	//SESSAO
 	
-	public boolean adicionarSessao(Sessao sessao) throws ImpossívelAdicionarSessaoException{
+	public boolean adicionarSessao(Sessao sessao) throws SessaoException{
 		return this.cadastroSe.adicionarSessao(sessao);
 	}
 	
-	public boolean removerSessao(int id){
+	public boolean removerSessao(int id) throws NaoExisteException{
 		return this.cadastroSe.removerSessao(id);
 	}
 	

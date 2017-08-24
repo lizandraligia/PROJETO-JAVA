@@ -1,6 +1,8 @@
 package br.ufrpe.LsCine.gui;
 
 import java.io.IOException;
+
+import br.ufrpe.LsCine.negocio.beans.Sessao;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 
@@ -9,8 +11,7 @@ public class Telas {
 	BorderPane paneLogin;
 	BorderPane border;
 	FXMLLoader login, menu, adicionarFilme, financeiro, adicionarSala, adicionarSessao, adicionado,
-				removerSala, removerSessao, comprarIngresso,  removerFilme, telaFilmes, telaSalas, telaSessao,
-				editarSessao;
+				removerSala, removerSessao, comprarIngresso,  removerFilme, telaFilmes, telaSalas, telaSessao, editarSessao;
 	BorderPane paneMenu;
 	BorderPane paneAdicionarFilme; 
 	BorderPane paneFinanceiro;
@@ -122,18 +123,22 @@ public class Telas {
 		border.setCenter(this.paneRemoverSessao);
 	}
 
-	public void getComprarIngresso(){
+	public void getEditarSessao(){
+		 border.setCenter(this.paneEditarSessao);
+		 EditarSessaoController controlador = editarSessao.getController();
+		controlador.atualizar();
+	}
+	
+	public void getComprarIngresso(Sessao sessao){
 		border.setCenter(this.paneComprarIngresso);
+		ComprarIngressoController controlador = comprarIngresso.getController();
+		controlador.setSessao(sessao);
+		controlador.atualizarSessao();
+		
 	}
 	
 	public void getRemoverFilme(){
 		border.setCenter(this.paneRemoverFilme);
-	}	
-	
-	public void getEditarSessao(){
-		border.setCenter(this.paneEditarSessao);
-		EditarSessaoController controlador = editarSessao.getController();
-		controlador.atualizar();
 	}	
 	
 }

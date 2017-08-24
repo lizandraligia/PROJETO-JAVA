@@ -12,9 +12,9 @@ public class TelaSessaoController {
 		}
 	}
 	
-	public void editar(){
+	public void remover(){
 		try{
-			Telas.getInstance().getEditarSessao();
+			Telas.getInstance().getRemoverSessao();
 			System.out.println("funfou");
 		}
 		catch(Exception e){
@@ -22,9 +22,9 @@ public class TelaSessaoController {
 		}
 	}
 	
-	public void remover(){
+	public void editar(){
 		try{
-			Telas.getInstance().getRemoverSessao();
+			Telas.getInstance().getEditarSessao();
 			System.out.println("funfou");
 		}
 		catch(Exception e){

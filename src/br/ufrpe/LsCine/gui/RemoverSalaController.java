@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXTextField;
+
+import br.ufrpe.LsCine.exceptions.NaoExisteException;
 import br.ufrpe.LsCine.negocio.Fachada;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,19 +25,20 @@ public class RemoverSalaController implements Initializable {
 		
 	}
 	
-	public void remover(){
+	public void remover() throws NaoExisteException{
 		try{
 		fachada.getInstancia().getCadastroSa().remover(Integer.parseInt(IDSala.getText()));	
 		
 		for(int i=0; i<fachada.getInstancia().getCadastroSa().listar().size(); i++){
 			System.out.println(fachada.getInstancia().getCadastroSa().listar().get(i).toString());
 		}
-		}catch(Exception e){
-			System.out.println(e.getMessage());
+		}catch(Exception NaoExisteException){
+			//System.out.println(e.getMessage());
+			throw new NaoExisteException();
 		}
 	}
 	
-	public void removerb(){
+	public void removerb() throws NaoExisteException{
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
 		stage.getIcons().add(new Image(this.getClass().getResource("/br/ufrpe/LsCine/imagens/Logo.png").toString()));

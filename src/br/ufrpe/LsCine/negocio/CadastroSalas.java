@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import br.ufrpe.LsCine.dados.RepositorioSalas;
 import br.ufrpe.LsCine.exceptions.IDSalaInvalidoException;
+import br.ufrpe.LsCine.exceptions.NaoExisteException;
 import br.ufrpe.LsCine.interfaces.IRepositorioSalas;
 import br.ufrpe.LsCine.negocio.beans.Salas;
 
@@ -31,11 +32,11 @@ public class CadastroSalas {
 
 	}
 		
-	public boolean remover(int idSala){
+	public boolean remover(int idSala) throws NaoExisteException {
 		if(this.repositorioSalas.procurar(idSala) != null){
 				return this.repositorioSalas.remover(idSala);
 		}
-		return false;
+		throw new NaoExisteException();
 	}
 	
 	public Salas procurarId(int idSala){

@@ -13,7 +13,7 @@ public class Ingresso implements Serializable{
 	public Ingresso(int tipo, float valor, Sessao sessao, int lugar, int id){
 		this.tipo = tipo;
 		this.valor = valor;
-		this.valor = this.getValor();
+		//this.valor = this.getValor();
 		this.sessao = sessao;
 		this.lugar = lugar;
 		this.id = id;
@@ -34,12 +34,13 @@ public class Ingresso implements Serializable{
 
 	public float getValor() {
 		if(this.tipo==1){
-			return valor;
+			return this.valor;
 		}
 		if(this.tipo==2){
-			return (valor/2);
+			return (this.valor/2);
 		}
 		return -1;
+		//return valor;
 	}
 
 	public void setValor(float valor) {
@@ -77,3 +78,4 @@ public class Ingresso implements Serializable{
 	
 	
 }
+

@@ -18,7 +18,6 @@ public class Sessao implements Serializable{
 	private boolean[] cadeira = new boolean[200];
 	private boolean leg;	
 	
-	
 	public Sessao(Filme filme, Salas sala, Date hrinicio, Date hrfim, int id, boolean leg) {
 	
 		this.filme = filme;
@@ -77,7 +76,7 @@ public class Sessao implements Serializable{
 		this.hrfim = hrfim;
 	}
 
-	public Boolean getCadeira(int i) {
+	public boolean getCadeira(int i) {
 		return cadeira[i];
 	}
 
